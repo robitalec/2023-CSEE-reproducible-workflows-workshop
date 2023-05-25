@@ -23,3 +23,13 @@ R4DS
         - list arguments
         - place developed code in body of the function
         - check results with eg. NAs, missing values, known results
+
+            
+Exercises
+
+- turn this into a function
+    - from code
+    - from description of function eg. takes a vector and does XYZ
+- what does this function do
+    - on slide
+    - in R with view source
