@@ -1,7 +1,7 @@
 
 R4DS
 
-- https://r4ds.had.co.nz/functions.html
+- functions https://r4ds.had.co.nz/functions.html
     - "improving reach as a data scientist"
     - "automate common tasks"
     - three big advantages
@@ -60,6 +60,31 @@ R4DS
         - try
         - possibly
         - quietly
+
+
+Advanced R
+
+- functions https://adv-r.hadley.nz/functions.html
+    - three components of a function
+        - arguments (`formals()`): arguments used to control the function
+        - body (`body()`): code inside the function
+        - environment (`environment()`): determins how function finds values associated with names
+            - implicit based on where you defined the function
+            - 
+    - functions are objects
+    - primitive functions
+        - only found in the base package
+        - eg. sum, `[`
+        - they are the exceptions to above, for primitive functions the following  return NULL `formals()`, `body()`, `environment()`
+        - primitive functions indicated by typeof(f) is "builtin" or "special"
+    - anonymous functions are used without first assigning them 
+    - do.call if you have arguments already in a list 
+    - combining functions
+        - nesting `f(g(x))` is concise, good for short sequences but hard to read (right to left, inside out)
+        - intermediate objects, requires naming each intermediate object, useful when independent objects are useful otherwise not
+        - pipes let you run and function *and then* then next one *and then* the next one (...) in a chain
+    - lexical scoping
+        - name masking
 Exercises
 
 - turn this into a function
