@@ -103,7 +103,7 @@ Advanced R
     - function operators
 
 
-- control flow
+- control flow (https://adv-r.hadley.nz/control-flow.html)
     - choices
         - if (condition) true_action
         - if (condition) true_action else false_action
@@ -126,12 +126,14 @@ Exercises
 - turn this into a function
     - from code
     - from description of function eg. takes a vector and does XYZ
+- control flow
+    - build an if else
     - use an argument in an if else 
 - what does this function do
     - on slide
     - in R with view source
 - scoping (what will this function return)
-    - eg https://adv-r.hadley.nz/functions.html#lexical-scopingResources
+    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
 
 
 
