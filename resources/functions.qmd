@@ -131,4 +131,24 @@ Exercises
     - on slide
     - in R with view source
 - scoping (what will this function return)
-    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
+    - eg https://adv-r.hadley.nz/functions.html#lexical-scopingResources
+
+
+
+Resources
+
+- Functions, functional programming
+    - [R for Data Science: Functions](https://r4ds.had.co.nz/functions.html)
+    - [Advanced R: Functions](https://r4ds.had.co.nz/functions.html)
+    - [Advanced R: Functional programming](https://adv-r.hadley.nz/fp.html)
+- Control flow
+    - [R for Data Science: Conditional execution](https://r4ds.had.co.nz/functions.html?q=if#conditions)
+    - [Advanced R: Control Flow](https://adv-r.hadley.nz/control-flow.html)
+- Iteration
+    - [R for Data Science: Iteration](https://r4ds.had.co.nz/iteration.html)
+- Environments
+    - [Advanced R: Environments](https://adv-r.hadley.nz/environments.html)
+
+
+- purrr
+    - [Jenny Bryan's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/)
