@@ -1,0 +1,25 @@
+
+R4DS
+
+- https://r4ds.had.co.nz/functions.html
+    - "improving reach as a data scientist"
+    - "automate common tasks"
+    - three big advantages
+        - give a function an evocative name that makes your code easier to understand
+        - as requirements change, only need to update code in one place instead of many
+        - eliminate chance of incremental mistakes when copy pasting 
+    - other advantages
+        - easier to apply over groups or chunks in data, eg. by individual with lapply/map/data.table's by
+    - when to write? 
+        - when you've copy pasted more than twice
+    - steps
+        - develop code for accomplishing the task
+        - analyse the code
+            - how many inputs
+            - look for duplication, eg. calculating the mean multiple times
+                - save as intermediate value
+        - pick a name 
+        - list inputs
+        - list arguments
+        - place developed code in body of the function
+        - check results with eg. NAs, missing values, known results
