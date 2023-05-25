@@ -85,6 +85,22 @@ Advanced R
         - pipes let you run and function *and then* then next one *and then* the next one (...) in a chain
     - lexical scoping
         - name masking
+
+    
+- functional programming (https://adv-r.hadley.nz/fp.html)
+    - R is at its heart a functional language
+        - functional languages have:
+            1. first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc
+            2. functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen
+        - for R, functions are ideally either very pure, or very impure (plotting, saving, etc)
+    - functionals are functions that take a function as input and returns a vector as output
+        - eg. lapply, apply, tapply, purrr::map
+        - commonly used as an alternative to for loops
+        - (lots of great background)
+    - function factories
+        - eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
+        - (beyond scope of workshop)
+    - function operators
 Exercises
 
 - turn this into a function
