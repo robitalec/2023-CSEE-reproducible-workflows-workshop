@@ -45,6 +45,21 @@ R4DS
             - if `+` is reassigned it will be used, meaning you can override a function from eg. base R 
         - https://adv-r.hadley.nz/environments.html
             
+
+- iteration (https://r4ds.had.co.nz/iteration.html)
+    - we'll use targets' dynamic and static branching instead
+    - iterating over a single list/vector/etc
+        - for loops
+        - purrr::map    
+    - multiple inputs
+        - purrr::map2
+    - loop for side effects
+        - purrr::walk
+    - managing errors
+        - safely
+        - try
+        - possibly
+        - quietly
 Exercises
 
 - turn this into a function
