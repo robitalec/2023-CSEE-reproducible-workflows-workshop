@@ -101,6 +101,26 @@ Advanced R
         - eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
         - (beyond scope of workshop)
     - function operators
+
+
+- control flow
+    - choices
+        - if (condition) true_action
+        - if (condition) true_action else false_action
+        - also else if
+        - must be length 1
+        - switch (https://adv-r.hadley.nz/control-flow.html#switch)
+            - more compact than a bunch of simple if else if else 
+    - loops
+        - for
+            - caution 1:length if length 0, alternatively use seq_along, seq.int etc
+        - while
+        - repeat
+
+
+
+
+
 Exercises
 
 - turn this into a function
