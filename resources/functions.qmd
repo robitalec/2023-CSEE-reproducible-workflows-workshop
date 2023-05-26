@@ -8,6 +8,7 @@ Links:
 - 1st edition: [https://r4ds.had.co.nz/]
 - 2nd edition: https://r4ds.hadley.nz/
 - GitHub repository: https://github.com/hadley/r4ds
+
 ### Relevant chapters
 
 #### [Functions](https://r4ds.had.co.nz/functions.html)
@@ -98,65 +99,86 @@ Managing errors
 - `purrr::quietly`
 
 
-Advanced R
+## Advanced R
 
-- functions https://adv-r.hadley.nz/functions.html
-    - three components of a function
-        - arguments (`formals()`): arguments used to control the function
-        - body (`body()`): code inside the function
-        - environment (`environment()`): determins how function finds values associated with names
-            - implicit based on where you defined the function
-            - 
-    - functions are objects
-    - primitive functions
-        - only found in the base package
-        - eg. sum, `[`
-        - they are the exceptions to above, for primitive functions the following  return NULL `formals()`, `body()`, `environment()`
-        - primitive functions indicated by typeof(f) is "builtin" or "special"
-    - anonymous functions are used without first assigning them 
-    - do.call if you have arguments already in a list 
-    - combining functions
-        - nesting `f(g(x))` is concise, good for short sequences but hard to read (right to left, inside out)
-        - intermediate objects, requires naming each intermediate object, useful when independent objects are useful otherwise not
-        - pipes let you run and function *and then* then next one *and then* the next one (...) in a chain
-    - lexical scoping
-        - name masking
+### [Functions](https://adv-r.hadley.nz/functions.html)
 
-    
-- functional programming (https://adv-r.hadley.nz/fp.html)
-    - R is at its heart a functional language
-        - functional languages have:
-            1. first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc
-            2. functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen
-        - for R, functions are ideally either very pure, or very impure (plotting, saving, etc)
-    - functionals are functions that take a function as input and returns a vector as output
-        - eg. lapply, apply, tapply, purrr::map
-        - commonly used as an alternative to for loops
-        - (lots of great background)
-    - function factories
-        - eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
-        - (beyond scope of workshop)
-    - function operators
+Three components of a function
+
+- arguments (`formals()`): arguments used to control the function
+- body (`body()`): code inside the function
+- environment (`environment()`): determins how function finds values associated with names
+    - implicit based on where you defined the function
 
 
-- control flow (https://adv-r.hadley.nz/control-flow.html)
-    - choices
-        - if (condition) true_action
-        - if (condition) true_action else false_action
-        - also else if
-        - must be length 1
-        - switch (https://adv-r.hadley.nz/control-flow.html#switch)
-            - more compact than a bunch of simple if else if else 
-    - loops
-        - for
-            - caution 1:length if length 0, alternatively use seq_along, seq.int etc
-        - while
-        - repeat
+Functions are objects
 
 
+Primitive functions
+
+- only found in the base package
+- eg. sum, `[`
+- they are the exceptions to above, for primitive functions the following  return NULL `formals()`, `body()`, `environment()`
+- primitive functions indicated by typeof(f) is "builtin" or "special"
 
 
+Anonymous functions are used without first assigning them 
 
+
+`do.call` if you have arguments already in a list 
+
+
+Combining function calls
+
+- nesting `f(g(x))` is concise, good for short sequences but hard to read (right to left, inside out)
+- intermediate objects, requires naming each intermediate object, useful when independent objects are useful otherwise not
+- pipes let you run and function *and then* then next one *and then* the next one (...) in a chain
+
+
+Lexical scoping
+
+- name masking
+
+
+### [Functional programming](https://adv-r.hadley.nz/fp.html)
+
+R is at its heart a functional language
+
+Functional languages have:
+1. first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc
+2. functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen
+        
+For R, functions are ideally either very pure, or very impure (plotting, saving, etc)
+
+Functionals are functions that take a function as input and returns a vector as output
+- eg. lapply, apply, tapply, purrr::map
+- commonly used as an alternative to for loops
+- (lots of great background)
+
+Function factories
+- eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
+- (beyond scope of workshop)
+
+Function operators
+
+
+### [Control flow](https://adv-r.hadley.nz/control-flow.html)
+
+Choices
+
+- `if` (condition) true_action
+- `if` (condition) true_action `else` false_action
+- also `else if`
+- condition must be length 1
+- `switch` (https://adv-r.hadley.nz/control-flow.html#switch)
+    - more compact than a bunch of `if` `else if` `else` 
+
+Loops
+
+- `for`
+    - caution `1:length` if `length == 0`, instead use `seq_along`, `seq.int`, etc.
+- `while`
+- `repeat`
 Exercises
 
 - turn this into a function
