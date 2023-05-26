@@ -197,6 +197,13 @@ The  Call Stack https://swcarpentry.github.io/r-novice-inflammation/14-supp-call
 
 
 Software Carpentry: R for Reproducible Scientific Analysis
+
+
+
+
+
+
+
 Exercises
 
 - turn this into a function
