@@ -1,0 +1,239 @@
+
+# Resources
+
+## R for Data Science
+
+Links: 
+
+- 1st edition: [https://r4ds.had.co.nz/]
+- 2nd edition: https://r4ds.hadley.nz/
+- GitHub repository: https://github.com/hadley/r4ds
+
+### Relevant chapters
+
+#### [Functions](https://r4ds.had.co.nz/functions.html)
+
+Why write functions?
+
+- "Improving reach as a data scientist"
+- "Automate common tasks"
+- Three big advantages
+    1. Give a function an evocative name that makes your code easier to understand
+    2. As requirements change, only need to update code in one place instead of many
+    3. Eliminate chance of incremental mistakes when copy pasting 
+- Other advantages
+    - Easier to apply over groups or chunks in data, eg. by individual with lapply/map/data.table's by
+
+
+When to write functions?
+
+- When you've copy pasted more than twice
+
+
+How to write functions?
+
+- Develop code for accomplishing the task
+- Analyse the code
+    - How many inputs
+    - Look for duplication, eg. calculating the mean multiple times
+        - Save as intermediate value
+- List inputs
+- List arguments 
+- Name function (verb)
+    - `snake_case`
+    - Common prefix eg `input_select`, `input_checkbox`, `input_text`
+    - Don't override existing functions (see `conflicted` later)
+- Name arguments (nouns)
+- Place developed code in body of the function
+- Check results with eg. NAs, missing values, known results
+
+Conditionals 
+
+- if else (else if)
+- `||` `&&` combine multiple logical expressions and short-circuit when `||` sees the first true and `&&` sees the first false
+- `|` `&` are vectorized and cannot be directly used in an if unless you also use any / all
+
+
+Checking values
+
+- `stopifnot`
+- `if` `else` then `stop`
+
+
+Return
+
+- always last thing 
+- otherwise explicit `return()`
+
+Environment
+
+- lexical scoping
+    - if variable isnt available in the functions environment, will look in environment where function was defined 
+    - in a simple case, eg f(x) {x + y}, this means `y`, but also `{` and `+`
+    - if `+` is reassigned it will be used, meaning you can override a function from eg. base R 
+- https://adv-r.hadley.nz/environments.html
+            
+
+#### [Iteration](https://r4ds.had.co.nz/iteration.html)
+
+Note: we'll use targets' dynamic and static branching instead for this workshop
+
+Iterating over a single list/vector/etc
+
+- `for` loops
+- `purrr::map`
+
+Multiple inputs
+
+- `purrr::map2`
+
+Loop for side effects
+
+- `purrr::walk`
+
+Managing errors
+
+- `purrr::safely`
+- `try`
+- `purrr::possibly`
+- `purrr::quietly`
+
+
+## Advanced R
+
+### [Functions](https://adv-r.hadley.nz/functions.html)
+
+Three components of a function
+
+- arguments (`formals()`): arguments used to control the function
+- body (`body()`): code inside the function
+- environment (`environment()`): determins how function finds values associated with names
+    - implicit based on where you defined the function
+
+
+Functions are objects
+
+
+Primitive functions
+
+- only found in the base package
+- eg. sum, `[`
+- they are the exceptions to above, for primitive functions the following  return NULL `formals()`, `body()`, `environment()`
+- primitive functions indicated by typeof(f) is "builtin" or "special"
+
+
+Anonymous functions are used without first assigning them 
+
+
+`do.call` if you have arguments already in a list 
+
+
+Combining function calls
+
+- nesting `f(g(x))` is concise, good for short sequences but hard to read (right to left, inside out)
+- intermediate objects, requires naming each intermediate object, useful when independent objects are useful otherwise not
+- pipes let you run and function *and then* then next one *and then* the next one (...) in a chain
+
+
+Lexical scoping
+
+- name masking
+
+
+### [Functional programming](https://adv-r.hadley.nz/fp.html)
+
+R is at its heart a functional language
+
+Functional languages have:
+1. first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc
+2. functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen
+        
+For R, functions are ideally either very pure, or very impure (plotting, saving, etc)
+
+Functionals are functions that take a function as input and returns a vector as output
+- eg. lapply, apply, tapply, purrr::map
+- commonly used as an alternative to for loops
+- (lots of great background)
+
+Function factories
+- eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
+- (beyond scope of workshop)
+
+Function operators
+
+
+### [Control flow](https://adv-r.hadley.nz/control-flow.html)
+
+Choices
+
+- `if` (condition) true_action
+- `if` (condition) true_action `else` false_action
+- also `else if`
+- condition must be length 1
+- `switch` (https://adv-r.hadley.nz/control-flow.html#switch)
+    - more compact than a bunch of `if` `else if` `else` 
+
+Loops
+
+- `for`
+    - caution `1:length` if `length == 0`, instead use `seq_along`, `seq.int`, etc.
+- `while`
+- `repeat`
+
+
+## Software Carpentry
+
+### [Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
+Software Carpentry: Programming with R
+
+Functions  https://swcarpentry.github.io/r-novice-inflammation/02-func-R.html
+
+Making Choices https://swcarpentry.github.io/r-novice-inflammation/04-cond.html
+
+Loops in R https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html 
+
+The  Call Stack https://swcarpentry.github.io/r-novice-inflammation/14-supp-call-stack.html
+
+
+
+Software Carpentry: R for Reproducible Scientific Analysis
+
+
+
+
+
+
+
+Exercises
+
+- turn this into a function
+    - from code
+    - from description of function eg. takes a vector and does XYZ
+- control flow
+    - build an if else
+    - use an argument in an if else 
+- what does this function do
+    - on slide
+    - in R with view source
+- scoping (what will this function return)
+    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
+
+
+
+Resources
+
+- Functions, functional programming
+    - [R for Data Science: Functions](https://r4ds.had.co.nz/functions.html)
+    - [Advanced R: Functions](https://r4ds.had.co.nz/functions.html)
+    - [Advanced R: Functional programming](https://adv-r.hadley.nz/fp.html)
+- Control flow
+    - [R for Data Science: Conditional execution](https://r4ds.had.co.nz/functions.html?q=if#conditions)
+    - [Advanced R: Control Flow](https://adv-r.hadley.nz/control-flow.html)
+- Iteration
+    - [R for Data Science: Iteration](https://r4ds.had.co.nz/iteration.html)
+- Environments
+    - [Advanced R: Environments](https://adv-r.hadley.nz/environments.html)
+
+
+- purrr
+    - [Jenny Bryan's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/)
