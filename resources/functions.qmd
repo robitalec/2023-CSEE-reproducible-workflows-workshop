@@ -285,3 +285,21 @@ Expectations
 
 https://speakerdeck.com/jennybc/how-to-name-files
 
+
+## [Efficient R](https://csgillespie.github.io/efficientR/)
+
+### [Efficient programming](https://csgillespie.github.io/efficientR/programming.html)
+
+[Communication with the user](https://csgillespie.github.io/efficientR/programming.html#communicating-with-the-user):
+
+- fatal errors: `stop()`
+- warnings: `warning()`
+- informative output: `message()`
+- invisible returns (eg. plots): `invisible()`
+
+### [Efficient optimisation](https://csgillespie.github.io/efficientR/performance.html)
+
+[Efficient base R](https://csgillespie.github.io/efficientR/performance.html#efficient-base-r)
+
+- [`if()` vs `ifelse()`](https://csgillespie.github.io/efficientR/performance.html#the-if-vs-ifelse-functions)
+- [`is.na()` and `anyNA()`](https://csgillespie.github.io/efficientR/performance.html#is.na-and-anyna)
