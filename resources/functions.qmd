@@ -303,3 +303,8 @@ https://speakerdeck.com/jennybc/how-to-name-files
 
 - [`if()` vs `ifelse()`](https://csgillespie.github.io/efficientR/performance.html#the-if-vs-ifelse-functions)
 - [`is.na()` and `anyNA()`](https://csgillespie.github.io/efficientR/performance.html#is.na-and-anyna)
+
+
+## `purrr`
+
+### [Jenny Bryan's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/)
