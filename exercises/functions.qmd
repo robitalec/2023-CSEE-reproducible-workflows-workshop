@@ -1,4 +1,39 @@
-Exercises
+# Exercises: Functions
+
+## 
+
+
+
+1. Functions: intro
+2. Functions: development
+    - workflow
+    - write test script
+    - source function
+    - write test
+    - repeat
+3. Functions: checking
+    - stopifnot
+4. Functions: control flow
+    - if else
+5. Functions: bonus
+    - testthat
+    - iterate with apply, map
+
+
+
+
+
+
+Function structure
+
+Reading functions
+
+Control flow
+
+Scoping
+
+
+
 
 - turn this into a function
     - from code
@@ -12,3 +47,4 @@ Exercises
 - scoping (what will this function return)
     - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
 
+#
