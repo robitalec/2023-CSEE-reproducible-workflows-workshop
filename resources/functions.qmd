@@ -279,3 +279,9 @@ Expectations
     - length
     - s3 class, s4 class, type
 
+## What They Forgot to Teach You
+
+### Naming
+
+https://speakerdeck.com/jennybc/how-to-name-files
+
