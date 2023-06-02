@@ -184,59 +184,70 @@ Loops
 
 ### [Environments](https://adv-r.hadley.nz/environments.html)
 
-## Software Carpentry
+## Software Carpentry: [Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
 
-### [Programming with R](https://swcarpentry.github.io/r-novice-inflammation/)
-Software Carpentry: Programming with R
+### [Functions](https://swcarpentry.github.io/r-novice-inflammation/02-func-R.html)
 
-Functions  https://swcarpentry.github.io/r-novice-inflammation/02-func-R.html
+Defining a function
 
-Making Choices https://swcarpentry.github.io/r-novice-inflammation/04-cond.html
+- R automatically returns whichever variable is on the last line of the body of the function
 
-Loops in R https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html 
+Composing functions
 
-The  Call Stack https://swcarpentry.github.io/r-novice-inflammation/14-supp-call-stack.html
-
-
-
-Software Carpentry: R for Reproducible Scientific Analysis
+- compose functions by combining eg. two functions into a new function that uses both
+- nest function calls by passing the output of one function directly as input to the next (also see pipes)
 
 
+Testing
+
+- use simple example data instead of your actual data where you might not know what the output value should be
+
+Error handling
+
+- add errors and warnings to ensure the inputs and arguments are appropriate eg. the expected class
+- errors and warnings help inform a user about the function's expectations 
+
+Defining defaults
+
+- R uses the position of arguments, typically only recommended with a smaller number of arguments
+- with a larger number of arguments, use named arguments to ensure arguments are correctly passed
+- set a default value for an argument by passing it with = in the function definition
 
 
+### [Making Choices](https://swcarpentry.github.io/r-novice-inflammation/04-cond.html)
+
+- make decisions using logical comparisons
+    - `>`, `<`
+- use logical comparisons with `if` `else` to define conditional statements
+- `&&` and `||`
+
+### [Loops in R](https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html)
+
+- vectorized functions
+- vector recycling
+- `for` or `apply`?
 
 
+### [The  Call Stack](https://swcarpentry.github.io/r-novice-inflammation/14-supp-call-stack.html)
 
-Exercises
-
-- turn this into a function
-    - from code
-    - from description of function eg. takes a vector and does XYZ
-- control flow
-    - build an if else
-    - use an argument in an if else 
-- what does this function do
-    - on slide
-    - in R with view source
-- scoping (what will this function return)
-    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
+Details on variable scoping
 
 
+## Software Carpentry: [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/)
 
-Resources
+### [Control Flow](https://swcarpentry.github.io/r-novice-gapminder/07-control-flow.html)
 
-- Functions, functional programming
-    - [R for Data Science: Functions](https://r4ds.had.co.nz/functions.html)
-    - [Advanced R: Functions](https://r4ds.had.co.nz/functions.html)
-    - [Advanced R: Functional programming](https://adv-r.hadley.nz/fp.html)
-- Control flow
-    - [R for Data Science: Conditional execution](https://r4ds.had.co.nz/functions.html?q=if#conditions)
-    - [Advanced R: Control Flow](https://adv-r.hadley.nz/control-flow.html)
-- Iteration
-    - [R for Data Science: Iteration](https://r4ds.had.co.nz/iteration.html)
-- Environments
-    - [Advanced R: Environments](https://adv-r.hadley.nz/environments.html)
+- `if`, `else` control flow in R as conditional statements
+- `ifelse` is vectorized 
+- `any` returns TRUE if there is at least one TRUE in the vector
+- `all` returns TRUE if all are TRUE in the vector
 
+### [Functions](https://swcarpentry.github.io/r-novice-gapminder/10-functions.html)
 
-- purrr
-    - [Jenny Bryan's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/)
+Also see above Software Carpentry: Programming with R's section on Functions (some similar content)
+
+Defensive programming
+
+- defensive programming can involve including check conditions and throwing errors when something is not as expected
+- use `stopifnot()` to detect where a conditional statement is FALSE and return an error
+
