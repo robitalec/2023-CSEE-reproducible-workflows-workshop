@@ -1,0 +1,14 @@
+Exercises
+
+- turn this into a function
+    - from code
+    - from description of function eg. takes a vector and does XYZ
+- control flow
+    - build an if else
+    - use an argument in an if else 
+- what does this function do
+    - on slide
+    - in R with view source
+- scoping (what will this function return)
+    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
+
