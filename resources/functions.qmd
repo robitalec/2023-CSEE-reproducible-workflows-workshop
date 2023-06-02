@@ -251,3 +251,31 @@ Defensive programming
 - defensive programming can involve including check conditions and throwing errors when something is not as expected
 - use `stopifnot()` to detect where a conditional statement is FALSE and return an error
 
+
+## [R Packages](https://r-pkgs.org)
+
+### [Testing](https://r-pkgs.org/testing-basics.html)
+
+Why is formal testing worth the trouble?
+
+- the informal approach is load the function, experiment with it in console or scrap script, repeat
+- an informal approach works fine in the moment, but when you return to the function in the future, say to add a new argument or test a new data type, you have no record of the tests you ran the first time
+- benefits to writing formal tests 
+    - fewer bugs since you are explicit about how the code should work
+    - better code structure because if you find it hard to write tests for your functions, it might be that the design of your functions is not ideal
+    - when you discover a bug, write a test that replicates the bug - then making the test pass becomes the concrete goal in fixing the bug
+    - when functions are well covered by tests (robust), you can be confident making changes without accidentally breaking something
+
+Introduction testthat
+
+Test mechanics and workflow
+
+Expectations
+
+- testing for
+    - equality
+    - errors
+    - match
+    - length
+    - s3 class, s4 class, type
+
