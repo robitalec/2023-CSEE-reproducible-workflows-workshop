@@ -5,13 +5,11 @@
 
 Links: 
 
-- 1st edition: [https://r4ds.had.co.nz/]
+- 1st edition: https://r4ds.had.co.nz/
 - 2nd edition: https://r4ds.hadley.nz/
 - GitHub repository: https://github.com/hadley/r4ds
 
-### Relevant chapters
-
-#### [Functions](https://r4ds.had.co.nz/functions.html)
+### [Functions](https://r4ds.had.co.nz/functions.html)
 
 Why write functions?
 
@@ -74,7 +72,7 @@ Environment
 - https://adv-r.hadley.nz/environments.html
             
 
-#### [Iteration](https://r4ds.had.co.nz/iteration.html)
+### [Iteration](https://r4ds.had.co.nz/iteration.html)
 
 Note: we'll use targets' dynamic and static branching instead for this workshop
 
@@ -98,6 +96,7 @@ Managing errors
 - `purrr::possibly`
 - `purrr::quietly`
 
+### [Conditional execution](https://r4ds.had.co.nz/functions.html?q=if#conditions)
 
 ## Advanced R
 
@@ -145,17 +144,20 @@ Lexical scoping
 R is at its heart a functional language
 
 Functional languages have:
+
 1. first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc
 2. functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen
         
 For R, functions are ideally either very pure, or very impure (plotting, saving, etc)
 
 Functionals are functions that take a function as input and returns a vector as output
+
 - eg. lapply, apply, tapply, purrr::map
 - commonly used as an alternative to for loops
 - (lots of great background)
 
 Function factories
+
 - eg. power1 <- function(exp) function(x) x ^ exp, square <- power1(2)
 - (beyond scope of workshop)
 
@@ -180,6 +182,7 @@ Loops
 - `while`
 - `repeat`
 
+### [Environments](https://adv-r.hadley.nz/environments.html)
 
 ## Software Carpentry
 
