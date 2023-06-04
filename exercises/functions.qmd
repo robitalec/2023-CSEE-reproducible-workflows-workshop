@@ -1,6 +1,40 @@
 # Exercises: Functions
 
-## 
+- function structure
+    - pick three functions and describe (solo + share)
+        - name
+        - arguments (inputs, options)
+        - return object (outputs)
+        - (example functions)
+        - (complexity, do one thing?)
+    - (on paper) write a function's name, arguments and return object for the following tasks
+        - count the number of values great than 0 in a column of a data.frame
+        - find rows in a column of a data.frame that match a string
+        - (now, can we go back and make our functions more generic?)
+    - what does this function do?
+- development workflow
+    - write a function script
+    - set up skeleton
+    - write a test script that sources the function script
+    - make changes to function, test, repeat
+    - try now with the paper results to the above tasks
+- checking
+    - what are some kinds of things that we might want to check in function inputs and arguments (think pair share)
+    - use `x <- seq.int(10)` and write checks with `stopifnot` for 
+        - if x is a type that isnt numeric
+        - if x is NULL
+        - if x is NA
+        - if x is ... 
+    - add checks to your above functions
+    - add a test for your function that should error
+- control flow
+    - what kinds of arguments might we add to give users options
+    - use `if` `then`
+    - add `if` `then` statements to above functions
+    - add a test for your function that should give different results depending on your conditional statement
+- bonus
+
+
 
 
 
@@ -18,6 +52,8 @@
 5. Functions: bonus
     - testthat
     - iterate with apply, map
+    - s3 classes
+    
 
 
 
