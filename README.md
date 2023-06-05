@@ -62,3 +62,21 @@ Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=kn
 1. Summarize the dataset
 1. Make a few exploratory plots
 1. Read the data package metadata and note the specific definitions of each variable
+
+
+### Monthly sea ice area
+
+The third dataset contains monthly sea ice area from the region around the Palmer Station, Antarctica, with the following variables:
+
+- Year
+- Month
+- Area
+
+Note: this data is formatted with months as columns, years as rows, and cells filled with the corresponding area. 
+
+
+Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.34.7
+
+Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.34.7
+
+Link to data (TXT): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81
