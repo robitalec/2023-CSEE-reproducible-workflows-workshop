@@ -49,13 +49,16 @@ The following datasets are available directly from the [Palmer LTER Data Catalog
 - Average Melted Precipitation  
 - Precipitation Count  
 
-Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.189.8
+[Data package summary](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.189.8)
 
-Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.189.8
+[Data package metadata](https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.189.8)
 
-Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e
+Link to data (CSV): 
 
-1. Load dataset directly using URL
+[https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e)
+
+
+1. Load dataset directly using URL 
 1. Use the `janitor` package to make clean column names
 1. Summarize the dataset
 1. Make a few exploratory plots
@@ -73,11 +76,13 @@ The third dataset contains monthly sea ice area from the region around the Palme
 Note: this data is formatted with months as columns, years as rows, and cells filled with the corresponding area. 
 
 
-Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.34.7
+[Data package summary](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.34.7)
 
-Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.34.7
+[Data package metadata](https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.34.7)
 
-Link to data (TXT): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81
+Link to data (TXT): 
+
+[https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81)
 
 
 1. Use the function `readLines` to look at the top 20 lines of the data
@@ -101,11 +106,13 @@ The fourth dataset contains Adelie penguin adult and chick counts
 - Adults  
 - Chicks
 
-Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.88.8
+[Data package summary](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.88.8)
 
-Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.88.8
+[Data package metadata](https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.88.8)
 
-Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f
+Link to data (CSV): 
+
+[https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f)
 
 
 1. Load dataset directly using URL
