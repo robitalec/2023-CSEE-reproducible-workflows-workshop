@@ -24,3 +24,13 @@ The first dataset is already available in a cleaned format in R, through the [`p
 - body_mass_g
 - sex
 - year
+
+
+
+1. Download and load the `palmerpenguins` package
+1. Load the `penguins` and `penguins_raw`datasets
+1. Compare and contrast the two datasets
+    - variables
+    - variable names
+    - dimensions (number of rows and columns)
+    - factor levels
