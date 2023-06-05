@@ -14,7 +14,7 @@ We gratefully acknowledge the Palmer LTER for releasing data freely and openly f
 
 ### Penguins
 
-The first dataset is already available in a cleaned format in R, through the [`palmerpenguins` R package](https://allisonhorst.github.io/palmerpenguins/). It contains data for 344 penguins, with the following variables:
+The first dataset is already available in R through the [`palmerpenguins` R package](https://allisonhorst.github.io/palmerpenguins/). There is a raw version and a cleaned version. They contain data for 344 penguins, with the following variables (cleaned version):
 
 - species
 - island
@@ -24,8 +24,6 @@ The first dataset is already available in a cleaned format in R, through the [`p
 - body_mass_g
 - sex
 - year
-
-
 
 1. Download and load the `palmerpenguins` package
 1. Load the `penguins` and `penguins_raw`datasets
