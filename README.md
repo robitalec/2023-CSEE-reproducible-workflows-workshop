@@ -34,3 +34,25 @@ The first dataset is already available in a cleaned format in R, through the [`p
     - variable names
     - dimensions (number of rows and columns)
     - factor levels
+
+
+
+### Weather timeseries
+
+The following datasets are available directly from the [Palmer LTER Data Catalog](https://pallter.marine.rutgers.edu/catalog/edi/). The second dataset contains monthly averaged weather timeseries from Palmer Station, Antarctica, with the following variables: 
+
+- Date  
+- Year  
+- Month  
+- Average Temperature  
+- Temperature Count  
+- Average Pressure  
+- Pressure Count  
+- Average Melted Precipitation  
+- Precipitation Count  
+
+Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.189.8
+
+Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.189.8
+
+Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e
