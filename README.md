@@ -11,3 +11,16 @@ Example data for this workshop is borrowed from the Palmer Long-Term Ecological 
 > The Palmer LTER studies a polar marine biome with research focused on the Antarctic pelagic marine ecosystem, including sea ice habitats, regional oceanography and terrestrial nesting sites of seabird predators. The Palmer LTER is one of more than 26 LTER research sites located throughout the United States, Puerto Rico and Tahiti; each focused on a specific ecosystem, that together constitute the LTER Network.
 
 We gratefully acknowledge the Palmer LTER for releasing data freely and openly for diverse uses - in our case for training analytical skills of researchers in ecology.  
+
+### Penguins
+
+The first dataset is already available in a cleaned format in R, through the [`palmerpenguins` R package](https://allisonhorst.github.io/palmerpenguins/). It contains data for 344 penguins, with the following variables:
+
+- species
+- island
+- bill_length_mm
+- bill_depth_mm
+- flipper_length_mm
+- body_mass_g
+- sex
+- year
