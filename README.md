@@ -89,3 +89,22 @@ Link to data (TXT): https://portal.edirepository.org/nis/dataviewer?packageid=kn
 1. Restructure the data so each row represents a value of area for a single month in a year
 1. Summarize the dataset
 1. Make a few exploratory plots
+
+
+### Adelie penguin adult and chick counts
+
+The fourth dataset contains Adelie penguin adult and chick counts
+
+- studyName  
+- Date GMT  
+- Time GMT  
+- Island  
+- Colony  
+- Adults  
+- Chicks
+
+Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.88.8
+
+Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.88.8
+
+Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f
