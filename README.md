@@ -56,3 +56,9 @@ Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?pac
 Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.189.8
 
 Link to data (CSV): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e
+
+1. Load dataset directly using URL
+1. Use the `janitor` package to make clean column names
+1. Summarize the dataset
+1. Make a few exploratory plots
+1. Read the data package metadata and note the specific definitions of each variable
