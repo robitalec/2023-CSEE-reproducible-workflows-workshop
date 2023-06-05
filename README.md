@@ -80,3 +80,12 @@ Link to data package summary: https://portal.edirepository.org/nis/mapbrowse?pac
 Link to data package metadata: https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-pal.34.7
 
 Link to data (TXT): https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81
+
+
+1. Use the function `readLines` to look at the top 20 lines of the data
+    - Where does the data start?
+    - Is there a header row with column names?
+1. Read the data as a data.frame
+1. Restructure the data so each row represents a value of area for a single month in a year
+1. Summarize the dataset
+1. Make a few exploratory plots
