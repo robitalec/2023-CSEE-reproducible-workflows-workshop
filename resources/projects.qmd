@@ -1,0 +1,9 @@
+# Resources
+
+## File Structure
+
+## README
+
+## RStudio Projects
+
+## Bonus: Metadata
