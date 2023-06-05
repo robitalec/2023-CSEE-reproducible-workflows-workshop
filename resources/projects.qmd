@@ -4,6 +4,35 @@
 
 ## README
 
-## RStudio Projects
+-   A README file can act as a type of metadata (see below): it facilitates people using your data, script, etc.
+-   There are basic requirements from a README in order to make your work usable (highlighted in our Think/Pair/Share exercise)
 
-## Bonus: Metadata
+[ARDC Metadata Guide](https://zenodo.org/record/6459832) In order to use data, we need to know:
+
+-   how the data is structured what it describes
+
+-   how to read it (e.g. column headings and units)
+
+-   methodological information such as instrument settings and calibrations, reagents used, or survey questions
+
+-   exactly what they are allowed to do with the data through rights metadata such as licensing
+
+-   how to acknowledge the original creators by citing the data
+
+[Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/lessons/week3/) Metadata is required for open data, by making a [data reuse plan](https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md) we can ensure that our data is usable for other people, [into the future](https://docs.google.com/presentation/d/1kZd-ZD5lru5a7jIbyi9q8cBYCCAKRnIBSRvixYFtoF0/edit#slide=id.g1088c5b110_0_183).
+
+Metadata should warn users about problems/inconsistencies in the data and provide checks to make sure data is functioning properly ([White et al., 2013](https://ojs.library.queensu.ca/index.php/IEE/article/download/4608/4898))
+
+Cornell University [best practices](https://data.research.cornell.edu/content/readme) provides a [README template](https://cornell.app.box.com/v/ReadmeTemplate) that is free to adapt, alter, and use
+
+Examples:
+
+-   <https://github.com/viralemergence/datacov>
+
+-   <https://github.com/wildlifeevoeco/MovingAcrossGradients>
+
+-   <https://github.com/ropensci/spatsoc>
+
+-   <https://github.com/robitalec/statistical-rethinking-colearning-2023>
+
+## RStudio Projects
