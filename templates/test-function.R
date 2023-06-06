@@ -20,7 +20,7 @@ source('R/plot_histogram.R')
 
 # Data --------------------------------------------------------------------
 # Load example data
-counts <- fread('https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f')
+counts <- fread('raw-data/adelie-adult-chick-counts.csv')
 
 
 
