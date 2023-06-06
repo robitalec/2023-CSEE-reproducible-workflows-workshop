@@ -12,6 +12,8 @@ Example data for this workshop is borrowed from the Palmer Long-Term Ecological 
 
 We gratefully acknowledge the Palmer LTER for releasing data freely and openly for diverse uses - in our case for training analytical skills of researchers in ecology.  
 
+To download the data to the `raw-data/`, run the function `download_example_data()` (`R/download_example_data.R`). 
+
 ### Penguins
 
 The first dataset is already available in R through the [`palmerpenguins` R package](https://allisonhorst.github.io/palmerpenguins/). There is a raw version and a cleaned version. They contain data for 344 penguins, with the following variables (cleaned version):
