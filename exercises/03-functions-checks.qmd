@@ -1,0 +1,26 @@
+# Checks in functions
+
+Checks in functions are used to ensure inputs and arguments are as expected,
+to handle errors and to provide informative error messages to users. In this
+workshop we are going to focus on writing checks with the function `stopifnot` because it is simple and succinct. It was recently improved in R 4.0.0 when the R development team added the option to provide a more informative error which will help us clearly communicate with our users (and ourselves). 
+
+`stopifnot()` expects a logical statement that you are expecting to be true, and, if not, `stopifnot()` will throw an error. 
+
+To build logical statements, you may find following list of functions useful:
+
+- class checks
+    - `is.integer`, `is.numeric`, `is.data.frame`, `is.character`
+- nulls, NAs, NaNs
+    - `is.null`, `is.na`, `is.nan`
+- dimensions
+    - `length`, `nrow`, `ncol`, `dim`
+- equality, comparisons
+    - `==` (equals)
+    - `>`, `<`, `>=`, `<=` (less than, greater than, less than or equal to, greater than or equal to)
+    - `identical`
+- negation
+    - `!`
+- directories, files
+    - `file.exists`
+    - `dir`
+    - `basename`, `dirname`
