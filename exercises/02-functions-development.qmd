@@ -1,0 +1,50 @@
+# An approach to developing functions
+
+We'll use the following approach for developing functions. 
+
+First, the setup:
+
+1. Setup the function
+  1. Make a function script in the `R/` directory named `plot_histogram.R`
+  1. Write the function's skeleton (name, arguments, curly braces)
+1. Setup the test script
+  1. Make a corresponding test script in the `tests/` directory named `test_plot_histogram.R`. 
+  1. Load any required packages (`library(package)`)
+  1. Source the function (`source('R/function.R)`)
+  1. Load example data
+
+Then the approach for developing functions:
+
+1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/plot_histogram.R`)
+1. Add a test that uses the function with the example data
+1. Run the entire test script
+1. Check the output, note required changes, errors, warnings, etc
+1. Head back to the function script to make changes
+1. Run the entire test script
+
+Check the test output, tweak the function, repeat!
+
+This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and experiment with the function and your function script as the sheltered environment where you carefully tweak the function. Keeping these separate can help to avoid mysterious errors and general chaos!
+
+Note the template test script (`template/test-function.R`) - we'll use it in the following exercises. 
+
+## Exercises: function development
+
+### Adapting the template test script 
+
+Instruction: Adapt the template test script (`template/test-function.R`) to test the function `plot_histogram()`. For example, use the function to load the ice area function and plot a histogram of the count of penguin chicks. 
+
+Do this solo to start, then check in with your neighbours. 
+
+### Adding a title argument
+
+Instruction: Extend the `plot_histogram()` function by adding an argument to provide a main title for the plot. Make the changes in the function script, then test them with your test script. 
+
+Do this solo to start, then check in with your neighbours. 
+
+
+### Bonus
+
+Instruction: Extend the `plot_histogram()` function with other arguments. Be creative and let us know what you come up with. 
+
+Solo/pairs
