@@ -24,7 +24,9 @@ Then the approach for developing functions:
 
 Check the test output, tweak the function, repeat!
 
-This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and experiment with the function and your function script as the sheltered environment where you carefully tweak the function. Keeping these separate can help to avoid mysterious errors and general chaos!
+This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and develop the function and your function script as the sheltered environment where you carefully tweak the function. Keeping these separate can help to avoid mysterious errors and general chaos!
+
+In the next section, we will also see how you can use the test script to help develop the body of the function.
 
 Note the template test script (`template/test-function.R`) - we'll use it in the following exercises. 
 
