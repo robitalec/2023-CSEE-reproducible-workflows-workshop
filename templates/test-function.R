@@ -26,7 +26,7 @@ counts <- fread('https://portal.edirepository.org/nis/dataviewer?packageid=knb-l
 
 # Tests -------------------------------------------------------------------
 # Add test
-plot_histogram(ice_area, 'Adults', TRUE)
+plot_histogram(counts, 'Adults', add_title = TRUE)
 
 # Each time you run these tests, make sure to source the entire script
 #  to ensure you are using an updated version of your function
