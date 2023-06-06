@@ -11,7 +11,7 @@ First, the setup:
   1. Make a corresponding test script in the `tests/` directory named `test_plot_histogram.R`. 
   1. Load any required packages (`library(package)`)
   1. Source the function (`source('R/function.R)`)
-  1. Load example data
+  1. Load example data and/or arguments for the function
 
 Then the approach for developing functions:
 
