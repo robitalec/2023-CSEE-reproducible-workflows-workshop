@@ -1,1 +1,11 @@
 - bonus
+5. Functions: bonus
+    - testthat
+    - iterate with apply, map
+    - s3 classes
+    
+
+Scoping
+
+- scoping (what will this function return)
+    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
