@@ -8,7 +8,7 @@ We are going to set up an RStudio Project that we will use for the rest of this 
 2.  Click on the drop-down menu and select the first option: "New Project..."
     -   Alternatively, navigate to the top left corner, click "File", and then click "New Project..."
 3.  Select "New Directory", then "New Project"
-4.  Name the directory "YourName_CSEE-Workshop-2023" and navigate to the subdirectory in your computer where you want the folder to appear
+4.  Name the directory "2023-CSEE-workshop-projects" and navigate to the subdirectory in your computer where you want the folder to appear
 5.  Minimize RStudio and using your file navigation system, navigate to the place on the computer where your project is saved (e.g., Downloads)
 6.  Open the folder (you should see one file in there, an .Rproj file with the name you gave the folder)
     -   Create five folders within your project folder:
