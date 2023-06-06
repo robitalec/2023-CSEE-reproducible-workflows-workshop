@@ -24,3 +24,61 @@ To build logical statements, you may find following list of functions useful:
     - `file.exists`
     - `dir`
     - `basename`, `dirname`
+
+
+## Exercises: function checks
+
+### Logical statements
+
+Instruction: Write a series of logical statements for the following objects then consult the solution to check your work. Focus only on the logical statement for now, we'll use `stopifnot` in the following exercises. 
+
+Number
+
+- check if x is a numeric, integer, double
+- check if x is of length 1
+- check if x is greater than 0
+
+```{r}
+x <- 10
+```
+
+<details>
+<summary>Show solution</summary>
+```{r}
+is.numeric(x)
+is.integer(x)
+is.double(x)
+
+length(x) == 1
+
+x > 0
+```
+</details>
+
+Data.frame
+
+- check if DF is a data.frame, list, matrix
+- check if DF has two columns and three rows
+- check if DF's column numbers is an integer, double, numeric
+
+```{r}
+DF <- data.frame(colors = c('red', 'green', 'blue'), numbers = c(42.1, 2L, 10))
+```
+
+<details>
+<summary>Show solution</summary>
+```{r}
+is.data.frame(DF)
+is.list(DF)
+is.matrix(DF)
+
+ncol(DF) == 2
+nrow(DF) == 3
+
+is.integer(DF$numbers)
+is.double(DF$numbers)
+is.numeric(DF$numbers)
+```
+</details>
+
+
