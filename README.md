@@ -12,6 +12,7 @@ Example data for this workshop is borrowed from the Palmer Long-Term Ecological 
 
 We gratefully acknowledge the Palmer LTER for releasing data freely and openly for diverse uses - in our case for training analytical skills of researchers in ecology.  
 
+
 ### Penguins
 
 The first dataset is already available in R through the [`palmerpenguins` R package](https://allisonhorst.github.io/palmerpenguins/). There is a raw version and a cleaned version. They contain data for 344 penguins, with the following variables (cleaned version):
@@ -37,7 +38,9 @@ The first dataset is already available in R through the [`palmerpenguins` R pack
 
 ### Weather timeseries
 
-The following datasets are available directly from the [Palmer LTER Data Catalog](https://pallter.marine.rutgers.edu/catalog/edi/). The second dataset contains monthly averaged weather timeseries from Palmer Station, Antarctica, with the following variables: 
+The following datasets are available directly from the [Palmer LTER Data Catalog](https://pallter.marine.rutgers.edu/catalog/edi/). To download the data to the `raw-data/` directory, run the function `download_example_data()` (`R/download_example_data.R`). 
+
+This second dataset contains monthly averaged weather timeseries from Palmer Station, Antarctica, with the following variables: 
 
 - Date  
 - Year  
