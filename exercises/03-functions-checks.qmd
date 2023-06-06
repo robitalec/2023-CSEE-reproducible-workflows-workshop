@@ -82,15 +82,6 @@ is.numeric(DF$numbers)
 </details>
 
 
-### Writing checks for `prepare_csv()`
-
-Instruction: add the following checks to your `prepare_csv()` function and
-test them in your test script (`tests/test_prepare_csv.R`). 
-
-- check if the path points to a file that exists
-- before returning the object, check that it is a data.frame
-
-
 ### `plot_xy()`
 
 First, write a function to plot a data.frame, providing columns names for the data to be plotted on the x and y axes. Use the example data that we prepared with our `prepare_csv` function. 
@@ -137,6 +128,13 @@ Pass the data.frame's to ggplot's data argument then use the `{{ }}` "embrace op
 <hr>
 </details>
 
+
+### Writing checks for `plot_xy()`
+
+Instruction: add the following checks to your `plot_xy()` function and
+test them in your test script (`tests/test_plot_xy.R`). 
+
+- check if the columns provided to the `x_col` and `y_col` arguments exist in the data.frame
 
 
 ### Bonus
