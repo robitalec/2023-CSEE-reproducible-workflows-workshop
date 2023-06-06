@@ -20,7 +20,7 @@ source('R/plot_histogram.R')
 
 # Data --------------------------------------------------------------------
 # Load example data
-counts <- fread('raw-data/adelie-adult-chick-counts.csv')
+counts <- fread(file.path('raw-data', 'adelie-adult-chick-counts.csv'))
 
 
 
