@@ -1,3 +1,8 @@
+---
+execute: 
+  error: true
+---
+
 # Exercises: Functions
 
 ## Function structure 
@@ -37,8 +42,93 @@ Second round (together)
 Learning goal: identify when a function's goal is too complex and could be split into subfunctions that are easier to develop and test. 
 
 
+## Reading functions
 
-    - what does this function do?
+Instruction: Read the following functions and note what you expect they will 
+output. We have purposely used vague function names in this case - not our 
+typical recommendation!
+
+
+Function 1
+```{r, eval = FALSE}
+apple <- 'green'
+
+f <- function(x) {
+  nchar(x)
+}
+
+f(apple)
+```
+
+<details>
+<summary>Show output</summary>
+```{r, eval = TRUE, echo = FALSE}
+apple <- 'green'
+
+f <- function(x) {
+  nchar(x)
+}
+
+f(apple)
+```
+</details>
+
+
+Function 2
+```{r, eval = FALSE}
+apple <- 'gala'
+
+f <- function(x, times) {
+  rep(x, times = times)
+}
+
+f(apple, 10)
+```
+
+<details>
+<summary>Show output</summary>
+```{r, eval = TRUE, echo = FALSE}
+apple <- 'gala'
+
+f <- function(x, times) {
+  rep(x, times = times)
+}
+
+f(apple, 10)
+```
+</details>
+
+
+Function 3
+
+```{r, eval = FALSE}
+apple <- 'mcintosh'
+potato <- 'russet'
+
+f <- function(apple, potato) {
+  data.frame(apples = apple, potatoes = potato)
+}
+
+f(potato = potato)
+```
+
+<details>
+<summary>Show output</summary>
+```{r, eval = TRUE, echo = FALSE}
+apple <- 'mcintosh'
+potato <- 'russet'
+
+f <- function(apple, potato) {
+  data.frame(apples = apple, potatoes = potato)
+}
+
+f(potato = potato)
+```
+</details>
+
+
+```{r, eval = FALSE}
+
 - development workflow
     - write a function script
     - set up skeleton
