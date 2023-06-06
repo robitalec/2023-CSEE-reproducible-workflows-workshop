@@ -13,7 +13,7 @@ We are going to set up an RStudio Project that we will use for the rest of this 
 6.  Open the folder (you should see one file in there, an .Rproj file with the name you gave the folder)
     -   Create five folders within your project folder:
 
-        -   input
+        -   raw-data
 
         -   output
 
@@ -22,7 +22,7 @@ We are going to set up an RStudio Project that we will use for the rest of this 
         -   scripts
 
         -   R
-7.  Download the data from this [link](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81) and move it into the `input/` folder
+7.  Download the data from this [link](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81) and move it into the `raw-data/` folder
 8.  Open your project in RStudio
 9.  Open an empty R script and save it as "README.md"
 10. Fill in your README file with answers to the [Data Reuse Plan](https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md):
