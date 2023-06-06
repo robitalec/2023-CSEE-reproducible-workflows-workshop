@@ -139,7 +139,17 @@ test them in your test script (`tests/test_plot_xy.R`).
 
 ### Bonus
 
-Write more informative errors for your `stopifnot` checks using the following syntax:
+#### Writing checks for `prepare_csv()`
+
+Instruction: add the following checks to your `prepare_csv()` function and
+test them in your test script (`tests/test_prepare_csv.R`). 
+
+- check if the path points to a file that exists
+- before returning the object, check that it is a data.frame
+
+#### More informative errors with `stopifnot()`
+
+Write more informative errors for your `stopifnot()` checks using the following syntax:
 
 `stopifnot("error message" = logical_statement)`
 
