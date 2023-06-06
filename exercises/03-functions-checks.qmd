@@ -117,3 +117,9 @@ First, take the path and pass it to the function for reading CSVs.
 Then, pass the data.frame returned to the `clean_names` function from the janitor package. 
 
 </details>
+
+Now we'll write checks for our `prepare_csv` function:
+
+- check if path points to a file that exists
+- before returning the object, check that it is a data.frame
+
