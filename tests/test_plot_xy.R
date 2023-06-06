@@ -28,13 +28,13 @@ y_col <- 'adults'
 
 plot(DF[[x_col]], DF[[y_col]])
 
+ggplot(DF) +
+  geom_point(aes({{x_col}}, {{y_col}}))
 
 # Tests -------------------------------------------------------------------
 # Test plot histogram
 plot_xy(DF, x_col, y_col)
 
-# Test plot xy with title
-plot_xy(DF, x_col, y_col, 'Adult counts')
 
 # Each time you run these tests, make sure to source the entire script
 #  to ensure you are using an updated version of your function
