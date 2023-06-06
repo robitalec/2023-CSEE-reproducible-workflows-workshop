@@ -1,12 +1,19 @@
 # Exercises: Functions
 
-- function structure
-    - pick three functions and describe (solo + share)
-        - name
-        - arguments (inputs, options)
-        - return object (outputs)
-        - (example functions)
-        - (complexity, do one thing?)
+## Function structure (pairs)
+
+Pick three functions of your choice and note their characteristics. For example:
+
+- name
+- arguments (inputs, options)
+- return object (outputs)
+
+Feel free to find these online, in the R help manual on your computer through RStudio or using the `?` and `??` commands. 
+
+For example, `stats::lm()`, `stats::runif()`, or (trickier) `base::do.call()`
+
+
+- (complexity/do one thing)
     - (on paper) write a function's name, arguments and return object for the following tasks
         - count the number of values great than 0 in a column of a data.frame
         - find rows in a column of a data.frame that match a string
