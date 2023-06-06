@@ -126,3 +126,13 @@ Now we'll write checks for our `prepare_csv()` function:
 
 - check if the path points to a file that exists
 - before returning the object, check that it is a data.frame
+
+### Bonus
+
+Write more informative errors for your `stopifnot` checks using the following syntax:
+
+`stopifnot("error message" = logical_statement)`
+
+For example, 
+
+`stopifnot("x is not a numeric" = is.numeric(x))`
