@@ -3,9 +3,11 @@ execute:
   error: true
 ---
 
-# Exercises: Functions
+# Exercises: Functions 
 
-## Function structure 
+## Introduction to functions 
+
+### Function structure 
 
 Learning goal: Identify the structure of functions in terms of inputs, arguments, return objects and naming. 
 
@@ -22,7 +24,7 @@ Feel free to look up documentation online, in the R help manual on your computer
 We encourage you to find your own functions, maybe a function you use or have wanted to learn about. If you can't think of any right now, see for example `stats::lm()`, `stats::runif()`, or (trickier) `base::do.call()`.
 
 
-## Thinking in functions 
+### Thinking in functions 
 
 Instruction: For the following tasks, write a function's name, arguments and return object. Do this on paper, or in a blank text document - we are not writing code yet. 
 
@@ -42,11 +44,11 @@ Second round (together)
 Learning goal: identify when a function's goal is too complex and could be split into subfunctions that are easier to develop and test. 
 
 
-## Reading functions
+### Reading functions
 
 Instruction: Read the following functions and note what you expect they will 
 output. We have purposely used vague function names in this case - not our 
-typical recommendation!
+typical recommendation! When you are ready, click "Show output". 
 
 
 Function 1
@@ -127,77 +129,17 @@ f(potato = potato)
 </details>
 
 
-```{r, eval = FALSE}
-
+## Developing functions workflow
 - development workflow
     - write a function script
     - set up skeleton
     - write a test script that sources the function script
     - make changes to function, test, repeat
     - try now with the paper results to the above tasks
-- checking
-    - what are some kinds of things that we might want to check in function inputs and arguments (think pair share)
-    - use `x <- seq.int(10)` and write checks with `stopifnot` for 
-        - if x is a type that isnt numeric
-        - if x is NULL
-        - if x is NA
-        - if x is ... 
-    - add checks to your above functions
-    - add a test for your function that should error
-- control flow
-    - what kinds of arguments might we add to give users options
-    - use `if` `then`
-    - add `if` `then` statements to above functions
-    - add a test for your function that should give different results depending on your conditional statement
-- bonus
-
-
-
-
-
-1. Functions: intro
+    
 2. Functions: development
     - workflow
     - write test script
     - source function
     - write test
     - repeat
-3. Functions: checking
-    - stopifnot
-4. Functions: control flow
-    - if else
-5. Functions: bonus
-    - testthat
-    - iterate with apply, map
-    - s3 classes
-    
-
-
-
-
-
-
-Function structure
-
-Reading functions
-
-Control flow
-
-Scoping
-
-
-
-
-- turn this into a function
-    - from code
-    - from description of function eg. takes a vector and does XYZ
-- control flow
-    - build an if else
-    - use an argument in an if else 
-- what does this function do
-    - on slide
-    - in R with view source
-- scoping (what will this function return)
-    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
-
-#
