@@ -1,11 +1,10 @@
-- bonus
-5. Functions: bonus
-    - testthat
-    - iterate with apply, map
-    - s3 classes
-    
+# Functions: bonus
 
-Scoping
+Try `testthat` 
 
-- scoping (what will this function return)
-    - eg https://adv-r.hadley.nz/functions.html#lexical-scoping
+Iterate with `apply` or `purrr::map`
+
+Read about S3 classes
+
+Try the lexical scoping exercises here:
+- https://adv-r.hadley.nz/functions.html#lexical-scoping
