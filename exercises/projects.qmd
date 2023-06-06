@@ -25,7 +25,7 @@ We are going to set up an RStudio Project that we will use for the rest of this 
 7.  Download the data from this [link](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81) and move it into the `raw-data/` folder
 8.  Open your project in RStudio
 9.  Open an empty R script and save it as "README.md"
-10. Fill in your README file using one of the templates found **HERE** 
+10. Fill in your README file using one of the templates found **HERE** (add link)
 
 ::: callout-note
 There are many questions you may not have the answers to for this exercise - either make them up or ignore them! Do your best to answer what you can (while thinking about how you may alter/use this format in your own life/projects)
