@@ -69,4 +69,4 @@ See http://www.fs.usda.gov/rds/archive/products/RDS-2013-0013/\_fileindex_RDS-20
 
 **File format/s:** What type/s of files are these? Are there multiple formats? What software is needed to use the file/s?
 
-11. *(If you have time)* Share this directory with a neighbour and see if you can each open and work with each other's project
+11. *(If you have time)* Share this directory with a neighbour as a zip file and see if you can each open and work with each other's project
