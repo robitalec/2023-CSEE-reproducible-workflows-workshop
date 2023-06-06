@@ -3,11 +3,9 @@ execute:
   error: true
 ---
 
-# Exercises: Functions 
+# Exercises: Introduction to functions 
 
-## Introduction to functions 
-
-### Function structure 
+## Function structure 
 
 Learning goal: Identify the structure of functions in terms of inputs, arguments, return objects and naming. 
 
@@ -24,7 +22,7 @@ Feel free to look up documentation online, in the R help manual on your computer
 We encourage you to find your own functions, maybe a function you use or have wanted to learn about. If you can't think of any right now, see for example `stats::lm()`, `stats::runif()`, or (trickier) `base::do.call()`.
 
 
-### Thinking in functions 
+## Thinking in functions 
 
 Instruction: For the following tasks, write a function's name, arguments and return object. Do this on paper, or in a blank text document - we are not writing code yet. 
 
@@ -44,7 +42,7 @@ Second round (together)
 Learning goal: identify when a function's goal is too complex and could be split into subfunctions that are easier to develop and test. 
 
 
-### Reading functions
+## Reading functions
 
 Instruction: Read the following functions and note what you expect they will 
 output. We have purposely used vague function names in this case - not our 
@@ -129,39 +127,3 @@ f(potato = potato)
 </details>
 
 
-## An approach to developing functions
-
-We'll use the following approach for developing functions. 
-
-First, the setup:
-
-1. Setup the function
-  1. Make a function script in the `R/` directory named `plot_histogram.R`
-  1. Write the function's skeleton (name, arguments, curly braces)
-1. Setup the test script
-  1. Make a corresponding test script in the `tests/` directory named `test_plot_histogram.R`. 
-  1. Load any required packages (`library(package)`)
-  1. Source the function (`source('R/function.R`))
-  1. Load example data
-
-Then the approach for developing functions:
-
-1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/plot_histogram.R`)
-1. Add a test that uses the function with the example data
-1. Run the entire test script
-1. Check the output, note required changes, errors, warnings, etc
-1. Head back to the function script to make changes
-1. Run the entire test script
-1. Repeat!
-
-This process of editing two files might seem like extra work, but we recommend separating the function from bits of code to test it. Think of the test script as your isolated playground to test and experiment with the function and your function script as the sheltered environment where you carefully tweak the function. Keeping these separate can help to avoid mysterious errors and general chaos!
-
-Note the template test script (`template/test-function.R`), we'll use it in the following two exercises. 
-
-### Adapting the template test script
-
-Instruction: Adapt the template test script (`template/test-function.R`) to test the function `plot_histogram()`. For example, use the function to load the ice area function and plot a histogram of the count of penguin chicks. 
-
-### Adding a title argument
-
-Instruction: Extend the `plot_histogram()` function by adding an argument to provide a main title for the plot. Make the changes in the function script, then test them with your test script. 
