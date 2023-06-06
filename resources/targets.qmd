@@ -1,0 +1,20 @@
+
+
+
+
+
+User Manual: https://books.ropensci.org/targets/
+
+4 min walkthrough: [![](./images/video.png)](https://vimeo.com/700982360)
+
+Vignette: https://cran.r-project.org/web/packages/targets/vignettes/overview.html
+
+Intro Tutorial: https://wlandau.github.io/targets-tutorial/#1
+
+Discussion Group: https://github.com/ropensci/targets/discussions
+
+Example Workthrough: https://towardsdatascience.com/data-science-workflows-with-the-targets-package-in-r-end-to-end-example-with-code-1e31318074c4
+
+Tarchetypes: https://docs.ropensci.org/tarchetypes/
+
+Tarchetypes discussion group: https://github.com/ropensci/tarchetypes/discussions
