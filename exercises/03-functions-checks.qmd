@@ -82,47 +82,10 @@ is.numeric(DF$numbers)
 </details>
 
 
-### Writing checks
+### Writing checks for `prepare_csv()`
 
-First, write a function to read a CSV file and prepare it with cleaned column names. Use whichever function you prefer for reading CSVs (eg. `data.table::fread()`, or `readr::read_csv()`). For cleaning column names, we'll use the function `clean_names()` from the `janitor` package. 
-
-Follow the steps from our approach to developing functions:
-
-1. Setup the function
-    - Make a function script in the `R/` directory named `prepare_csv.R`
-    - Write the function's skeleton (name, arguments, curly braces)
-1. Setup the test script
-    - Make a corresponding test script in the `tests/` directory named `test_prepare_csv.R`. 
-    - Load any required packages (`library(package)`)
-    - Source the function (`source('R/function.R)`)
-    - Load *example data* and/or arguments for the function 
-
-Note: since we are writing a function to read the data in, we'll test the function with the data's path instead. We'll use the example dataset for adult and chick counts described in the README. For example:
-
-```{r, eval = FALSE}
-path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
-```
-
-
-Add a new section "Development" in the test script (`tests/test_prepare_csv.R`) to develop the body of your function. Use `path_counts` and the function for reading CSVs, then the `clean_names()` function from the `janitor` package. Add the code to your function `prepare_csv()` and test!
-
-
-<details>
-<summary>Hints</summary>
-<hr>
-This function has two steps: reading a CSV from a path and cleaning the column names. 
-
-Both of these steps are going to use functions from external packages, so we only have to put them together. 
-
-The function's arguments should include the path to the CSV. 
-
-First, take the path and pass it to the function for reading CSVs. 
-
-Then, pass the data.frame returned to the `clean_names()` function from the `janitor` package. 
-<hr>
-</details>
-
-Now we'll write checks for our `prepare_csv()` function:
+Instruction: add the following checks to your `prepare_csv()` function and
+test them in your test script (`tests/test_prepare_csv.R`). 
 
 - check if the path points to a file that exists
 - before returning the object, check that it is a data.frame

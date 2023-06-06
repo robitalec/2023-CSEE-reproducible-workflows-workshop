@@ -5,17 +5,17 @@ We'll use the following approach for developing functions.
 First, the setup:
 
 1. Setup the function
-      - Make a function script in the `R/` directory named `plot_histogram.R`
+      - Make a function script in the `R/` directory named `function_name.R`
       - Write the function's skeleton (name, arguments, curly braces)
 1. Setup the test script
-      - Make a corresponding test script in the `tests/` directory named `test_plot_histogram.R`. 
+      - Make a corresponding test script in the `tests/` directory named `test_function_name.R`. 
       - Load any required packages (`library(package)`)
-      - Source the function (`source('R/function.R)`)
+      - Source the function (`source('R/function_name.R)`)
       - Load example data and/or arguments for the function
 
 Then the approach for developing functions:
 
-1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/plot_histogram.R`)
+1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/function_name.R`)
 1. Add a test that uses the function with the example data
 1. Run the entire test script
 1. Check the output, note required changes, errors, warnings, etc
@@ -24,29 +24,39 @@ Then the approach for developing functions:
 
 Check the test output, tweak the function, repeat!
 
-This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and develop the function and your function script as the sheltered environment where you carefully tweak the function. Keeping these separate can help to avoid mysterious errors and general chaos!
+This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and develop the function and your function script as the sheltered environment where you carefully tweak the function. You can also use this test script as a place to develop the function using the same inputs and arguments as the function. Keeping these parts separate can help to avoid mysterious errors and general chaos!
 
-In the next section, we will also see how you can use the test script to help develop the body of the function.
-
-Note the template test script (`template/test-function.R`) - we'll use it in the following exercises. 
 
 ## Exercises: function development
 
-### Adapting the template test script 
 
-Instruction: Adapt the template test script (`template/test-function.R`) to test the function `plot_histogram()`. For example, use the function to load the ice area function and plot a histogram of the count of penguin chicks. 
+### `prepare_csv()`
 
-Do this solo to start, then check in with your neighbours. 
+Instruction: setup your function script and test script for your new function `prepare_csv()`. 
 
-### Adding a title argument
+Use whichever function you prefer for reading CSVs (eg. `data.table::fread()`, or `readr::read_csv()`). For cleaning column names, we'll use the function `clean_names()` from the `janitor` package. 
 
-Instruction: Extend the `plot_histogram()` function by adding an argument to provide a main title for the plot. Make the changes in the function script, then test them with your test script. 
+Note: since we are writing a function to read the data in, we'll test the function with the data's path instead. We'll use the example dataset for adult and chick counts described in the README. For example:
 
-Do this solo to start, then check in with your neighbours. 
+```{r, eval = FALSE}
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+```
+
+Use the section "Development" in your test script (`tests/test_prepare_csv.R`) to develop the body of your function. Use `path_counts` and the function for reading CSVs, then the `clean_names()` function from the `janitor` package. Add the code to the body of your function `prepare_csv()` and test! 
 
 
-### Bonus
 
-Instruction: Extend the `plot_histogram()` function with other arguments. Be creative and let us know what you come up with. 
+<details>
+<summary>Hints</summary>
+<hr>
+This function has two steps: reading a CSV from a path and cleaning the column names. 
 
-Solo/pairs
+Both of these steps are going to use functions from external packages, so we only have to put them together. 
+
+The function's arguments should include the path to the CSV. 
+
+First, take the path and pass it to the function for reading CSVs. 
+
+Then, pass the data.frame returned to the `clean_names()` function from the `janitor` package. 
+<hr>
+</details>
