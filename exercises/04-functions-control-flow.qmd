@@ -124,11 +124,63 @@ Now we'll write conditional statements for our `plot_xy()` function:
 - add an argument to your function that provides a title (and set it NULL by default). When it is provided, add it as the main title of the plot.
 
 
-- control flow
-    - what kinds of arguments might we add to give users options
-    - use `if` `then`
-    - add `if` `then` statements to above functions
-    - add a test for your function that should give different results depending on your conditional statement
+Test this as you go in your test script `tests/test_plot_xy.R`.
+
+
+### Conditional counts
+
+Next we'll write a new function that processes our prepare CSV files. 
+
+Let's say we wanted to summarize the number of adults and chicks counted by island. First, write a function to sum the 'adults' and 'chicks' columns in the data.frame. Use the example data that we prepared with our `prepare_csv` function. 
+
+Follow the steps from our approach to developing functions:
+
+1. Setup the function
+    - Make a function script in the `R/` directory named `sum_counts.R`
+    - Write the function's skeleton (name, arguments, curly braces)
+1. Setup the test script
+    - Make a corresponding test script in the `tests/` directory named `test_sum_counts.R`. 
+    - Load any required packages (`library(package)`)
+    - Source the function (`source('R/function.R)`)
+    - Load example data and/or arguments for the function 
+
+Since we have already built a function for preparing CSV files, use it in your test script:
+
+```{r, eval = FALSE}
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+prep_counts <- prepare_csv(path_counts)
+```
+
+Add a new section 'Development' in the test script (`tests/test_sum_counts.R`) to develop the body of your function. Use the prepared CSV data as shown above, add the code to your function `sum_counts()` and test!
+
+
+<details>
+<summary>Hints: by</summary>
+<hr>
+
+`data.table` has an argument `by`
+
+`dplyr` has an alternative to `group_by` for passing character column names called `group_by_at`
+
+<hr>
+</details>
+
+
+Next steps:
+
+- decide if it is better for you (or a potential user) to set the columns that we calculate the sum by inside the function (fixed) or as an argument (flexible) - try both options
+- add a filter argument `filter_gt_year` (default set to NULL) and when it is not NULL, filter the data only greater than the value provided
+
+Test these as you go in your test script `tests/test_sum_counts.R`.
 
 
 
+### Bonus
+
+Add checks to your functions `plot_xy()` and `sum_counts`: 
+
+- check if columns exist in DT
+- check if columns are expected types to plot
+- (base R) use the arguments `x_col` and `y_col` to also update the axis labels in `plot_xy()`
+- use a new argument `color_col` to provide a column  in `plot_xy()`
+- build a plot function that plots the output of `sum_counts()`
