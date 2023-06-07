@@ -124,7 +124,15 @@ This function has one step: taking an input data.frame and generating a plot.
 
 The function's arguments should include the data.frame, as well as the column names for the X and Y axes. 
 
-Pass the data.frame's to ggplot's data argument then use the `{{ }}` "embrace operator" to wrap the x_col and y_col arguments within `aes`. See the `?aes` help page and the example with the "embrace operator". 
+There are two main options:
+
+- Pass the data.frame's to ggplot's data argument then use the `.data[[col]]` syntax to wrap the x_col and y_col arguments (quoted column names) within `aes`. 
+
+- Pass the data.frame's to ggplot's data argument then use the `{{ }}` "embrace operator" to wrap the x_col and y_col arguments (unquoted* column names) within `aes`. 
+
+See the `?aes` help page and the example with the "embrace operator", and more
+details here: https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html#using-aes-and-vars-in-a-package-function
+
 <hr>
 </details>
 
