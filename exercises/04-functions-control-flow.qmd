@@ -1,4 +1,3 @@
-
 # Controlling flow in function
 
 Conditionals in functions are used to modify how a function runs, determine what output to return or to return warnings and errors depending on logical statements. We'll look at `if` and `else`, as well as functions for combining multiple logical statements. `if` and `else` can be used instead of `stopifnot`, usually in cases where logical statements are more complex or a more elaborate error message is required. 
@@ -72,7 +71,7 @@ if (type == 'histogram') {
 
 ### Conditional counts
 
-Next we'll write a new function that processes our prepare CSV files. 
+Next we'll write a new function that processes our prepared CSV files. 
 
 Let's say we wanted to summarize the number of adults and chicks counted by island. First, write a function to sum the 'adults' and 'chicks' columns in the data.frame. Use the example data that we prepared with our `prepare_csv` function. 
 
@@ -116,14 +115,25 @@ Next steps:
 
 Test these as you go in your test script `tests/test_sum_counts.R`.
 
+<details>
+<summary>Hints</summary>
+<hr>
+
+To set a function's argument to default, use the syntax `argument = default_value`. For example:
+
+```r
+function(x = 1, y = 2, z = 3) {
+
+}
+```
+<hr>
+</details>
 
 
 ### Bonus
 
 Add checks to your functions `plot_xy()` and `sum_counts`: 
 
-- check if columns exist in DT
-- check if columns are expected types to plot
-- (base R) use the arguments `x_col` and `y_col` to also update the axis labels in `plot_xy()`
+- use the arguments `x_col` and `y_col` to also update the axis labels in `plot_xy()` (base R)
 - use a new argument `color_col` to provide a column  in `plot_xy()`
 - build a plot function that plots the output of `sum_counts()`
