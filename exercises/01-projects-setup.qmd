@@ -1,3 +1,8 @@
+---
+execute: 
+  error: true
+---
+
 # Project setup
 
 ## Exercises: project setup
