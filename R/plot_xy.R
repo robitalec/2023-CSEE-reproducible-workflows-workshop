@@ -3,5 +3,5 @@ plot_xy <- function(DT, x_col, y_col) {
     stopifnot(y_col %in% colnames(DT))
 
     ggplot(DT) +
-      geom_point(aes({{x_col}}, {{y_col}}))
+      geom_point(aes(.data[[x_col]], .data[[y_col]]))
 }
