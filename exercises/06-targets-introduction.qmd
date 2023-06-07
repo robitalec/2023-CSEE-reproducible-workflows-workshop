@@ -1,0 +1,9 @@
+1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
+1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
+1. Run tar_visnetwork
+1. Run tar_make
+1. Run tar_read
+1. Make an edit to something
+1. Rerun tar_visnetwork
+1. Rerun tar_make
+1. Run tar_read
