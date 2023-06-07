@@ -1,10 +1,44 @@
 # Functions: bonus
 
-Try `testthat` 
+If you are already done all the previous exercises, and we have extra time, - or 
+on your own after the workshop, try these additional exercises. 
 
-Iterate with `apply` or `purrr::map`
+## `testthat`
 
-Read about S3 classes
+[`testthat`](https://testthat.r-lib.org/) is one of the main R packages for testing functions (specifically designed for R packages). 
+
+Briefly, the approach is to write test scripts that have a series of expectations
+for the functions. For example, does the function return a particular class or 
+does the function return an error when expected?
+
+```{r}
+library(testthat)
+grep('expect_', lsf.str('package:testthat'), value = TRUE)
+```
+
+See the reference and vignettes here: https://testthat.r-lib.org/
+
+
+## Iteration
+
+Try iterating functions over lists or groups using the `apply` family or `purrr::map` family. 
+
+- https://r4ds.had.co.nz/iteration.html
+- https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html
+- https://purrr.tidyverse.org/
+
+## Object-oriented programming
+
+Read about object-oriented programming classes in R:
+
+- [S3](ttps://adv-r.hadley.nz/s3.html)
+- [R6](ttps://adv-r.hadley.nz/r6.html)
+- [S4](ttps://adv-r.hadley.nz/s4.html)
+
+
+## Lexical scoping
+
 
 Try the lexical scoping exercises here:
+
 - https://adv-r.hadley.nz/functions.html#lexical-scoping
