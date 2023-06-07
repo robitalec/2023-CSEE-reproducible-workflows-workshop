@@ -129,3 +129,9 @@ c(
     prepare_data(input)
   )
 )
+
+
+
+## Recommendations
+
+start your next project with targets, easier to start then refactor a whole project especially if it isnt using functions
