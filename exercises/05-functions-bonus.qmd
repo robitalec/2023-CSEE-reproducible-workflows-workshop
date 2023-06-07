@@ -1,6 +1,6 @@
 # Functions: bonus
 
-If you are already done all the previous exercises, and we have extra time, - or 
+If you are already done all the previous exercises and we have extra time, - or 
 on your own after the workshop, try these additional exercises. 
 
 ## `testthat`
@@ -37,7 +37,6 @@ Read about object-oriented programming classes in R:
 
 
 ## Lexical scoping
-
 
 Try the lexical scoping exercises here:
 
