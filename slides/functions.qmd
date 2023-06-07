@@ -1,0 +1,26 @@
+---
+title: "Functions"
+author: Alec Robitaille & Isabella Richmond
+format: revealjs
+---
+
+
+functions
+
+- name
+	- snake case
+	- verb noun
+- body
+- argument
+	- noun
+
+
+inputs, outputs = planning
+
+contro flow, if else, arguments
+
+checks, stopifnot
+
+reading exercise - what does this do
+
+testing/approach
