@@ -1,0 +1,62 @@
+# An approach to developing functions
+
+We'll use the following approach for developing functions. 
+
+First, the setup:
+
+1. Setup the function
+      - Make a function script in the `R/` directory named `function_name.R`
+      - Write the function's skeleton (name, arguments, curly braces)
+1. Setup the test script
+      - Make a corresponding test script in the `tests/` directory named `test_function_name.R`. 
+      - Load any required packages (`library(package)`)
+      - Source the function (`source('R/function_name.R)`)
+      - Load example data and/or arguments for the function
+
+Then the approach for developing functions:
+
+1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/function_name.R`)
+1. Add a test that uses the function with the example data
+1. Run the entire test script
+1. Check the output, note required changes, errors, warnings, etc
+1. Head back to the function script to make changes
+1. Run the entire test script
+
+Check the test output, tweak the function, repeat!
+
+This process of editing two files might seem like extra work, but we recommend separating the function's definition from the bits of code we use to test it. Think of the test script as your isolated playground to test and develop the function and your function script as the sheltered environment where you carefully tweak the function. You can also use this test script as a place to develop the function using the same inputs and arguments as the function. Keeping these parts separate can help to avoid mysterious errors and general chaos!
+
+
+## Exercises: function development
+
+
+### `prepare_csv()`
+
+Instruction: setup your function script and test script for your new function `prepare_csv()`. 
+
+Use whichever function you prefer for reading CSVs (eg. `data.table::fread()`, or `readr::read_csv()`). For cleaning column names, we'll use the function `clean_names()` from the `janitor` package. 
+
+Note: since we are writing a function to read the data in, we'll test the function with the data's path instead. We'll use the example dataset for adult and chick counts described in the README. For example:
+
+```{r, eval = FALSE}
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+```
+
+Use the section "Development" in your test script (`tests/test_prepare_csv.R`) to develop the body of your function. Use `path_counts` and the function for reading CSVs, then the `clean_names()` function from the `janitor` package. Add the code to the body of your function `prepare_csv()` and test! 
+
+
+
+<details>
+<summary>Hints</summary>
+<hr>
+This function has two steps: reading a CSV from a path and cleaning the column names. 
+
+Both of these steps are going to use functions from external packages, so we only have to put them together. 
+
+The function's arguments should include the path to the CSV. 
+
+First, take the path and pass it to the function for reading CSVs. 
+
+Then, pass the data.frame returned to the `clean_names()` function from the `janitor` package. 
+<hr>
+</details>

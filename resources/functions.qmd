@@ -1,5 +1,4 @@
-
-# Resources
+# Resources: Functions
 
 ## R for Data Science
 
