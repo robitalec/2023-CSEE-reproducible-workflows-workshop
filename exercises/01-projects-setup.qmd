@@ -1,6 +1,8 @@
-# Exercises: Projects
+# Project setup
 
-## RStudio Project Setup
+## Exercises: project setup
+
+### RStudio Project Setup
 
 We are going to set up an RStudio Project that we will use for the rest of this workshop. Please follow along with these steps and remember, if you are lost use your red sticky note or raise your hand and someone will come help you.
 
