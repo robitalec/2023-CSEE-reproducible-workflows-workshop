@@ -4,9 +4,9 @@
 
 Links: 
 
-- 1st edition: https://r4ds.had.co.nz/
-- 2nd edition: https://r4ds.hadley.nz/
-- GitHub repository: https://github.com/hadley/r4ds
+- [1st edition](https://r4ds.had.co.nz/)
+- [2nd edition](https://r4ds.hadley.nz/)
+- [GitHub repository](https://github.com/hadley/r4ds)
 
 ### [Functions](https://r4ds.had.co.nz/functions.html)
 
