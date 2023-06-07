@@ -142,8 +142,27 @@ details here: https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html#us
 Instruction: add the following checks to your `plot_xy()` function and
 test them in your test script (`tests/test_plot_xy.R`). 
 
-- check if the columns provided to the `x_col` and `y_col` arguments exist in the data.frame
+- check if the columns provided to the `x_col` and `y_col` arguments exist in the data.frame (quoted column name arguments)
+- check if the plot generated is of class `ggplot` before returning (`ggplot2`) 
 
+
+<details>
+<summary>Hints: unquoted column names with `ggplot2`</summary>
+<hr>
+If you opted to use unquoted column names, it might be trickier to check 
+if column names exist in the data.frame. However - this check is already 
+covered by `ggplot()` anyways. 
+
+In case you wanted to add this, on top of the internal `ggplot2` check,
+try something like this: 
+
+`as_name(enquo(x_col)) %in% colnames(DT)`
+
+These are `rlang` functions, part of the "tidy eval tools" and examples
+of metaprogramming. The Advanced R book has a detailed section on this concept. 
+
+<hr>
+</details>
 
 ### Bonus
 
