@@ -19,7 +19,7 @@ Numeric
 
 - if x is a numeric, return x as a character
 - print 'positive' if x is greater than 0, else print 'negative' if x is less than 0
-- if x / 3 returns a remainder (hint: see `?%%`), print the remainder
+- if x / 3 returns a remainder (hint: see ``` ?`%%` ```), print the remainder
 
 ```{r}
 x <- 10
@@ -116,7 +116,7 @@ Next steps:
 Test these as you go in your test script `tests/test_sum_counts.R`.
 
 <details>
-<summary>Hints</summary>
+<summary>Hints: defaults</summary>
 <hr>
 
 To set a function's argument to default, use the syntax `argument = default_value`. For example:
