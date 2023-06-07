@@ -1,0 +1,131 @@
+1. packages.R
+1. put the functions into targets
+1. run tar make
+1. tar visnetwork
+1. consider just changing the data and rerunning or a function 
+1. tar visnetwork
+
+
+
+
+
+tar_group_by
+plot
+iteration = list
+pattern = map()
+
+
+tar_meta
+
+
+
+
+bonus
+format = file
+tar_option_set
+- fs 
+- error
+
+
+
+
+
+
+c(
+    tar_target(
+        prep_counts,
+
+    ),
+    tar_target(
+        sum_counts,
+        
+    ),
+    tar_target(
+        plot_counts
+    )
+
+)
+
+-----------------------------------------------------------
+c(
+  tar_target(
+    data,
+    read_data(path)
+  )
+)
+
+
+
+data <- read_data(path)
+prepared <- prepare_data(data)
+summary_statistics <- summary(prepared)
+plotted <- plot(prepared)
+doc <- rmarkdown(summary_statistics, plotted)
+
+
+
+first <- function(input, arguments) {
+  # last
+}
+
+
+#' Documentation
+name <- function(input, arguments) {
+  checks
+
+
+  body
+
+
+  return()
+}
+
+
+
+
+
+multiply_by_2 <- function(x) {
+  stopifnot(is.numeric(x))
+  x * 2
+}
+
+x <- seq.int(100)
+
+all(x * 2 == multiply_by_2(x))
+
+
+
+
+library(testthat)
+
+convert_to_df <- function(input) {
+  return(input)
+}
+
+expect_s3_class(convert_to_df(2), 'data.frame')
+
+
+
+
+
+
+
+
+
+
+
+
+library(targets)
+
+
+
+c(
+  tar_target(
+    input,
+    read_data()
+  ),
+  tar_target(
+    prep,
+    prepare_data(input)
+  )
+)
