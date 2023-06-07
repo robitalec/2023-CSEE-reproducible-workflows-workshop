@@ -1,20 +1,33 @@
+## Getting Started
 
+This quick 4 minute walkthrough gives a short example of how {targets} can be used: <https://vimeo.com/700982360>
 
+This tutorial is also found in the [user manual](https://books.ropensci.org/targets/walkthrough.html), with the associated code and other relevant links.
 
+## [{targets} User Manual](https://books.ropensci.org/targets/)
 
+This is the most complete guide to using {targets}. It has info on most of the questions that you will have (although can be complicated - be patient with yourself!). It explains [what a target is](https://books.ropensci.org/targets/targets.html), [best practices for functions](https://books.ropensci.org/targets/functions.html), and why [error messages can be less intuitive in your {targets} workflow](https://books.ropensci.org/targets/debugging.html) among many other things.
 
-User Manual: https://books.ropensci.org/targets/
+## [{targets} Overview Vignette](https://cran.r-project.org/web/packages/targets/vignettes/overview.html)
 
-4 min walkthrough: [![](./images/video.png)](https://vimeo.com/700982360)
+This vignette is an extremely high-level summary of the features of {targets}.
 
-Vignette: https://cran.r-project.org/web/packages/targets/vignettes/overview.html
+## [Intro Tutorial (by author of {targets})](https://wlandau.github.io/targets-tutorial/#1)
 
-Intro Tutorial: https://wlandau.github.io/targets-tutorial/#1
+This slide deck was created for a intro to {targets} workshop by Will Landau - it gives some of the reasoning/justification for the creation and use of {targets}, and walks through a working example.
 
-Discussion Group: https://github.com/ropensci/targets/discussions
+## [GitHub Discussion Group](https://github.com/ropensci/targets/discussions)
 
-Example Workthrough: https://towardsdatascience.com/data-science-workflows-with-the-targets-package-in-r-end-to-end-example-with-code-1e31318074c4
+{targets} has a very active discussion group on GitHub! If you yourself have a question, there is a [guide](https://books.ropensci.org/targets/help.html) provided in the user manual to help you ask a relevant and answerable question
 
-Tarchetypes: https://docs.ropensci.org/tarchetypes/
+## [Data Science Example Workthrough](https://towardsdatascience.com/data-science-workflows-with-the-targets-package-in-r-end-to-end-example-with-code-1e31318074c4)
 
-Tarchetypes discussion group: https://github.com/ropensci/tarchetypes/discussions
+This workthrough is an example of building up a {targets} workflow (though it is not in our field).
+
+## BONUS: [tarchetypes](https://docs.ropensci.org/tarchetypes/)
+
+Even though {targets} itself has seemingly endless possibilities/flexibilities, tarchetypes extends that even further! Tarchetypes has functions that do complex tasks with simple syntax, making your life easier! `tar_file_read()`, `tar_render()`, and `tar_group_by()` are some really great ones to get started with.
+
+## [tarchetypes GitHub Discussion Group](https://github.com/ropensci/tarchetypes/discussions)
+
+Similar to {targets}, tarchetypes has a very active discussion group on GitHub!
