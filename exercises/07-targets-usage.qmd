@@ -1,3 +1,10 @@
 # {targets}: usage
 
 ## `tar_visnetwork()`
+
+
+### Exercise: `tar_visnetwork()`
+
+
+
+also see `tar_glimpse()`, `tar_mermaid()`, `tar_network()`
