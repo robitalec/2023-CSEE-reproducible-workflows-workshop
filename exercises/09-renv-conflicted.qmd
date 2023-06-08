@@ -1,0 +1,17 @@
+# {conflicted}
+
+Start with conflicted because it is simpler and gives instant feedback with packages.R script
+
+
+## Exercise: {conflicted}
+
+
+Instruction: TODO add library(conflicted) to your packages.R script. run conflict_scout() in the console
+
+
+Instruction: TODO select which conflict_prefers (optionally always one package) 
+
+
+
+# {renv}
+
