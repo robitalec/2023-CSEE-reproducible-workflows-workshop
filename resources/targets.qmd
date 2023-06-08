@@ -10,6 +10,29 @@ This help page is a great place to start when you are looking for help using {ta
 ### [GitHub Discussion Group](https://github.com/ropensci/targets/discussions)
 
 {targets} has a very active discussion group with plenty of past solutions and discussions to search through when you are looking for help. 
+
+## Documentation
+
+Some select documentation pages from the {targets} documentation:
+
+- [`tar_target()`](https://docs.ropensci.org/targets/reference/tar_target.html): targets!
+- [`tar_make()`](https://docs.ropensci.org/targets/reference/tar_make.html): run the workflow
+- [`tar_meta()`](https://docs.ropensci.org/targets/reference/tar_meta.html): metadata on the workflow including errors, warnings, run times, ...
+- [`tar_read()`](https://docs.ropensci.org/targets/reference/tar_read.html): read a target
+- [`tar_load()`](https://docs.ropensci.org/targets/reference/tar_load.html): load a target
+- [`tar_visnetwork()`](https://docs.ropensci.org/targets/reference/tar_visnetwork.html): visualize the dependency graph between targets, functions, and objects
+- [`tar_option_set()`](https://docs.ropensci.org/targets/reference/tar_option_set.html): sets options for when the {targets} workflow is run
+
+Bonus:
+
+- [`use_targets()`](https://docs.ropensci.org/targets/reference/use_targets.html): setups a project to use {targets}
+- [`tar_github_actions()`](https://docs.ropensci.org/targets/reference/tar_github_actions.html): writes a GitHub Actions workflow to run the {targets} workflow on every push to GitHub 
+
+
+### [{targets} Overview Vignette](https://cran.r-project.org/web/packages/targets/vignettes/overview.html)
+
+This vignette is an high-level summary of the features of {targets}.
+
 This is the most complete guide to using {targets}. It has info on most of the questions that you will have (although can be complicated - be patient with yourself!). It explains [what a target is](https://books.ropensci.org/targets/targets.html), [best practices for functions](https://books.ropensci.org/targets/functions.html), and why [error messages can be less intuitive in your {targets} workflow](https://books.ropensci.org/targets/debugging.html) among many other things.
 
 ## [{targets} Overview Vignette](https://cran.r-project.org/web/packages/targets/vignettes/overview.html)
