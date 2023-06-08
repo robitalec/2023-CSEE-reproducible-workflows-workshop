@@ -1,4 +1,3 @@
-
 # Resources
 
 ## R for Data Science
