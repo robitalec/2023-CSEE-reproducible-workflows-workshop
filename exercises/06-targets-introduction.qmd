@@ -107,6 +107,35 @@ Instruction: put a new section named Variables. add the file paths for the input
 ```r
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 ```
+
+## Targets
+
+Now that our `_targets.R` file is setup, let's add our targets
+
+targets have two required arguments: a name and a command
+
+name cannot match a function or anything in the global environment
+
+command is the R command
+
+in our case, we are going to plug in the functions we developed
+
+it could also be eg. a ggplot() + geom_point() + ..., or a multiline statement surrounded in curly braces
+
+
+### Exercise: targets
+
+Instruction: set up three targets corresponding to the three functions we developed, using the adult and chick counts dataset
+
+
+#### Bonus
+
+Set up targets to read the two other CSV files
+
+Set up targets to load the palmerpenguins dataset
+
+
+
 1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
 1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
 1. Run tar_visnetwork
