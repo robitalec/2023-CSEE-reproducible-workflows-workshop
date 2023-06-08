@@ -3,11 +3,13 @@
 The {renv} [documentation](https://rstudio.github.io/renv/index.html) and [vignettes](https://rstudio.github.io/renv/articles/) have lots of information on {renv}. We'll point out the most relevant pages and links, because {renv} can be used for a wide variety of uses on different systems (local machine, Docker, etc.). 
 
 
-## [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html)
+## [Vignettes](https://rstudio.github.io/renv/articles/)
 
-This vignette overviews what renv is, and how to use it. 
+### [Introduction to {renv}](https://rstudio.github.io/renv/articles/renv.html)
 
-It walks us through the workflow of renv:
+This vignette overviews what {renv} is, and how to use it. 
+
+It walks us through the workflow of {renv}:
 
 > - Call `renv::init()` to initialize a new project-local environment with a private R library,
 - Work in the project as normal, installing and removing new R packages as they are needed in the project,
@@ -27,14 +29,14 @@ It also does not help if a system dependency is missing on the computer attempti
 
 How do you share your project that has an {renv} environment with other people? This vignette walks through the details of collaborating with other users when you have an isolated environment.
 
-## [{renv} FAQ](https://rstudio.github.io/renv/articles/faq.html)
+### [{renv} FAQ](https://rstudio.github.io/renv/articles/faq.html)
 
 Frequently asked questions about {renv}, a great place to start when troubleshooting {renv}. 
 
 
-### Videos
+## Videos
 
-#### [{renv}: Project Environments for R](https://posit.co/resources/videos/renv-project-environments-for-r/)
+### [{renv}: Project Environments for R](https://posit.co/resources/videos/renv-project-environments-for-r/)
 
 A video by {renv} author Kevin Ushey, outlining why {renv} is important and how to use it.
 
