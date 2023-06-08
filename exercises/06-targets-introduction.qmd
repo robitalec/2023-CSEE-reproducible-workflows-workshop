@@ -63,6 +63,21 @@ library(ggplot2)
 Instruction: next, add a command to source the `R/packages.R` in your `_targets.R` script. 
 
 
+## Functions
+
+To make functions available to the {targets} workflow we also need to also source them. 
+
+A shortcut for sourcing all R files in a specific folder is provided by {targets}: `tar_source()`
+
+TODO details
+
+### Exercise: sourcing functions
+
+Instruction: replace the above `source('R/packages.R')` command with `tar_source('R')` to source all the files in the `R/` directory
+
+Note: something to be careful about now that we are sourcing the `R/` directory - you can't have any calls to {targets} functions like `tar_read()` or `tar_load()`. This will cause an error, because you are 
+
+
 1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
 1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
 1. Run tar_visnetwork
