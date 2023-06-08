@@ -78,6 +78,20 @@ Instruction: replace the above `source('R/packages.R')` command with `tar_source
 Note: something to be careful about now that we are sourcing the `R/` directory - you can't have any calls to {targets} functions like `tar_read()` or `tar_load()`. This will cause an error, because you are 
 
 
+## Options
+
+
+`tar_option_set()` for default file format, what to do when you have an error, etc
+
+TODO we'll come back to tar_option_set later, but details here https://docs.ropensci.org/targets/reference/tar_option_set.html
+
+formats https://docs.ropensci.org/targets/reference/tar_option_set.html#storage-formats
+
+tar_option_set(cue = tar_cue(mode = "always"))
+
+### Exercise: options
+
+Instruction: make a new section named Options, put an empty call to tar_option_set there
 1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
 1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
 1. Run tar_visnetwork
