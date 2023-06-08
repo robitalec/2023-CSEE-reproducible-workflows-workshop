@@ -1,6 +1,7 @@
 # {targets}
 
-This quick 4 minute walkthrough gives a short example of how {targets} can be used: <https://vimeo.com/700982360>
+The {targets} [documentation](https://docs.ropensci.org/targets/) and [help manual](https://books.ropensci.org/targets)
+should be the first places to look for details on {targets}. We'll highlight some pages and links below relevant to the workshop, but be sure to spend time looking through these resources. This is a great example of an R package that has been very thoroughly and thoughtfully documented covering everything from beginner examples to the minutiae of how the package is designed and orchestrates workflows.
 
 This tutorial is also found in the [user manual](https://books.ropensci.org/targets/walkthrough.html), with the associated code and other relevant links.
 
