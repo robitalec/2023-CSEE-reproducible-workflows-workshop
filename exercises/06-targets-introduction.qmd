@@ -41,14 +41,14 @@ Sometimes, when a project gets really big, you can define your list of targets i
 
 To declare which packages we need across all our functions, we have two main options:
 
-1. List them with `library()` calls at the top of our `_targets.R` script (more on that soon)
+1. List them with `library()` calls at the top of our `_targets.R` script
 2. List them all in a `R/packages.R` script and source that script. 
 
-We prefer the second approach because it keeps our `_targets.R` tidier, and helps us setup {renv} package versioning later. 
+We prefer the second approach because it keeps our `_targets.R` tidier, and helps us setup {renv} package versioning later. TODO packages get long messy, convenient to source later 
 
 ### Exercise: `packages.R`
 
-Instruction: make a new script called `packages.R` in the `R/` directory. Go through your test scripts for your functions and add all the packages you used there. 
+Instruction: make a new script called `packages.R` in the `R/` directory. Go through your test scripts for your functions and add all the packages you used to the `packages.R` file with a `library()` call for each package on a separate line. 
 
 For example:
 
@@ -59,6 +59,10 @@ library(targets)
 library(data.table)
 library(ggplot2)
 ```
+
+Instruction: next, add a command to source the `R/packages.R` in your `_targets.R` script. 
+
+
 1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
 1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
 1. Run tar_visnetwork
