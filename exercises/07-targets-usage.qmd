@@ -8,3 +8,21 @@
 
 
 also see `tar_glimpse()`, `tar_mermaid()`, `tar_network()`
+
+
+## `tar_make()`
+
+isolated environment
+
+
+
+Extra
+
+could also make run distributed locally, with {future}, with {clustermq}
+https://docs.ropensci.org/targets/reference/tar_make_future.html
+https://docs.ropensci.org/targets/reference/tar_make_clustermq.html
+
+
+### Exercise: `tar_make()`
+
+
