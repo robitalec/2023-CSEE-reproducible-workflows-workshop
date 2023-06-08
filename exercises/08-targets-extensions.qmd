@@ -1,0 +1,25 @@
+# {targets}: extensions
+
+
+TODO 
+
+tar_group_by
+plot
+iteration = list
+pattern = map()
+format = file
+
+
+## Recommendations
+TODO
+
+start your next project with targets, easier to start then refactor a whole project especially if it isnt using functions
+
+
+## Bonus
+TODO
+
+format = file
+tar_option_set
+- fs 
+- error
