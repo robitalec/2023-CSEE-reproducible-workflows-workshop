@@ -42,3 +42,13 @@ The approach now that we have a {targets} workflow setup is a bit different than
 Instruction: Make an edit, run tar_make, look at results, make an edit, run tar make
 
 TODO where to look at results
+
+
+## Bonus
+
+Also make targets for plotting the weather timeseries and the palmer penguins
+
+Add a new target for something that isnt our function, what about `summary()` or any other common function
+note that targets dont need to be custom functions, any R command can be used in a target
+
+
