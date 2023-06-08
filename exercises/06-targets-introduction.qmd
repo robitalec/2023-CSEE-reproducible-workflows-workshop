@@ -92,6 +92,21 @@ tar_option_set(cue = tar_cue(mode = "always"))
 ### Exercise: options
 
 Instruction: make a new section named Options, put an empty call to tar_option_set there
+
+
+## Variables
+
+A section at the top of your `_targets.R` that defines variables that you might tweak or modify can make it really nice when you are working with {targets}
+
+Also helps to define things like variables for paths to different files etc
+
+### Exercise: variables
+
+Instruction: put a new section named Variables. add the file paths for the input files that we have been working with. 
+
+```r
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+```
 1. Make a packages.R script, (because it's centralized, gets loaded by targets, etc, also helps later for renv+conflicted)
 1. Put the functions prepare_csv, summarize counts and plot into targets with c(tar_target(, ...) (name needs to not clash with function, options for targets we'll look at in detail later but for now simple just 3 targets)
 1. Run tar_visnetwork
