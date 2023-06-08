@@ -30,3 +30,15 @@ https://docs.ropensci.org/targets/reference/tar_make_clustermq.html
 
 
 ### Exercise: `tar_read()`, `tar_load()`
+
+
+## Edits, rerun, edits, ... 
+
+The approach now that we have a {targets} workflow setup is a bit different than you might be used to using R interactively. With a {targets} workflow, everything is defined in the workflow so our process is now about making edits to our functions and our `_targets.R` workflow, then rerunning `tar_make()`, making edits, ... 
+
+
+### Exercise: practice the {targets} approach
+
+Instruction: Make an edit, run tar_make, look at results, make an edit, run tar make
+
+TODO where to look at results
