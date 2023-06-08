@@ -1,4 +1,4 @@
-## Getting Started
+# {targets}
 
 This quick 4 minute walkthrough gives a short example of how {targets} can be used: <https://vimeo.com/700982360>
 
