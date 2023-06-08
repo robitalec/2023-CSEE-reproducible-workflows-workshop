@@ -26,3 +26,7 @@ https://docs.ropensci.org/targets/reference/tar_make_clustermq.html
 ### Exercise: `tar_make()`
 
 
+## `tar_read()`, `tar_load()`
+
+
+### Exercise: `tar_read()`, `tar_load()`
