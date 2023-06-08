@@ -1,5 +1,42 @@
 # {targets}: setup
 
+TODO
+
+## `_targets.R`
+
+The `_targets.R` is where we declare our {targets} workflow. It is an R file saved in the root directory of your project. The generalized structure of a `_targets.R` file is:
+
+- Load packages
+- Set options and variables
+- End in a list of targets
+
+Note: a `_targets.R` **must** end in a list of targets. 
+
+A simple `_targets.R` script could be:
+
+```r
+library(targets)
+
+data(mtcars)
+
+c(
+    tar_target(
+        histogram_mpg, 
+        hist(mtcars$mpg)
+    )
+)
+```
+
+### Exercise: `_targets.R`
+
+Instruction: make a new file in the root directory of your project named `_targets.R`. At the top, load {targets} and at the bottom put an empty list `c( )`
+
+
+Sometimes, when a project gets really big, you can define your list of targets in separate files and bring them altogether in the `_targets.R` file. See example TODO
+
+
+
+
 ## Packages
 
 To declare which packages we need across all our functions, we have two main options:
