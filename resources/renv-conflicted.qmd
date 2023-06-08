@@ -1,25 +1,47 @@
+# {renv}
+
+The {renv} [documentation](https://rstudio.github.io/renv/index.html) and [vignettes](https://rstudio.github.io/renv/articles/) have lots of information on {renv}. We'll point out the most relevant pages and links, because {renv} can be used for a wide variety of uses on different systems (local machine, Docker, etc.). 
+
+
 ## [Introduction to renv](https://rstudio.github.io/renv/articles/renv.html)
 
-This vignette overviews what renv is, and how to use it. It walks us through the workflow of renv (`init()`, `snapshot()`, `restore()`) and outlines important caveats.
+This vignette overviews what renv is, and how to use it. 
 
-## [What is/Why use renv?](https://posit.co/resources/videos/renv-project-environments-for-r/)
+It walks us through the workflow of renv:
 
-A video by renv author Kevin Ushey, outlining why renv is important and how to use it.
+> - Call `renv::init()` to initialize a new project-local environment with a private R library,
+- Work in the project as normal, installing and removing new R packages as they are needed in the project,
+- Call `renv::snapshot()` to save the state of the project library to the lockfile (called renv.lock),
+- Continue working on your project, installing and updating R packages as needed.
+- Call `renv::snapshot()` again to save the state of your project library if your attempts to update R packages were successful, or call `renv::restore()` to revert to the previous state as encoded in the lockfile if your attempts to update packages introduced some new problems.
 
-## [Collaborating with renv](https://rstudio.github.io/renv/articles/collaborating.html)
+It also outlines important [caveats](https://rstudio.github.io/renv/articles/renv.html#caveats):
 
-How do you share your project that has an renv environment with other people? This vignette walks through the details of collaborating with other users when you have an isolated environment.
+- {renv} only solves one small part of the reproducible problem: recording the version of R and R packages that are used in a project
 
-## [renv FAQ](https://rstudio.github.io/renv/articles/faq.html)
+It does not help if a package version becomes no longer available in the future. 
 
-## [renv demo](https://www.youtube.com/watch?v=yc7ZB4F_dc0)
+It also does not help if a system dependency is missing on the computer attempting to recover an {renv} environment. The system dependency is external and needs to be installed for the project to run successfully. 
 
-Demo on how to set up renv in existing projects with biology professor/statistician.
+### [Collaborating with {renv}](https://rstudio.github.io/renv/articles/collaborating.html)
 
-------------------------------------------------------------------------
+How do you share your project that has an {renv} environment with other people? This vignette walks through the details of collaborating with other users when you have an isolated environment.
 
-[conflicted package](https://conflicted.r-lib.org/)
+## [{renv} FAQ](https://rstudio.github.io/renv/articles/faq.html)
 
-Describes why conflicted was invented and how to use the main function, `conflicts_prefer()`
+Frequently asked questions about {renv}, a great place to start when troubleshooting {renv}. 
 
-[conflicted blog post](https://www.tidyverse.org/blog/2018/06/conflicted/)
+
+### Videos
+
+#### [{renv}: Project Environments for R](https://posit.co/resources/videos/renv-project-environments-for-r/)
+
+A video by {renv} author Kevin Ushey, outlining why {renv} is important and how to use it.
+
+- Code repository: https://github.com/kevinushey/2020-rstudio-conf
+
+
+### [{renv} demo](https://www.youtube.com/watch?v=yc7ZB4F_dc0)
+
+Demo on how to set up {renv} in existing projects with biology professor/statistician.
+
