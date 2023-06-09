@@ -99,12 +99,34 @@ tar_load(sums)
 tar_read(plotted)
 ```
 </details>
+
+
 ## `tar_meta()`
 
+The metadata related to the {targets} workflow is accessible using the function `tar_meta()`. 
 
-### Exercise: `tar_read()`
+### Exercise: `tar_meta()`
 
-View()
+Instruction: run `tar_meta()` from your `explore.R` script to look at the metadata associated with your {targets} workflow. Also try using the `names` argument to filter the metadata returned. 
+
+Note: we sometimes find it helpful to use the `View()` function to open the metadata as a table in RStudio. 
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_meta()
+
+tar_meta(starts_with('plot'))
+
+View(tar_meta())
+```
+</details>
 
 ## Edits, rerun, edits, ... 
 
