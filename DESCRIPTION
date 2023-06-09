@@ -30,4 +30,6 @@ Imports: targets,
     conflicted,
     palmerpenguins,
     visNetwork,
+    downlit,
+    xml2,
     quarto
