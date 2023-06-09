@@ -54,19 +54,25 @@ tar_visnetwork(starts_with('plot'))
 
 ## `tar_make()`
 
-isolated environment
-
-
-
-Extra
-
-could also make run distributed locally, with {future}, with {clustermq}
-https://docs.ropensci.org/targets/reference/tar_make_future.html
-https://docs.ropensci.org/targets/reference/tar_make_clustermq.html
+Run the {targets} workflow with `tar_make()`. The workflow is run in a new external R process, which means that `tar_make()` doesn't impact your current workspace and, more importantly, is not influenced by your current workspace. This totally isolated environment is how {targets} offers us a truly reproducible approach - only things defined in the `_targets.R` script (or sourced within it) are considered. 
 
 
 ### Exercise: `tar_make()`
 
+Instruction: run `tar_make()` from your `explore.R` script.
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_make()
+```
+</details>
 
 ## `tar_read()`, `tar_load()`
 
