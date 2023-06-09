@@ -1,4 +1,4 @@
-# Dataset Template:
+# Dataset Template
 
 Format taken from Cohen et al.'s^1^ GitHub [page](www.github.com/viralemergence/datacov), look at their README for examples of how to fill in each section. If you have more complex datasets, you should consider more formal types of metadata documentation (see resources (LINK) for more info).
 
