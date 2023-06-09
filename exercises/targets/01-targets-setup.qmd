@@ -149,26 +149,57 @@ path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 
 ## Targets
 
-Now that our `_targets.R` file is setup, let's add our targets
+Now that our `_targets.R` script is setup, let's add our targets. As mentioned above, targets are combined in a list at the end of the `_targets.R` script. The function to specify an individual target is `tar_targets()` and it has two main arguments we will focus on for now: name and command. 
 
-targets have two required arguments: a name and a command
+```r
+tar_target(name, command)
+```
 
-name cannot match a function or anything in the global environment
+### Name
+The name of the target is the first argument of `tar_target()`. It is used in subsequent targets to connect dependencies between tasks. 
 
-command is the R command
+For example: 
 
-in our case, we are going to plug in the functions we developed
+```r
+c(
+    tar_target(target_1, command_1()),
+    tar_target(target_2, command_2(target_1))
+)
+```
 
-it could also be eg. a ggplot() + geom_point() + ..., or a multiline statement surrounded in curly braces
+Note: a target's name cannot match the name of any objects in the global environment, including function names. You can 
+
+Often, it feels natural to name a target using the name of the function we pass to command (`tar_target(plot, plot(mtcars))`). This is not an option - a target's name shouldn't match anything in the global environment (including function names). Treat the target name as if it was a variable - you wouldn't want to assign your function to the name "plot" and a variable to the name "plot". You can name based on a modification of the function name, eg. taking the `noun_verb()` syntax and making it past tense (name: `plotted_...` and command: `plot_...`), or a more specific name that refers to the function and the data (name: `plot_forest` and command `plot(forest)`). 
 
 
-### Exercise: targets
+### Command
 
-Instruction: set up three targets corresponding to the three functions we developed, using the adult and chick counts dataset
+Each target in a workflow is a step in analysis. See recommendations on [what a target should do](https://books.ropensci.org/targets/targets.html#what-a-target-should-do) and [how much a target should do](https://books.ropensci.org/targets/targets.html#how-much-a-target-should-do) in the {targets} manual. 
+
+In our case, we are going to plug in the functions we developed in the previous exercises into our target's commands. Commands can also point to a function from a package, or to a multiline statement surrounded in curly braces. 
+
+For example:
+
+`_targets.R`
+
+```r
+c(
+    # A function from another package
+    tar_target(
+        car_model,
+        lme4::glmer(mtcars)
+    ),
+    # A multiline statement with {}
+    tar_target(
+        long_statement,
+        {
+            mpg <- mtcars$mpg
+            cyl <- mtcars$cyl
+            mpg / cyl
+        }
+    )
+)
+```
 
 
-#### Bonus
-
-Set up targets to read the two other CSV files
-
-Set up targets to load the palmerpenguins dataset
+### Exercise: add targets
