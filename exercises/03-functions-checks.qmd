@@ -1,3 +1,7 @@
+---
+order: 4
+---
+
 # Checks in functions
 
 Checks in functions are used to ensure inputs and arguments are as expected,

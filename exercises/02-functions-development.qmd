@@ -1,3 +1,7 @@
+---
+order: 3
+---
+
 # An approach to developing functions
 
 We'll use the following approach for developing functions. 

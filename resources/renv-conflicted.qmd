@@ -1,3 +1,7 @@
+---
+order: 4
+---
+
 # {renv}
 
 The {renv} [documentation](https://rstudio.github.io/renv/index.html) and [vignettes](https://rstudio.github.io/renv/articles/) have lots of information on {renv}. We'll point out the most relevant pages and links, because {renv} can be used for a wide variety of uses on different systems (local machine, Docker, etc.). 

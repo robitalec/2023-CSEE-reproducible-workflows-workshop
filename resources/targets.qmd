@@ -1,3 +1,7 @@
+---
+order: 3
+---
+
 # {targets}
 
 The {targets} [documentation](https://docs.ropensci.org/targets/) and [help manual](https://books.ropensci.org/targets)

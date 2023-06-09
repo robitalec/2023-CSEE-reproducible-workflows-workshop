@@ -1,3 +1,7 @@
+---
+order: 6
+---
+
 # Functions: bonus
 
 If you are already done all the previous exercises and we have extra time, - or 
