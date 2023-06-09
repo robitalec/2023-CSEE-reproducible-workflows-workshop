@@ -75,6 +75,41 @@ Section 4: Reproducibility/Longevity
 -   Use {renv} to preserve current package versions to ensure the environment is reproducible, portable and isolated
 -   Use {conflicted} to detect conflicting function names
 
+
+## Setup
+
+This workshop is aimed at improving our ability to use and create *reproducible workflows.* All the materials should be accessible from the side bar (slides, exercises, resources for further reading, and the link to the GitHub repository can be accessed by clicking on the GitHub icon).
+
+We don't have any strict dependencies on specific versions of R or R packages, but it would be good to have at least R version 4.0 and a recent version of RStudio. 
+
+We are using Quarto to build the workshop's website and exercises, so it could be helpful for you to install it too. If you don't have time to, you can always complete exercises in an R script - so no pressure. 
+
+Install first the Quarto CLI from the [here](https://quarto.org/docs/get-started/) then the package with the command at the bottom.
+
+
+Please install the following packages (after updating R):
+
+```r
+pkgs <- c(
+  'targets',
+  'igraph',
+  'data.table',
+  'dplyr',
+  'ggplot2',
+  'testthat',
+  'janitor',
+  'renv',
+  'rlang',
+  'conflicted',
+  'palmerpenguins',
+  'visNetwork',
+  'quarto'
+)
+
+install.packages(pkgs)
+```
+
+
 ## Data
 
 Example data for this workshop is borrowed from the Palmer Long-Term Ecological Research (LTER). Here is the study description from the [Palmer LTER site](https://pallter.marine.rutgers.edu/):
