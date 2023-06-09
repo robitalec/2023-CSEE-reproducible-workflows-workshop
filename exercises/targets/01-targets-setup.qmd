@@ -1,6 +1,9 @@
 # {targets}: setup
 
-TODO
+
+This set of exercises are centered an approach to setting up your project use {targets}. 
+
+{targets} workflows are declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and later will make it easier to set up {renv}. 
 
 ## `_targets.R`
 
