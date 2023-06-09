@@ -1,0 +1,43 @@
+---
+title: "Project Setup & Management"
+author: Alec Robitaille & Isabella Richmond
+format: revealjs
+---
+
+## Learning Goals (9h00 - 10h05)
+
+-   Construct a RStudio project that is thoroughly documented using file structure and data management best practices
+
+-   Use RStudio projects to effectively share their own work, and use other people's
+
+::: callout-tip
+Resources for more information and further reading on any topic in this workshop can be found here (ADD LINK)
+:::
+
+## Structure: Group Discussion (15 mins)
+
+When you are starting the analysis for a project, what are the pieces that make up your project?
+
+-   How do we organize these into groups?
+
+## README: Think/Pair/Share (30 mins)
+
+-   READMEs are a landing page to our projects
+
+-   What do you need know when you first interact with someone's project?
+
+    -   Person 1: project creator / Person 2: project user
+
+    -   Come up with a list of attributes, information, etc. that you would need to use this project (to be shared later)
+
+    -   Scenario A: Graduated lab member + new lab member
+
+    -   Scenario B: Dataset/code from published paper + professional accessing these
+
+## RStudio Project Setup (20 mins)
+
+-   We have the pieces of the project and info we need in the README: let's set up an RStudio Project
+
+-   Many advantages (outlined in Resources **ADD LINK**)
+
+## BREAK (15 mins) 
