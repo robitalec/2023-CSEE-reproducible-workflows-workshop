@@ -8,7 +8,7 @@ project:
     - templates/test_function.R     
 
 website:
-  title: "2023 CSEE Reproducible workflow workshop"
+  title: "2023 CSEE Reproducible workflows workshop"
 
   sidebar:
     tools:
@@ -19,8 +19,19 @@ website:
         file: index.qmd
       - section: Exercises
         contents:
-          - auto: "exercises/**/*"
+          - section: Projects
+            contents:
+            - auto: "exercises/projects/*"
+          - section: Functions
+            contents:
             - auto: "exercises/functions/*"
+          - section: "{targets}"
+            contents:
+            - auto: "exercises/targets/*"
+          - text: "{renv}"
+            file: "exercises/renv.qmd"
+          - text: "{conflicted}"       
+            file: "exercises/conflicted.qmd"
       - section: Resources
         contents:
           - auto: "resources/*"
