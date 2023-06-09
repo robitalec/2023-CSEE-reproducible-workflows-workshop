@@ -1,7 +1,11 @@
-# 2023-CSEE-reproducible-workflows-workshop
-Developing a reproducible workflow in R using functions, targets and renv
+# Reproducible workflows workshop
 
+Workshop at [CSEE 2023](https://www.beepeg2023.ca/): developing a reproducible workflow in R using functions, {targets} and {renv}
 
+Developed and delivered by:
+
+- Alec L. Robitaille (Memorial University of Newfoundland and Labrador)
+- Isabella C. Richmond (Concordia University)
 ## Data
 
 Example data for this workshop is borrowed from the Palmer Long-Term Ecological Research (LTER). Here is the study description from the [Palmer LTER site](https://pallter.marine.rutgers.edu/):
