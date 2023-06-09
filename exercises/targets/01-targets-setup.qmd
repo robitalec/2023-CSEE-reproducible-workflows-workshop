@@ -1,5 +1,4 @@
-# {targets}: setup
-
+# Setup
 
 This set of exercises are centered an approach to setting up your project use {targets}. 
 
@@ -13,10 +12,11 @@ The `_targets.R` is where we declare our {targets} workflow. It is an R file sav
 - Set options and variables
 - End in a list of targets
 
-Note: a `_targets.R` **must** end in a list of targets. 
+Note: our `_targets.R` script **must** end in a list of targets. 
 
-A simple `_targets.R` script could be:
+A simple example script could be:
 
+`_targets.R`
 ```r
 library(targets)
 
@@ -32,12 +32,9 @@ c(
 
 ### Exercise: `_targets.R`
 
-Instruction: make a new file in the root directory of your project named `_targets.R`. At the top, load {targets} and at the bottom put an empty list `c( )`
-
+Instruction: make a new R script in the root directory of your project named `_targets.R`. At the top, load {targets} and at the bottom put an empty list `c( )`.
 
 Sometimes, when a project gets really big, you can define your list of targets in separate files and bring them altogether in the `_targets.R` file. See example TODO
-
-
 
 
 ## Packages
@@ -47,11 +44,12 @@ To declare which packages we need across all our functions, we have two main opt
 1. List them with `library()` calls at the top of our `_targets.R` script
 2. List them all in a `R/packages.R` script and source that script. 
 
-We prefer the second approach because it keeps our `_targets.R` tidier, and helps us setup {renv} package versioning later. TODO packages get long messy, convenient to source later 
+We prefer the second approach because it keeps our `_targets.R` tidier, and helps us setup {renv} package versioning and {conflicted} later. You might find your list of packages gets long, and this gets them out of our way. You can also use this script when you are exploring your results later - source the `packages.R` script and you will have all your required packages. 
+
 
 ### Exercise: `packages.R`
 
-Instruction: make a new script called `packages.R` in the `R/` directory. Go through your test scripts for your functions and add all the packages you used to the `packages.R` file with a `library()` call for each package on a separate line. 
+Instruction: make a new script called `packages.R` in the `R/` directory. Go through your function test scripts from previous exercises and add all the packages you used to the `packages.R` file with a `library()` call for each package on a separate line. 
 
 For example:
 
@@ -63,53 +61,91 @@ library(data.table)
 library(ggplot2)
 ```
 
-Instruction: next, add a command to source the `R/packages.R` in your `_targets.R` script. 
+Now, to make those packages available to the {targets} workflow, we need to load them in our `_targets.R` script. 
+
+Instruction: add a command to source the `R/packages.R` in your `_targets.R` script. 
+
+
+For example: 
+
+`_targets.R`
+```r
+# Packages
+source(file.path('R', 'packages.R'))
+```
 
 
 ## Functions
 
-To make functions available to the {targets} workflow we also need to also source them. 
+To make functions available to the {targets} workflow we also need to also source them in the `_targets.R` script. 
 
-A shortcut for sourcing all R files in a specific folder is provided by {targets}: `tar_source()`
+A shortcut for sourcing all the R files in a specific folder is provided by {targets}: `tar_source()`. We will use this to source our packages and functions in one step. 
 
-TODO details
+Note: something to be careful about now that we are sourcing the `R/` directory - you shouldn't have any calls to {targets} functions like `tar_read()`, `tar_load()` or `tar_make()` in the script in the `R/` directory. This is an impossible circular dependency - you are load or reading a target while you are also in the process of making it. Put any `tar_read()`, `tar_load()` or `tar_make()` calls elsewhere. 
+
 
 ### Exercise: sourcing functions
 
-Instruction: replace the above `source('R/packages.R')` command with `tar_source('R')` to source all the files in the `R/` directory
+Instruction: replace the above `source('R/packages.R')` command with the function `tar_source()` pointing to the `R/` directory with your `packages.R` script and the functions you developed in the previous exercises. 
 
-Note: something to be careful about now that we are sourcing the `R/` directory - you can't have any calls to {targets} functions like `tar_read()` or `tar_load()`. This will cause an error, because you are 
+Note: you will need to load {targets} to run the `tar_source()` function.
 
+
+For example: 
+
+`_targets.R`
+```r
+library(targets)
+tar_source('R')
+```
 
 ## Options
 
+We'll come back to setting {targets} options later, but let's set up a spot in our `_targets.R` script reserved for options. The relevant {targets} function is `tar_option_set()`. It can set global options for each target, such as the file format to save them in and when they should be cued to rerun. In addition, you can use `tar_option_set()` to manage options related to overall workflow runs such as what to do when a targets hits an error. 
 
-`tar_option_set()` for default file format, what to do when you have an error, etc
+The full reference page for `tar_option_set()` is available here: https://docs.ropensci.org/targets/reference/tar_option_set.html
 
-TODO we'll come back to tar_option_set later, but details here https://docs.ropensci.org/targets/reference/tar_option_set.html
-
-formats https://docs.ropensci.org/targets/reference/tar_option_set.html#storage-formats
-
-tar_option_set(cue = tar_cue(mode = "always"))
 
 ### Exercise: options
 
-Instruction: make a new section named Options, put an empty call to tar_option_set there
+Instruction: make a new section in your `_targets.R` script named Options, and put an empty call to `tar_option_set()` there. 
+
+
+For example: 
+
+`_targets.R`
+```r
+# Options
+tar_option_set()
+```
 
 
 ## Variables
 
-A section at the top of your `_targets.R` that defines variables that you might tweak or modify can make it really nice when you are working with {targets}
+A section at the top of your `_targets.R` script where you define variables that you might tweak or modify can make it really nice when you are working with {targets}. You can use it to define, for example:
 
-Also helps to define things like variables for paths to different files etc
+- paths to external files
+- themes for {ggplot2} figures
+- options and columns names to pass to functions
+- grouping columns eg. id
+
+
+Here's a couple different example projects that use a Variables section in their `_targets.R` scripts:
+
+- [robitalec/targets-spatsoc-networks/_targets.R](https://github.com/robitalec/targets-spatsoc-networks/blob/master/_targets.R#L23-L44)
+- [robitalec/targets-issa/_targets.R](https://github.com/robitalec/targets-issa/blob/main/_targets.R#L16-L58)
+- [robitalec/targets-rgee-extract/_targets.R](https://github.com/robitalec/targets-rgee-extract/blob/main/_targets.R#L11-L33)
+
 
 ### Exercise: variables
 
-Instruction: put a new section named Variables. add the file paths for the input files that we have been working with. 
+Instruction: make a new section named Variables, and add the file paths for the input files that we have been working with. 
 
 ```r
+# Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 ```
+
 
 ## Targets
 
