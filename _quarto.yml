@@ -12,6 +12,7 @@ website:
     contents:
       - text: "Home"
         file: index.qmd
+          - auto: "exercises/**/*"
       - section: Slides
         contents:
           - auto: "slides/*"
