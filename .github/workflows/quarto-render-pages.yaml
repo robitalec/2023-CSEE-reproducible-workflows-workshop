@@ -1,8 +1,10 @@
 # Based on usethis::use_github_action('pkgdown'), providing below workflow
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+
 # Edits:
 # rename to quarto-render-pages.yml
+# use render, publish from https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-07-publish-single-format.md
 on:
   push:
     branches: [main, master]
@@ -40,14 +42,13 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
-      - name: Build site
-        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
-        shell: Rscript {0}
+- name: Render project
+  uses: quarto-dev/quarto-actions/render@v2
+  with:
+    to: html
 
-      - name: Deploy to GitHub pages 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
-        with:
-          clean: false
-          branch: gh-pages
-          folder: docs
+- name: Publish HTML
+    uses: quarto-dev/quarto-actions/publish@v2
+  with:
+    target: gh-pages
+    render: false
