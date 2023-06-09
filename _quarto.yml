@@ -5,8 +5,10 @@ project:
 website:
   title: "2023 CSEE Reproducible workflow workshop"
 
-
   sidebar:
+    tools:
+      - icon: github
+        href: https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop
     contents:
       - text: "Home"
         file: index.qmd
