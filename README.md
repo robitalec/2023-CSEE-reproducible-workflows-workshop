@@ -134,16 +134,6 @@ The first dataset is already available in R through the [`palmerpenguins` R pack
 - sex
 - year
 
-1. Download and load the `palmerpenguins` package
-1. Load the `penguins` and `penguins_raw`datasets
-1. Compare and contrast the two datasets
-    - variables
-    - variable names
-    - dimensions (number of rows and columns)
-    - factor levels
-
-
-
 ### Weather timeseries
 
 The following datasets are available directly from the [Palmer LTER Data Catalog](https://pallter.marine.rutgers.edu/catalog/edi/). To download the data to the `raw-data/` directory, run the function `download_example_data()` (`R/download_example_data.R`). 
@@ -169,12 +159,6 @@ Link to data (CSV):
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e)
 
 
-1. Load dataset directly using URL 
-1. Use the `janitor` package to make clean column names
-1. Summarize the dataset
-1. Make a few exploratory plots
-1. Read the data package metadata and note the specific definitions of each variable
-
 
 ### Monthly sea ice area
 
@@ -195,14 +179,6 @@ Link to data (TXT):
 
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81)
 
-
-1. Use the function `readLines` to look at the top 20 lines of the data
-    - Where does the data start?
-    - Is there a header row with column names?
-1. Read the data as a data.frame
-1. Restructure the data so each row represents a value of area for a single month in a year
-1. Summarize the dataset
-1. Make a few exploratory plots
 
 
 ### Adelie penguin adult and chick counts
@@ -226,9 +202,5 @@ Link to data (CSV):
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f)
 
 
-1. Load dataset directly using URL
-1. Use the `janitor` package to make clean column names
-1. Summarize the dataset
-1. Make a few exploratory plots
-1. Read the data package metadata and note the specific definitions of each variable
 
+## LICENSE
