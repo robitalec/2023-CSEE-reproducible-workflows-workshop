@@ -1,0 +1,41 @@
+---
+execute: 
+  error: true
+---
+
+# Project setup
+
+## Exercises: project setup
+
+### RStudio Project Setup
+
+We are going to set up an RStudio Project that we will use for the rest of this workshop. Please follow along with these steps and remember, if you are lost use your red sticky note or raise your hand and someone will come help you.
+
+1.  Open RStudio and navigate to the upper right hand corner
+2.  Click on the drop-down menu and select the first option: "New Project..."
+    -   Alternatively, navigate to the top left corner, click "File", and then click "New Project..."
+3.  Select "New Directory", then "New Project"
+4.  Name the directory "2023-CSEE-workshop-projects" and navigate to the subdirectory in your computer where you want the folder to appear
+5.  Minimize RStudio and using your file navigation system, navigate to the place on the computer where your project is saved (e.g., Downloads)
+6.  Open the folder (you should see one file in there, an .Rproj file with the name you gave the folder)
+    -   Create five folders within your project folder:
+
+        -   raw-data
+
+        -   output
+
+        -   graphics
+
+        -   scripts
+
+        -   R
+7.  Download the data from this [link](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81) and move it into the `raw-data/` folder
+8.  Open your project in RStudio
+9.  Open an empty R script and save it as "README.md"
+10. Fill in your README file using one of the templates found **HERE** (add link)
+
+::: callout-note
+There are many questions you may not have the answers to for this exercise - either make them up or ignore them! Do your best to answer what you can (while thinking about how you may alter/use this format in your own life/projects)
+:::
+
+11. *(If you have time)* Share this directory with a neighbour as a zip file and see if you can each open and work with each other's project
