@@ -11,6 +11,10 @@ This help page is a great place to start when you are looking for help using {ta
 
 {targets} has a very active discussion group with plenty of past solutions and discussions to search through when you are looking for help. 
 
+## [Debugging](https://books.ropensci.org/targets/debugging.html)
+
+The debugging page is helpful for debugging {targets} workflows, especially when they get bigger and more complicated. [Debugging in {targets} is different](https://books.ropensci.org/targets/debugging.html#debugging-in-targets-is-different) is a good place to start. 
+
 ## Documentation
 
 Some select documentation pages from the {targets} documentation:
