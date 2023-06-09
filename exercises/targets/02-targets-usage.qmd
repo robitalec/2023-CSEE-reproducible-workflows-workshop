@@ -143,6 +143,15 @@ Bonus:
 
 - make a change to `prepare_csv()` that doesn't actually change the returned object  (eg. by adding an irrelevant intermediate step). Does this force the {targets} workflow to rerun?
 
+
+## Forcing reruns
+
+The following functions can be used to force {targets} to rerun targets. 
+
+- `tar_delete()` deletes individual target output values
+- `tar_destroy()` deletes the whole `_targets/` data store (**caution**)
+
+
 ## Bonus
 
 Also make targets for plotting the weather timeseries and the palmer penguins
