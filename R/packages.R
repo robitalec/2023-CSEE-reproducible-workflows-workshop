@@ -1,4 +1,5 @@
 library(targets)
+library(tarchetypes)
 library(igraph)
 library(data.table)
 library(dplyr)
