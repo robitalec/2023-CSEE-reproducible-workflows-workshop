@@ -1,5 +1,4 @@
-# Developing functions
-
+# An approach to developing functions
 
 ## Setup
 
