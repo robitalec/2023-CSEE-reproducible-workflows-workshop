@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>2023 CSEE Reproducible workflow workshop</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,70 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -40,8 +99,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,28 +118,19 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">2023 CSEE Reproducible workflow workshop</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">2023 CSEE Reproducible workflow workshop</a> 
         <div class="sidebar-tools-main">
@@ -97,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">Home</a>
   </div>
@@ -109,14 +158,14 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./slides/projects.html" class="sidebar-item-text sidebar-link">Project Setup &amp; Management</a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Exercises</a>
@@ -124,8 +173,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercises/00-projects-setup.html" class="sidebar-item-text sidebar-link">Project setup</a>
   </div>
@@ -156,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Templates</a>
@@ -164,8 +213,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./templates/README-data-project_template.html" class="sidebar-item-text sidebar-link">Data Reuse Plan Template</a>
   </div>
@@ -181,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Resources</a>
@@ -189,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources/projects.html" class="sidebar-item-text sidebar-link">Project Management</a>
   </div>
@@ -211,24 +260,133 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#welcome-to-our-workshop" id="toc-welcome-to-our-workshop" class="nav-link active" data-scroll-target="#welcome-to-our-workshop">Welcome to our workshop!</a>
+  <ul class="collapse">
+<li><a href="#who-are-we" id="toc-who-are-we" class="nav-link" data-scroll-target="#who-are-we">Who are We?</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning Goals</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#draft-schedule" id="toc-draft-schedule" class="nav-link" data-scroll-target="#draft-schedule">Draft Schedule</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><section id="welcome-to-our-workshop" class="level1"><h1>Welcome to our workshop!</h1>
+<section id="who-are-we" class="level2"><h2 class="anchored" data-anchor-id="who-are-we">Who are We?</h2>
+<p>Intros to us?</p>
+</section><section id="learning-goals" class="level2"><h2 class="anchored" data-anchor-id="learning-goals">Learning Goals</h2>
+<p>Overall</p>
+<ul>
+<li><p>Approach analyses in a more holistic way (whole project vs script by script)</p></li>
+<li><p>Share data across projects and software versions with minimal stress&nbsp;</p></li>
+<li><p>Use workflows that reduce analysis errors and mental load</p></li>
+</ul>
+<p>Section 1: Projects</p>
+<ul>
+<li><p>Construct a RStudio project that is thoroughly documented using file structure and data management best practices</p></li>
+<li><p>Use RStudio projects to effectively share their own work, and use other people’s</p></li>
+</ul>
+<p>Section 2: Functions</p>
+<ul>
+<li><p>Read and understand structure of functions in R</p></li>
+<li><p>Refactor code into functions that do one thing</p></li>
+<li><p>Add tests and checks to ensure functions work and error when expected</p></li>
+<li><p>Recognize the value of functions as chunks of code that are reusable and easier to debug</p></li>
+</ul>
+<p>Section 3: Workflows</p>
+<ul>
+<li><p>(For a given project) map out relationships between inputs, outputs and analysis steps</p></li>
+<li><p>Identify discrete chunks/steps and write corresponding (or use available) functions&nbsp;</p></li>
+<li><p>Execute a workflow in {targets} that reads in data, performs a function, and saves an output</p></li>
+<li><p>Recognize the value of workflows for reducing mental load and improving efficiency</p></li>
+</ul>
+<p>Section 4: Reproducibility/Longevity</p>
+<ul>
+<li><p>Use conflicted to detect conflicting function names</p></li>
+<li><p>Use renv to preserve current package versions to ensure the environment is reproducible, portable and isolated</p></li>
+</ul></section><section id="setup" class="level2"><h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>This workshop is aimed at improving our ability to use and create <em>reproducible workflows.</em> All the materials should be accessible from the side bar (slides, exercises, resources for further reading, and the link to the GitHub repository can be accessed by clicking on the GitHub icon).<br></p>
+<p>Alec sent an email on what you need to get started, but just in case you need a refresher (or are accessing this in the future), here is the info:</p>
+<p>We don’t have any strict dependencies on specific R or package versions, but it would be good to have at least R version 4.0 and a recent version of RStudio.&nbsp;</p>
+<p>We are using Quarto to build the workshop’s website and exercises, so it could be helpful for you to install it too. If you don’t have time to, you can always complete exercises in an R script - so no pressure.&nbsp;</p>
+<p>Install first the program from the link below, then the package with the command at the bottom.<br><br><a href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fquarto.org%2Fdocs%2Fget-started%2F&amp;data=05%7C01%7Cisabella.richmond%40mail.concordia.ca%7C8a1fc4fc8c194c802f6c08db682eac6e%7C5569f185d22f4e139850ce5b1abcd2e8%7C0%7C0%7C638218321889042908%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=%2FQfQFzGrGVdTPVWp%2BrE4erM0uhEoEr9C%2B2hQ7rpZo1Y%3D&amp;reserved=0" title="URL d'origine : https://quarto.org/docs/get-started/. Cliquez ou appuyez si vous faites confiance à ce lien.">https://quarto.org/docs/get-started/</a></p>
+<p>In addition, please install the following packages (after updating R):</p>
+<ul>
+<li><p>targets</p></li>
+<li><p>igraph</p></li>
+<li><p>data.table</p></li>
+<li><p>dplyr</p></li>
+<li><p>ggplot2</p></li>
+<li><p>testthat</p></li>
+<li><p>janitor</p></li>
+<li><p>renv</p></li>
+<li><p>rlang</p></li>
+<li><p>conflicted</p></li>
+<li><p>palmerpenguins</p></li>
+<li><p>visNetwork</p></li>
+<li><p>quarto (if you installed the Quarto CLI above)</p></li>
+</ul>
+<p>Here’s some R code for installing those:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'targets'</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'igraph'</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'data.table'</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'dplyr'</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'ggplot2'</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'testthat'</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'janitor'</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'renv'</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'rlang'</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'conflicted'</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'palmerpenguins'</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'visNetwork'</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&nbsp; <span class="st">'quarto'</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="draft-schedule" class="level2"><h2 class="anchored" data-anchor-id="draft-schedule">Draft Schedule</h2>
+<p>Projects (1h5m)</p>
+<ul>
+<li><p>Directories</p></li>
+<li><p>READMEs</p></li>
+<li><p>RStudio Projects</p></li>
+</ul>
+<p>Break (10m)</p>
+<p>Functions (1h45m)</p>
+<ul>
+<li><p>Introduction</p></li>
+<li><p>Recommended approach</p></li>
+<li><p>Checks</p></li>
+<li><p>Options</p></li>
+</ul>
+<p>Lunch (1h)</p>
+<p>Targets (2h)</p>
+<ul>
+<li><p>Introduction</p></li>
+<li><p>Writing workflows</p></li>
+<li><p>Visualizing</p></li>
+<li><p>Running workflows</p></li>
+<li><p>Extensions</p></li>
+</ul>
+<p>Break (15m)</p>
+<p>Renv+Conflicted (30m)</p>
+<ul>
+<li><p>Saving package versions</p></li>
+<li><p>Checking conflicting names</p></li>
+</ul>
 
 
-
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

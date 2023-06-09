@@ -1,1 +1,155 @@
+# Welcome to our workshop!
 
+## Who are We?
+
+Intros to us?
+
+## Learning Goals
+
+Overall
+
+-   Approach analyses in a more holistic way (whole project vs script by script)
+
+-   Share data across projects and software versions with minimal stress 
+
+-   Use workflows that reduce analysis errors and mental load
+
+Section 1: Projects
+
+-   Construct a RStudio project that is thoroughly documented using file structure and data management best practices
+
+-   Use RStudio projects to effectively share their own work, and use other people's
+
+Section 2: Functions
+
+-   Read and understand structure of functions in R
+
+-   Refactor code into functions that do one thing
+
+-   Add tests and checks to ensure functions work and error when expected
+
+-   Recognize the value of functions as chunks of code that are reusable and easier to debug
+
+Section 3: Workflows
+
+-   (For a given project) map out relationships between inputs, outputs and analysis steps
+
+-   Identify discrete chunks/steps and write corresponding (or use available) functions 
+
+-   Execute a workflow in {targets} that reads in data, performs a function, and saves an output
+
+-   Recognize the value of workflows for reducing mental load and improving efficiency
+
+Section 4: Reproducibility/Longevity
+
+-   Use conflicted to detect conflicting function names
+
+-   Use renv to preserve current package versions to ensure the environment is reproducible, portable and isolated
+
+## Setup
+
+This workshop is aimed at improving our ability to use and create *reproducible workflows.* All the materials should be accessible from the side bar (slides, exercises, resources for further reading, and the link to the GitHub repository can be accessed by clicking on the GitHub icon).\
+
+Alec sent an email on what you need to get started, but just in case you need a refresher (or are accessing this in the future), here is the info:
+
+We don't have any strict dependencies on specific R or package versions, but it would be good to have at least R version 4.0 and a recent version of RStudio. 
+
+We are using Quarto to build the workshop's website and exercises, so it could be helpful for you to install it too. If you don't have time to, you can always complete exercises in an R script - so no pressure. 
+
+Install first the program from the link below, then the package with the command at the bottom.\
+\
+[https://quarto.org/docs/get-started/](https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fquarto.org%2Fdocs%2Fget-started%2F&data=05%7C01%7Cisabella.richmond%40mail.concordia.ca%7C8a1fc4fc8c194c802f6c08db682eac6e%7C5569f185d22f4e139850ce5b1abcd2e8%7C0%7C0%7C638218321889042908%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=%2FQfQFzGrGVdTPVWp%2BrE4erM0uhEoEr9C%2B2hQ7rpZo1Y%3D&reserved=0 "URL d'origine : https://quarto.org/docs/get-started/. Cliquez ou appuyez si vous faites confiance à ce lien.")
+
+In addition, please install the following packages (after updating R):
+
+-   targets
+
+-   igraph
+
+-   data.table
+
+-   dplyr
+
+-   ggplot2
+
+-   testthat
+
+-   janitor
+
+-   renv
+
+-   rlang
+
+-   conflicted
+
+-   palmerpenguins
+
+-   visNetwork
+
+-   quarto (if you installed the Quarto CLI above)
+
+Here's some R code for installing those:
+
+```{r, eval = F, echo = T}
+pkgs <- c(
+  'targets',
+  'igraph',
+  'data.table',
+  'dplyr',
+  'ggplot2',
+  'testthat',
+  'janitor',
+  'renv',
+  'rlang',
+  'conflicted',
+  'palmerpenguins',
+  'visNetwork',
+  'quarto'
+)
+
+install.packages(pkgs)
+```
+
+## Draft Schedule
+
+Projects (1h5m)
+
+-   Directories
+
+-   READMEs
+
+-   RStudio Projects
+
+Break (10m)
+
+Functions (1h45m)
+
+-   Introduction
+
+-   Recommended approach
+
+-   Checks
+
+-   Options
+
+Lunch (1h)
+
+Targets (2h)
+
+-   Introduction
+
+-   Writing workflows
+
+-   Visualizing
+
+-   Running workflows
+
+-   Extensions
+
+Break (15m)
+
+Renv+Conflicted (30m)
+
+-   Saving package versions
+
+-   Checking conflicting names
