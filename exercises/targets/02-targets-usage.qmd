@@ -1,5 +1,20 @@
 # Usage
 
+Now that we have our `_targets.R` script setup with the previous exercises and we have added our first few targets to the workflow, let's take a look at using {targets}. It is a bit different than the [usual R approach](https://books.ropensci.org/targets/#motivation) where we make edits, then rerun everything, wait for results, notice issues, rerun from scratch...
+
+The following functions allow us to interact with the workflow's definition, metadata and results. Because of this, we shouldn't put them inside the `_targets.R` script or in our `R/` directory. Often {targets} workflows will result in a rendered document or manuscript, a number of saved plots or an output data file. 
+
+In our case, let's make a new script called `explore.R` in the root of the project's directory. Then we can keep track of our commands like `tar_meta()`, `tar_visnetwork()` and `tar_read()`, and easily rerun them when we make changes to the workflow. 
+
+Instruction: make a empty script called `explore.R` in the root of the project's directory. At the top, load the packages and/or the functions with `source()` or `tar_source()`.
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+```
+
 ## `tar_visnetwork()`
 
 
