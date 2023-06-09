@@ -1,4 +1,4 @@
-Package: 2023-CSEE-reproducible-workflows-workshop
+Package: 2023.CSEE.reproducible.workflows.workshop
 Title: Workshop for CSEE 2023 On Reproducible Workflows In R
 Version: 0.0.0.9000
 Authors@R: 
@@ -30,4 +30,5 @@ Imports: targets,
     conflicted,
     palmerpenguins,
     visNetwork,
-    quarto
+    quarto,
+    httpgd
