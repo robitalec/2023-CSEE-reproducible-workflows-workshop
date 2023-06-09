@@ -63,14 +63,14 @@ Section 2: Functions
 -   Add tests and checks to ensure functions work and error when expected
 -   Recognize the value of functions as chunks of code that are reusable and easier to debug
 
-Section 3: Workflows
+Section 3: {targets}
 
 -   (For a given project) map out relationships between inputs, outputs and analysis steps
 -   Identify discrete chunks/steps and write corresponding (or use available) functions 
 -   Execute a workflow in {targets} that reads in data, performs a function, and saves an output
 -   Recognize the value of workflows for reducing mental load and improving efficiency
 
-Section 4: Reproducibility/Longevity
+Section 4: {renv} + {conflicted}
 
 -   Use {renv} to preserve current package versions to ensure the environment is reproducible, portable and isolated
 -   Use {conflicted} to detect conflicting function names
