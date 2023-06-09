@@ -6,6 +6,44 @@ Developed and delivered by:
 
 - Alec L. Robitaille (Memorial University of Newfoundland and Labrador)
 - Isabella C. Richmond (Concordia University)
+
+
+## Schedule
+
+Projects
+
+-   Directories
+-   READMEs
+-   RStudio Projects
+
+*Short break*
+
+Functions
+
+-   Introduction
+-   Recommended approach
+-   Checks
+-   Options
+
+*Lunch break*
+
+{targets}
+
+-   Introduction
+-   Writing workflows
+-   Visualizing
+-   Running workflows
+-   Extensions
+
+*Short break*
+
+{renv} + {conflicted}
+
+-   Saving package versions
+-   Checking conflicts
+
+
+## Learning goals
 ## Data
 
 Example data for this workshop is borrowed from the Palmer Long-Term Ecological Research (LTER). Here is the study description from the [Palmer LTER site](https://pallter.marine.rutgers.edu/):
