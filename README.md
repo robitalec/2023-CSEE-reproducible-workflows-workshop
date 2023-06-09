@@ -204,3 +204,6 @@ Link to data (CSV):
 
 
 ## LICENSE
+
+This project is released under the GNU General Public License v3.0. Read it [here](https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop/blob/quarto/devel/LICENSE).
+
