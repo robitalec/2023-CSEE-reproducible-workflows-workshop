@@ -74,12 +74,31 @@ tar_make()
 ```
 </details>
 
+
 ## `tar_read()`, `tar_load()`
 
+To look at results from the {targets} workflow, use `tar_read()` and `tar_load()`. `tar_read()` reads targets without saving them as an object in your environment and `tar_load()` loads the object directly to your environment using the name of the target as the object. 
 
 ### Exercise: `tar_read()`, `tar_load()`
 
+Instruction: run `tar_read()` and `tar_load()` from your `explore.R` script to read/load the targets defined in your {targets} workflow.
 
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_read(prep_counts)
+
+tar_load(sums)
+
+tar_read(plotted)
+```
+</details>
 ## `tar_meta()`
 
 
