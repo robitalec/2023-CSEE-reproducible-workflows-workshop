@@ -1,4 +1,4 @@
-# {targets}: usage
+# Usage
 
 ## `tar_visnetwork()`
 
