@@ -15,14 +15,41 @@ library(targets)
 tar_source('R')
 ```
 
+
 ## `tar_visnetwork()`
+
+Before we run our workflow, we can check that everything looks good in the dependency graph with `tar_visnetwork()`. By default, `tar_visnetwork()` shows objects, functions and targets. You can adjust this behaviour to only show the targets using the argument `targets_only` set to TRUE. 
+
+Another argument that is especially useful when you have many targets: `name`. To show only selected targets, you can use {tidyselect} [helpers](https://tidyselect.r-lib.org/reference/index.html#selecting-variables) like `starts_with()`. The `name` argument comes up in many other {targets} functions including `tar_meta()` and `tar_read()`. 
+
+Related functions to `tar_visnetwork()` include:
+
+- `tar_glimpse()` is a faster version of `tar_visnetwork()` that doesn't check the workflow's metadata to see if functions have been are outdated or not
+- `tar_mermaid()` returns a [Mermaid.js](https://mermaid.js.org/) diagram representing the workflow
+- `tar_network()` returns a network of edges and nodes representing the workflow
 
 
 ### Exercise: `tar_visnetwork()`
 
+Instruction: run `tar_visnetwork()` from your `explore.R` script to see the dependency graph defined in your `_targets.R` script. Try out the `targets_only` and `name` arguments too. 
 
 
-also see `tar_glimpse()`, `tar_mermaid()`, `tar_network()`
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_visnetwork()
+
+tar_visnetwork(targets_only = TRUE)
+
+tar_visnetwork(starts_with('plot'))
+```
+</details>
 
 
 ## `tar_make()`
@@ -46,6 +73,13 @@ https://docs.ropensci.org/targets/reference/tar_make_clustermq.html
 
 ### Exercise: `tar_read()`, `tar_load()`
 
+
+## `tar_meta()`
+
+
+### Exercise: `tar_read()`
+
+View()
 
 ## Edits, rerun, edits, ... 
 
