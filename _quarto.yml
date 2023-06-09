@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "2023 CSEE Reproducible workflow workshop"
+
+
+  sidebar:
+    contents:
+      - text: "Home"
+        file: index.qmd
+      - section: Slides
+        contents:
+          - auto: "slides/*"
+      - section: Exercises
+        contents:
+          - auto: "exercises/*"
+      - section: Templates
+        contents:
+          - auto: "templates/*"
+      - section: Resources
+        contents:
+          - auto: "resources/*"
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    code-line-numbers: false
+    code-copy: true
+    code-link: true
+    code-block-border-left: false

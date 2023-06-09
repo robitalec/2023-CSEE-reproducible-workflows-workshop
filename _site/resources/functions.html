@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2023 CSEE Reproducible workflow workshop – functions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">2023 CSEE Reproducible workflow workshop</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">2023 CSEE Reproducible workflow workshop</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Slides</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/projects.html" class="sidebar-item-text sidebar-link">Project Setup &amp; Management</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Exercises</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/02-functions-development.html" class="sidebar-item-text sidebar-link">An approach to developing functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/03-functions-checks.html" class="sidebar-item-text sidebar-link">Checks in functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/04-functions-control-flow.html" class="sidebar-item-text sidebar-link">Controlling flow in function</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/05-functions-bonus.html" class="sidebar-item-text sidebar-link">Functions: bonus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/01-functions-introduction.html" class="sidebar-item-text sidebar-link">Introduction to functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/00-projects-setup.html" class="sidebar-item-text sidebar-link">Project setup</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Templates</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../templates/README-data-project_template.html" class="sidebar-item-text sidebar-link"><a href="https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md">Data Reuse Plan Template</a> (taken from the <a href="https://wiki.mozilla.org/ScienceLab">Mozilla Science Lab’s</a> workshop on <a href="https://github.com/mozillascience/working-open-workshop">Working Open</a> ):</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../templates/README-dataset-template.html" class="sidebar-item-text sidebar-link">Dataset Template:</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../templates/README-paper-template.html" class="sidebar-item-text sidebar-link">Paper Template:</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Resources</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/renv-conflicted.html" class="sidebar-item-text sidebar-link">{renv}</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/targets.html" class="sidebar-item-text sidebar-link">{targets}</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/functions.html" class="sidebar-item-text sidebar-link active">Functions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/projects.html" class="sidebar-item-text sidebar-link">Project Management</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#functions" id="toc-functions" class="nav-link active" data-scroll-target="#functions">Functions</a>
+  <ul class="collapse">
+  <li><a href="#r-for-data-science" id="toc-r-for-data-science" class="nav-link" data-scroll-target="#r-for-data-science">R for Data Science</a>
+  <ul class="collapse">
+  <li><a href="#functions-1" id="toc-functions-1" class="nav-link" data-scroll-target="#functions-1">Functions</a></li>
+  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">Iteration</a></li>
+  <li><a href="#conditional-execution" id="toc-conditional-execution" class="nav-link" data-scroll-target="#conditional-execution">Conditional execution</a></li>
+  </ul></li>
+  <li><a href="#advanced-r" id="toc-advanced-r" class="nav-link" data-scroll-target="#advanced-r">Advanced R</a>
+  <ul class="collapse">
+  <li><a href="#functions-2" id="toc-functions-2" class="nav-link" data-scroll-target="#functions-2">Functions</a></li>
+  <li><a href="#functional-programming" id="toc-functional-programming" class="nav-link" data-scroll-target="#functional-programming">Functional programming</a></li>
+  <li><a href="#control-flow" id="toc-control-flow" class="nav-link" data-scroll-target="#control-flow">Control flow</a></li>
+  <li><a href="#environments" id="toc-environments" class="nav-link" data-scroll-target="#environments">Environments</a></li>
+  </ul></li>
+  <li><a href="#software-carpentry-programming-with-r" id="toc-software-carpentry-programming-with-r" class="nav-link" data-scroll-target="#software-carpentry-programming-with-r">Software Carpentry: Programming with R</a>
+  <ul class="collapse">
+  <li><a href="#functions-3" id="toc-functions-3" class="nav-link" data-scroll-target="#functions-3">Functions</a></li>
+  <li><a href="#making-choices" id="toc-making-choices" class="nav-link" data-scroll-target="#making-choices">Making Choices</a></li>
+  <li><a href="#loops-in-r" id="toc-loops-in-r" class="nav-link" data-scroll-target="#loops-in-r">Loops in R</a></li>
+  <li><a href="#the-call-stack" id="toc-the-call-stack" class="nav-link" data-scroll-target="#the-call-stack">The Call Stack</a></li>
+  </ul></li>
+  <li><a href="#software-carpentry-r-for-reproducible-scientific-analysis" id="toc-software-carpentry-r-for-reproducible-scientific-analysis" class="nav-link" data-scroll-target="#software-carpentry-r-for-reproducible-scientific-analysis">Software Carpentry: R for Reproducible Scientific Analysis</a>
+  <ul class="collapse">
+  <li><a href="#control-flow-1" id="toc-control-flow-1" class="nav-link" data-scroll-target="#control-flow-1">Control Flow</a></li>
+  <li><a href="#functions-4" id="toc-functions-4" class="nav-link" data-scroll-target="#functions-4">Functions</a></li>
+  </ul></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R Packages</a>
+  <ul class="collapse">
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  </ul></li>
+  <li><a href="#what-they-forgot-to-teach-you" id="toc-what-they-forgot-to-teach-you" class="nav-link" data-scroll-target="#what-they-forgot-to-teach-you">What They Forgot to Teach You</a>
+  <ul class="collapse">
+  <li><a href="#naming" id="toc-naming" class="nav-link" data-scroll-target="#naming">Naming</a></li>
+  </ul></li>
+  <li><a href="#efficient-r" id="toc-efficient-r" class="nav-link" data-scroll-target="#efficient-r">Efficient R</a>
+  <ul class="collapse">
+  <li><a href="#efficient-programming" id="toc-efficient-programming" class="nav-link" data-scroll-target="#efficient-programming">Efficient programming</a></li>
+  <li><a href="#efficient-optimisation" id="toc-efficient-optimisation" class="nav-link" data-scroll-target="#efficient-optimisation">Efficient optimisation</a></li>
+  </ul></li>
+  <li><a href="#purrr" id="toc-purrr" class="nav-link" data-scroll-target="#purrr"><code>purrr</code></a>
+  <ul class="collapse">
+  <li><a href="#jenny-bryans-purrr-tutorial" id="toc-jenny-bryans-purrr-tutorial" class="nav-link" data-scroll-target="#jenny-bryans-purrr-tutorial">Jenny Bryan’s <code>purrr</code> tutorial</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="functions" class="level1">
+<h1>Functions</h1>
+<section id="r-for-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="r-for-data-science">R for Data Science</h2>
+<p>Links:</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/">1st edition</a></li>
+<li><a href="https://r4ds.hadley.nz/">2nd edition</a></li>
+<li><a href="https://github.com/hadley/r4ds">GitHub repository</a></li>
+</ul>
+<section id="functions-1" class="level3">
+<h3 class="anchored" data-anchor-id="functions-1"><a href="https://r4ds.had.co.nz/functions.html">Functions</a></h3>
+<p>Why write functions?</p>
+<ul>
+<li>“Improving reach as a data scientist”</li>
+<li>“Automate common tasks”</li>
+<li>Three big advantages
+<ol type="1">
+<li>Give a function an evocative name that makes your code easier to understand</li>
+<li>As requirements change, only need to update code in one place instead of many</li>
+<li>Eliminate chance of incremental mistakes when copy pasting</li>
+</ol></li>
+<li>Other advantages
+<ul>
+<li>Easier to apply over groups or chunks in data, eg. by individual with lapply/map/data.table’s by</li>
+</ul></li>
+</ul>
+<p>When to write functions?</p>
+<ul>
+<li>When you’ve copy pasted more than twice</li>
+</ul>
+<p>How to write functions?</p>
+<ul>
+<li>Develop code for accomplishing the task</li>
+<li>Analyse the code
+<ul>
+<li>How many inputs</li>
+<li>Look for duplication, eg. calculating the mean multiple times
+<ul>
+<li>Save as intermediate value</li>
+</ul></li>
+</ul></li>
+<li>List inputs</li>
+<li>List arguments</li>
+<li>Name function (verb)
+<ul>
+<li><code>snake_case</code></li>
+<li>Common prefix eg <code>input_select</code>, <code>input_checkbox</code>, <code>input_text</code></li>
+<li>Don’t override existing functions (see <code>conflicted</code> later)</li>
+</ul></li>
+<li>Name arguments (nouns)</li>
+<li>Place developed code in body of the function</li>
+<li>Check results with eg. NAs, missing values, known results</li>
+</ul>
+<p>Conditionals</p>
+<ul>
+<li>if else (else if)</li>
+<li><code>||</code> <code>&amp;&amp;</code> combine multiple logical expressions and short-circuit when <code>||</code> sees the first true and <code>&amp;&amp;</code> sees the first false</li>
+<li><code>|</code> <code>&amp;</code> are vectorized and cannot be directly used in an if unless you also use any / all</li>
+</ul>
+<p>Checking values</p>
+<ul>
+<li><code>stopifnot</code></li>
+<li><code>if</code> <code>else</code> then <code>stop</code></li>
+</ul>
+<p>Return</p>
+<ul>
+<li>always last thing</li>
+<li>otherwise explicit <code>return()</code></li>
+</ul>
+<p>Environment</p>
+<ul>
+<li>lexical scoping
+<ul>
+<li>if variable isnt available in the functions environment, will look in environment where function was defined</li>
+<li>in a simple case, eg f(x) {x + y}, this means <code>y</code>, but also <code>{</code> and <code>+</code></li>
+<li>if <code>+</code> is reassigned it will be used, meaning you can override a function from eg. base R</li>
+</ul></li>
+<li>https://adv-r.hadley.nz/environments.html</li>
+</ul>
+</section>
+<section id="iteration" class="level3">
+<h3 class="anchored" data-anchor-id="iteration"><a href="https://r4ds.had.co.nz/iteration.html">Iteration</a></h3>
+<p>Note: we’ll use targets’ dynamic and static branching instead for this workshop</p>
+<p>Iterating over a single list/vector/etc</p>
+<ul>
+<li><code>for</code> loops</li>
+<li><code>purrr::map</code></li>
+</ul>
+<p>Multiple inputs</p>
+<ul>
+<li><code>purrr::map2</code></li>
+</ul>
+<p>Loop for side effects</p>
+<ul>
+<li><code>purrr::walk</code></li>
+</ul>
+<p>Managing errors</p>
+<ul>
+<li><code>purrr::safely</code></li>
+<li><code>try</code></li>
+<li><code>purrr::possibly</code></li>
+<li><code>purrr::quietly</code></li>
+</ul>
+</section>
+<section id="conditional-execution" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-execution"><a href="https://r4ds.had.co.nz/functions.html?q=if#conditions">Conditional execution</a></h3>
+</section>
+</section>
+<section id="advanced-r" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-r">Advanced R</h2>
+<section id="functions-2" class="level3">
+<h3 class="anchored" data-anchor-id="functions-2"><a href="https://adv-r.hadley.nz/functions.html">Functions</a></h3>
+<p>Three components of a function</p>
+<ul>
+<li>arguments (<code>formals()</code>): arguments used to control the function</li>
+<li>body (<code>body()</code>): code inside the function</li>
+<li>environment (<code>environment()</code>): determins how function finds values associated with names
+<ul>
+<li>implicit based on where you defined the function</li>
+</ul></li>
+</ul>
+<p>Functions are objects</p>
+<p>Primitive functions</p>
+<ul>
+<li>only found in the base package</li>
+<li>eg. sum, <code>[</code></li>
+<li>they are the exceptions to above, for primitive functions the following return NULL <code>formals()</code>, <code>body()</code>, <code>environment()</code></li>
+<li>primitive functions indicated by typeof(f) is “builtin” or “special”</li>
+</ul>
+<p>Anonymous functions are used without first assigning them</p>
+<p><code>do.call</code> if you have arguments already in a list</p>
+<p>Combining function calls</p>
+<ul>
+<li>nesting <code>f(g(x))</code> is concise, good for short sequences but hard to read (right to left, inside out)</li>
+<li>intermediate objects, requires naming each intermediate object, useful when independent objects are useful otherwise not</li>
+<li>pipes let you run and function <em>and then</em> then next one <em>and then</em> the next one (…) in a chain</li>
+</ul>
+<p>Lexical scoping</p>
+<ul>
+<li>name masking</li>
+</ul>
+</section>
+<section id="functional-programming" class="level3">
+<h3 class="anchored" data-anchor-id="functional-programming"><a href="https://adv-r.hadley.nz/fp.html">Functional programming</a></h3>
+<p>R is at its heart a functional language</p>
+<p>Functional languages have:</p>
+<ol type="1">
+<li>first-class functions that behave like any other data structure. you can assign to variables, store them in lists, pass them as arguments, etc</li>
+<li>functions that are pure. pure functions satisfy two properties - 1) outputs depend only on inputs where rerunning the function with the same inputs will yield the same results, and 2) functions have no side-effects like changing global variables, writing to disk, displaying to the screen</li>
+</ol>
+<p>For R, functions are ideally either very pure, or very impure (plotting, saving, etc)</p>
+<p>Functionals are functions that take a function as input and returns a vector as output</p>
+<ul>
+<li>eg. lapply, apply, tapply, purrr::map</li>
+<li>commonly used as an alternative to for loops</li>
+<li>(lots of great background)</li>
+</ul>
+<p>Function factories</p>
+<ul>
+<li>eg. power1 &lt;- function(exp) function(x) x ^ exp, square &lt;- power1(2)</li>
+<li>(beyond scope of workshop)</li>
+</ul>
+<p>Function operators</p>
+</section>
+<section id="control-flow" class="level3">
+<h3 class="anchored" data-anchor-id="control-flow"><a href="https://adv-r.hadley.nz/control-flow.html">Control flow</a></h3>
+<p>Choices</p>
+<ul>
+<li><code>if</code> (condition) true_action</li>
+<li><code>if</code> (condition) true_action <code>else</code> false_action</li>
+<li>also <code>else if</code></li>
+<li>condition must be length 1</li>
+<li><code>switch</code> (https://adv-r.hadley.nz/control-flow.html#switch)
+<ul>
+<li>more compact than a bunch of <code>if</code> <code>else if</code> <code>else</code></li>
+</ul></li>
+</ul>
+<p>Loops</p>
+<ul>
+<li><code>for</code>
+<ul>
+<li>caution <code>1:length</code> if <code>length == 0</code>, instead use <code>seq_along</code>, <code>seq.int</code>, etc.</li>
+</ul></li>
+<li><code>while</code></li>
+<li><code>repeat</code></li>
+</ul>
+</section>
+<section id="environments" class="level3">
+<h3 class="anchored" data-anchor-id="environments"><a href="https://adv-r.hadley.nz/environments.html">Environments</a></h3>
+</section>
+</section>
+<section id="software-carpentry-programming-with-r" class="level2">
+<h2 class="anchored" data-anchor-id="software-carpentry-programming-with-r">Software Carpentry: <a href="https://swcarpentry.github.io/r-novice-inflammation/">Programming with R</a></h2>
+<section id="functions-3" class="level3">
+<h3 class="anchored" data-anchor-id="functions-3"><a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R.html">Functions</a></h3>
+<p>Defining a function</p>
+<ul>
+<li>R automatically returns whichever variable is on the last line of the body of the function</li>
+</ul>
+<p>Composing functions</p>
+<ul>
+<li>compose functions by combining eg. two functions into a new function that uses both</li>
+<li>nest function calls by passing the output of one function directly as input to the next (also see pipes)</li>
+</ul>
+<p>Testing</p>
+<ul>
+<li>use simple example data instead of your actual data where you might not know what the output value should be</li>
+</ul>
+<p>Error handling</p>
+<ul>
+<li>add errors and warnings to ensure the inputs and arguments are appropriate eg. the expected class</li>
+<li>errors and warnings help inform a user about the function’s expectations</li>
+</ul>
+<p>Defining defaults</p>
+<ul>
+<li>R uses the position of arguments, typically only recommended with a smaller number of arguments</li>
+<li>with a larger number of arguments, use named arguments to ensure arguments are correctly passed</li>
+<li>set a default value for an argument by passing it with = in the function definition</li>
+</ul>
+</section>
+<section id="making-choices" class="level3">
+<h3 class="anchored" data-anchor-id="making-choices"><a href="https://swcarpentry.github.io/r-novice-inflammation/04-cond.html">Making Choices</a></h3>
+<ul>
+<li>make decisions using logical comparisons
+<ul>
+<li><code>&gt;</code>, <code>&lt;</code></li>
+</ul></li>
+<li>use logical comparisons with <code>if</code> <code>else</code> to define conditional statements</li>
+<li><code>&amp;&amp;</code> and <code>||</code></li>
+</ul>
+</section>
+<section id="loops-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="loops-in-r"><a href="https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html">Loops in R</a></h3>
+<ul>
+<li>vectorized functions</li>
+<li>vector recycling</li>
+<li><code>for</code> or <code>apply</code>?</li>
+</ul>
+</section>
+<section id="the-call-stack" class="level3">
+<h3 class="anchored" data-anchor-id="the-call-stack"><a href="https://swcarpentry.github.io/r-novice-inflammation/14-supp-call-stack.html">The Call Stack</a></h3>
+<p>Details on variable scoping</p>
+</section>
+</section>
+<section id="software-carpentry-r-for-reproducible-scientific-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="software-carpentry-r-for-reproducible-scientific-analysis">Software Carpentry: <a href="https://swcarpentry.github.io/r-novice-gapminder/">R for Reproducible Scientific Analysis</a></h2>
+<section id="control-flow-1" class="level3">
+<h3 class="anchored" data-anchor-id="control-flow-1"><a href="https://swcarpentry.github.io/r-novice-gapminder/07-control-flow.html">Control Flow</a></h3>
+<ul>
+<li><code>if</code>, <code>else</code> control flow in R as conditional statements</li>
+<li><code>ifelse</code> is vectorized</li>
+<li><code>any</code> returns TRUE if there is at least one TRUE in the vector</li>
+<li><code>all</code> returns TRUE if all are TRUE in the vector</li>
+</ul>
+</section>
+<section id="functions-4" class="level3">
+<h3 class="anchored" data-anchor-id="functions-4"><a href="https://swcarpentry.github.io/r-novice-gapminder/10-functions.html">Functions</a></h3>
+<p>Also see above Software Carpentry: Programming with R’s section on Functions (some similar content)</p>
+<p>Defensive programming</p>
+<ul>
+<li>defensive programming can involve including check conditions and throwing errors when something is not as expected</li>
+<li>use <code>stopifnot()</code> to detect where a conditional statement is FALSE and return an error</li>
+</ul>
+</section>
+</section>
+<section id="r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="r-packages"><a href="https://r-pkgs.org">R Packages</a></h2>
+<section id="testing" class="level3">
+<h3 class="anchored" data-anchor-id="testing"><a href="https://r-pkgs.org/testing-basics.html">Testing</a></h3>
+<p>Why is formal testing worth the trouble?</p>
+<ul>
+<li>the informal approach is load the function, experiment with it in console or scrap script, repeat</li>
+<li>an informal approach works fine in the moment, but when you return to the function in the future, say to add a new argument or test a new data type, you have no record of the tests you ran the first time</li>
+<li>benefits to writing formal tests
+<ul>
+<li>fewer bugs since you are explicit about how the code should work</li>
+<li>better code structure because if you find it hard to write tests for your functions, it might be that the design of your functions is not ideal</li>
+<li>when you discover a bug, write a test that replicates the bug - then making the test pass becomes the concrete goal in fixing the bug</li>
+<li>when functions are well covered by tests (robust), you can be confident making changes without accidentally breaking something</li>
+</ul></li>
+</ul>
+<p>Introduction testthat</p>
+<p>Test mechanics and workflow</p>
+<p>Expectations</p>
+<ul>
+<li>testing for
+<ul>
+<li>equality</li>
+<li>errors</li>
+<li>match</li>
+<li>length</li>
+<li>s3 class, s4 class, type</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="what-they-forgot-to-teach-you" class="level2">
+<h2 class="anchored" data-anchor-id="what-they-forgot-to-teach-you">What They Forgot to Teach You</h2>
+<section id="naming" class="level3">
+<h3 class="anchored" data-anchor-id="naming">Naming</h3>
+<p>https://speakerdeck.com/jennybc/how-to-name-files</p>
+</section>
+</section>
+<section id="efficient-r" class="level2">
+<h2 class="anchored" data-anchor-id="efficient-r"><a href="https://csgillespie.github.io/efficientR/">Efficient R</a></h2>
+<section id="efficient-programming" class="level3">
+<h3 class="anchored" data-anchor-id="efficient-programming"><a href="https://csgillespie.github.io/efficientR/programming.html">Efficient programming</a></h3>
+<p><a href="https://csgillespie.github.io/efficientR/programming.html#communicating-with-the-user">Communication with the user</a>:</p>
+<ul>
+<li>fatal errors: <code>stop()</code></li>
+<li>warnings: <code>warning()</code></li>
+<li>informative output: <code>message()</code></li>
+<li>invisible returns (eg. plots): <code>invisible()</code></li>
+</ul>
+</section>
+<section id="efficient-optimisation" class="level3">
+<h3 class="anchored" data-anchor-id="efficient-optimisation"><a href="https://csgillespie.github.io/efficientR/performance.html">Efficient optimisation</a></h3>
+<p><a href="https://csgillespie.github.io/efficientR/performance.html#efficient-base-r">Efficient base R</a></p>
+<ul>
+<li><a href="https://csgillespie.github.io/efficientR/performance.html#the-if-vs-ifelse-functions"><code>if()</code> vs <code>ifelse()</code></a></li>
+<li><a href="https://csgillespie.github.io/efficientR/performance.html#is.na-and-anyna"><code>is.na()</code> and <code>anyNA()</code></a></li>
+</ul>
+</section>
+</section>
+<section id="purrr" class="level2">
+<h2 class="anchored" data-anchor-id="purrr"><code>purrr</code></h2>
+<section id="jenny-bryans-purrr-tutorial" class="level3">
+<h3 class="anchored" data-anchor-id="jenny-bryans-purrr-tutorial"><a href="https://jennybc.github.io/purrr-tutorial/">Jenny Bryan’s <code>purrr</code> tutorial</a></h3>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
