@@ -12,19 +12,19 @@ website:
     contents:
       - text: "Home"
         file: index.qmd
-          - auto: "exercises/**/*"
-      - section: Slides
-        contents:
-          - auto: "slides/*"
       - section: Exercises
         contents:
-          - auto: "exercises/*"
-      - section: Templates
-        contents:
-          - auto: "templates/*"
+          - auto: "exercises/**/*"
       - section: Resources
         contents:
           - auto: "resources/*"
+      - section: Slides
+        contents:
+          - auto: "slides/*"
+      - section: Templates
+        contents:
+          - auto: "templates/*"
+
 format:
   html:
     theme:
