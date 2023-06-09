@@ -203,3 +203,140 @@ c(
 
 
 ### Exercise: add targets
+
+Instruction: set up individual targets corresponding to the three functions we developed using the adult and chick counts dataset. Head back to your testing scripts to recall how you used the functions and which arguments you need. Name your targets then pass the functions to the command argument. Fill in your Variables section and pass them as arguments in the functions.  
+
+- `prepare_csv()`
+- `sum_counts()`
+- `plot_xy()`
+
+ 
+<details>
+<summary>Hint: setup</summary>
+
+Load targets
+
+Source the `R/` directory
+
+Save the path to the counts data under Variables
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+c(
+
+)
+```
+</details>
+
+
+<details>
+<summary>Hint: `prepare_csv()`</summary>
+Add a target for the `prepare_csv()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the `path_counts` variable to the `prepare_csv()` function
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    )
+)
+```
+</details>
+
+
+
+<details>
+<summary>Hint: `sum_counts()`</summary>
+Add a target for the `sum_counts()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the target for the `prepare_csv()` function to the `sum_counts()` function 
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    ),
+    tar_target(
+        sums,
+        sum_counts(prep_counts)
+    )
+)
+```
+</details>
+
+
+<details>
+<summary>Hint: `plot_xy()`</summary>
+Add a target for the `plot_xy()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the target for the `prepare_csv()` function to the `plot_xy()` function 
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+x_col <- 'date_gmt'
+y_col <- 'adults'
+
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    ),
+    tar_target(
+        sums,
+        sum_counts(prep_counts)
+    ),
+    tar_target(
+        plotted,
+        plot_xy(prep_counts, x_col, y_col)
+    )
+)
+```
+</details>
