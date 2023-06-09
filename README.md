@@ -44,6 +44,37 @@ Functions
 
 
 ## Learning goals
+
+Overall
+
+-   Approach analyses in a more holistic way (whole project vs script by script)
+-   Share data across projects and software versions with minimal stress 
+-   Use workflows that reduce analysis errors and mental load
+
+Section 1: Projects
+
+-   Construct a RStudio project that is thoroughly documented using file structure and data management best practices
+-   Use RStudio projects to effectively share their own work, and use other people's
+
+Section 2: Functions
+
+-   Read and understand structure of functions in R
+-   Refactor code into functions that do one thing
+-   Add tests and checks to ensure functions work and error when expected
+-   Recognize the value of functions as chunks of code that are reusable and easier to debug
+
+Section 3: Workflows
+
+-   (For a given project) map out relationships between inputs, outputs and analysis steps
+-   Identify discrete chunks/steps and write corresponding (or use available) functions 
+-   Execute a workflow in {targets} that reads in data, performs a function, and saves an output
+-   Recognize the value of workflows for reducing mental load and improving efficiency
+
+Section 4: Reproducibility/Longevity
+
+-   Use {renv} to preserve current package versions to ensure the environment is reproducible, portable and isolated
+-   Use {conflicted} to detect conflicting function names
+
 ## Data
 
 Example data for this workshop is borrowed from the Palmer Long-Term Ecological Research (LTER). Here is the study description from the [Palmer LTER site](https://pallter.marine.rutgers.edu/):
