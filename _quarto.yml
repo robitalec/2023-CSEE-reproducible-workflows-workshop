@@ -1,6 +1,11 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - templates/README-dataset-template.md
+    - templates/README-data-project_template.md
+    - templates/README-paper-template.md
+    - templates/test_function.R     
 
 website:
   title: "2023 CSEE Reproducible workflow workshop"
@@ -15,6 +20,7 @@ website:
       - section: Exercises
         contents:
           - auto: "exercises/**/*"
+            - auto: "exercises/functions/*"
       - section: Resources
         contents:
           - auto: "resources/*"
@@ -22,8 +28,20 @@ website:
         contents:
           - auto: "slides/*"
       - section: Templates
+        href: 
         contents:
-          - auto: "templates/*"
+          - section: README
+            contents:
+              - text: dataset-template.md
+                file: _templates/README/dataset-template.md
+              - text: dataset-template.md
+                href: _templates/README/data-project-template.md
+              - text: data-project_template.md
+                href: _templates/README/paper-template.md
+          - section: Functions
+            contents:
+              - text: test_function.R 
+                href: _templates/test_function.R                        
 
 format:
   html:
