@@ -1,8 +1,4 @@
----
-order: 4
----
-
-# Checks in functions
+# Checks
 
 Checks in functions are used to ensure inputs and arguments are as expected,
 to handle errors and to provide informative error messages to users. In this

@@ -1,8 +1,4 @@
----
-order: 6
----
-
-# Functions: bonus
+# Bonus
 
 If you are already done all the previous exercises and we have extra time, - or 
 on your own after the workshop, try these additional exercises. 
