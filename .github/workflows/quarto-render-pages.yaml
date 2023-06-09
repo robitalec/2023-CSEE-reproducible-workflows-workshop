@@ -5,6 +5,7 @@
 # Edits:
 # rename to quarto-render-pages.yml
 # use render, publish from https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-07-publish-single-format.md
+
 on:
   push:
     branches: [main, master]
