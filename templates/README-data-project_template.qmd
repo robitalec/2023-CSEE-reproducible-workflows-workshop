@@ -1,6 +1,6 @@
-# [Data Reuse Plan Template](https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md)
+# Data Reuse Plan Template
 
-(taken from the [Mozilla Science Lab's](https://wiki.mozilla.org/ScienceLab) workshop on [Working Open](https://github.com/mozillascience/working-open-workshop))
+([template](https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md) taken from the [Mozilla Science Lab's](https://wiki.mozilla.org/ScienceLab) workshop on [Working Open](https://github.com/mozillascience/working-open-workshop))
 
 ------------------------------------------------------------------------
 
