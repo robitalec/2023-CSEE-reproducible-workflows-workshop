@@ -340,3 +340,8 @@ c(
 )
 ```
 </details>
+
+#### Bonus
+
+- add two more targets to read the other CSV files
+- add another target to load the `palmerpenguins` dataset from {palmerpenguins}
