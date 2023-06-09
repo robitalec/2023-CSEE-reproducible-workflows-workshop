@@ -15,14 +15,14 @@ on:
     types: [published]
   workflow_dispatch:
 
-name: quarto-render-pages
+name: Quarto render pages
 
 jobs:
-  pkgdown:
+  quarto:
     runs-on: ubuntu-latest
     # Only restrict concurrency for non-PR jobs
     concurrency:
-      group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
+      group: quarto-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     permissions:
@@ -43,13 +43,13 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
-- name: Render project
-  uses: quarto-dev/quarto-actions/render@v2
-  with:
-    to: html
+      - name: Render project
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
 
-- name: Publish HTML
-    uses: quarto-dev/quarto-actions/publish@v2
-  with:
-    target: gh-pages
-    render: false
+      - name: Publish HTML
+          uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+          render: false
