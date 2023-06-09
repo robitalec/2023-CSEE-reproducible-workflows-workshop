@@ -128,17 +128,20 @@ View(tar_meta())
 ```
 </details>
 
+
+
 ## Edits, rerun, edits, ... 
 
-The approach now that we have a {targets} workflow setup is a bit different than you might be used to using R interactively. With a {targets} workflow, everything is defined in the workflow so our process is now about making edits to our functions and our `_targets.R` workflow, then rerunning `tar_make()`, making edits, ... 
+Now that we have a {targets} workflow, the approach is a bit different than we might be used to using R interactively. With a {targets} workflow, everything is defined in the workflow so our process is now about making edits to our functions and our `_targets.R` workflow, then rerunning `tar_make()`,  ... {targets} tracks all functions and objects (and optionally can also track external files) and will only rerun downstream targets when required. This is the other main way that {targets} makes our lives easier. We no longer need to mentally keep track of versions of scripts, output files, figures, etc - just run `tar_make()` to run anything outdated (or check with `tar_visnetwork()`). 
 
 
 ### Exercise: practice the {targets} approach
 
-Instruction: Make an edit, run tar_make, look at results, make an edit, run tar make
+Instruction: make sure your {targets} workflow is up to date with `tar_visnetwork()`. Then, make an edit to the function `sum_counts()`. Rerun the {targets} workflow. Next, make an edit to the function `plot_xy()`. Rerun with `tar_make()`. Lastly, make an edit to `prepare_csv()` and rerun. Note which targets were rerun with each change and discuss with your neighbours. 
 
-TODO where to look at results
+Bonus:
 
+- make a change to `prepare_csv()` that doesn't actually change the returned object  (eg. by adding an irrelevant intermediate step). Does this force the {targets} workflow to rerun?
 
 ## Bonus
 
