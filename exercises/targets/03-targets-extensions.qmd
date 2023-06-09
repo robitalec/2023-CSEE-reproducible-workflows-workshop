@@ -19,11 +19,14 @@ You can also run {targets} workflows using various high-performance computing op
 
 `tar_make()` also integrates with the [{crew}](https://github.com/wlandau/crew) package which will become the predominant high-performance computing approach for {targets} moving forward (see [NEWS {targets} 1.0.0](https://github.com/ropensci/targets/blob/main/NEWS.md#targets-100)).
 
+
 ## Recommendations
 TODO
 
 start your next project with targets, easier to start then refactor a whole project especially if it isnt using functions
 
+
+Git Ignore the _targets/ directory 
 
 ## Bonus
 TODO
