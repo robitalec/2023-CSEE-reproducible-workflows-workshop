@@ -8,6 +8,10 @@
 
 
 
+formats https://docs.ropensci.org/targets/reference/tar_option_set.html#storage-formats
+
+tar_option_set(cue = tar_cue(mode = "always"))
+
 
 
 tar_group_by
