@@ -1,5 +1,80 @@
 # Extensions
 
+This set of exercises brings together extensions and additional features together to write a {targets} workflow that 
+
+has many pieces like a regular 
+
+
+
+    # Files
+    tar_target(
+        file_counts,
+        path_counts,
+        format = 'file'
+    ),
+
+
+
+group by
+ # Group
+    tar_group_by(
+        group_counts,
+        prep_counts,
+        island
+    ),
+
+dynamic branching over groups
+pattern = map()
+ 
+
+    # Sum counts by group
+    tar_target(
+        sum_groups,
+        sum_counts(group_counts, 'island'),
+        pattern = map(group_counts)
+    ),
+
+
+plot by group
+iteration = list
+
+    # Plot by group
+    tar_target(
+        plot_groups,
+        plot_xy(group_counts, x_col, y_col),
+        pattern = map(group_counts),
+        iteration = 'list'
+    ),
+
+
+save plots
+format file
+iteration list
+map over multiple
+    # Save plots
+    tar_target(
+        save_plot,
+        ggsave(filename = file.path('figures', group_counts[1, ]$island),
+               plot = plot_groups,
+               device = 'png'),
+        pattern = map(plot_groups, group_counts),
+        format = 'file',
+        iteration = 'list'
+
+
+## External files
+
+{targets} can be used to track external files for changes. 
+
+
+
+
+## {tarchetypes}
+
+
+### `tar_group_by()`
+
+
 
 TODO 
 
@@ -9,15 +84,6 @@ iteration = list
 pattern = map()
 format = file
 
-
-## High-performance computing
-
-You can also run {targets} workflows using various high-performance computing options. 
-
-- through the {future} package with [`tar_make_future()`](https://docs.ropensci.org/targets/reference/tar_make_future.html)
-- through the {clustermq} with the [`tar_make_clustermq()`](https://docs.ropensci.org/targets/reference/tar_make_clustermq.html). 
-
-`tar_make()` also integrates with the [{crew}](https://github.com/wlandau/crew) package which will become the predominant high-performance computing approach for {targets} moving forward (see [NEWS {targets} 1.0.0](https://github.com/ropensci/targets/blob/main/NEWS.md#targets-100)).
 
 
 ## Recommendations
