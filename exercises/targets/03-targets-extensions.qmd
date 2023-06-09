@@ -10,6 +10,15 @@ pattern = map()
 format = file
 
 
+## High-performance computing
+
+You can also run {targets} workflows using various high-performance computing options. 
+
+- through the {future} package with [`tar_make_future()`](https://docs.ropensci.org/targets/reference/tar_make_future.html)
+- through the {clustermq} with the [`tar_make_clustermq()`](https://docs.ropensci.org/targets/reference/tar_make_clustermq.html). 
+
+`tar_make()` also integrates with the [{crew}](https://github.com/wlandau/crew) package which will become the predominant high-performance computing approach for {targets} moving forward (see [NEWS {targets} 1.0.0](https://github.com/ropensci/targets/blob/main/NEWS.md#targets-100)).
+
 ## Recommendations
 TODO
 
