@@ -17,3 +17,9 @@ When setting up your own project with {renv}, there are two steps. First, initia
 Instruction: in the console of your project, initialize {renv}.
 
 ## Exercises: using someone else's {renv} environment
+
+`snapshot()` is used to save the state of your project as it currently exists. In contrast, you can use `restore()` to recover the state of your project as it was last saved.
+
+When you download someone else's project, you can use `restore()` to retrieve and install the packages in the project that were recorded.
+
+Before sharing your project (and regularly while you work even if not sharing), make sure your project is up to date by running `snapshot()`.
