@@ -4,41 +4,57 @@ Let's look at a {targets} pipeline that more closely resembles what a full proje
 
 Also check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used. 
 
-- data cleaning and preparation pipeline prepare locs
-- movement ecology method issa 
-- remote sensing / spatial application rgee extract
-- Bayesian models with {brms} statistical rethinking colearning solutions
-- downloading tables from google sheets, full manuscript render as website and pdf comprehensive exam
-
+- data cleaning and preparation pipeline  - prepare locs
+- movement ecology method -  issa 
+- remote sensing / spatial application - rgee extract
+- Bayesian models with {brms} - statistical rethinking colearning solutions
+- downloading tables from google sheets, full manuscript render as website and pdf - comprehensive exam
 
 
 
 ## Demo
 
-1. `tar_visnetwork()`
-1. `tar_make()`
-1. Look at new files under `figures/` and `output/`
-1. Look at rendered manuscript
-1. Read sums
+With our extended {targets} pipeline, we'll go through the following steps:
+
+1. Visualize the pipeline's steps and interdependencies. 
+
+```r
+tar_visnetwork()
+```
+
+2. Run the workflow
+
+```r
+tar_make()
+```
+
+3. Explore the results
+
+Figures
+
+```{r}
+library(fs)
+dir_tree('../../figures')
+```
+
+Output files
+
+```{r}
+dir_tree('../../output')
+```
+
+TODO fix file path when full site quarto render
 
 
-Now to make some changes
+4. Look at the rendered manuscript document
 
-1. Edit the data file, rerun tar make
-1. Delete an output figure, rerun tar make
-1. Add a filter step before group counts and 
+Open the TODO path HTML or PDF documents
 
+6. Now to make some changes
 
-**TODO**
-TODO: better sections -----
-TODO: look for tar_group_by_command source
-TODO: open PR add test for is_grouped_df from tar_group_by
-TODO: simplest way to get dynamic branch indexing vars
-
-
-format = file
-delete figure
-run tar make
+    a. Edit the raw-data file, for example by adding new rows to mimic more data being collected. Note: please do not edit raw data, this is just to illustrate how {targets}tracks external files for changes. Rerun `tar_make()`. 
+    b. Delete an output figure. Rerun `tar_make()`. 
+    c. Add a filter step before the group counts target. Rerun `tar_make()`
 
     # Files
     tar_target(
