@@ -88,10 +88,16 @@ c(
         iteration = 'list'
     ),
 
+    # Write tables
+    tar_target(
+        save_tables,
         fwrite(sums, file.path(dir_output, 'sums.csv'))
+    ),
+    
     # Manuscript
     tar_quarto(
         render,
         file.path('paper', 'manuscript.qmd')
-    )
+    ),
+
 )
