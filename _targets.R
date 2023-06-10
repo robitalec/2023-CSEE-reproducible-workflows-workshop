@@ -43,13 +43,6 @@ c(
         island
     ),
 
-    # Sum counts by group
-    tar_target(
-        sum_groups,
-        sum_counts(group_counts, 'island'),
-        pattern = map(group_counts)
-    ),
-
     # Plot by group
     tar_target(
         plot_groups,
