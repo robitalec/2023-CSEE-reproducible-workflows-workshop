@@ -26,12 +26,13 @@ source('_targets.R')
 
 # Results
 
+
 ```{r}
 #| echo: false
+#| results: 'asis'
 tar_read(group_counts, 1)[1, ]$island
 model_parameters(tar_read(model_adult_groups, 1)[[1]])
 ```
-
 
 ```{r}
 #| echo: false
@@ -51,7 +52,6 @@ tar_read(plot_groups)
 # Using same variables in _targets.R by sourcing it in the first chunk
 #  making all the variables, functions and packages available here too
 fread(file.path(dir_output, 'sums.csv'))
-``````
 ```
 
 
