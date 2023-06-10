@@ -1,26 +1,87 @@
 ---
 title: "Functions"
-author: Alec Robitaille & Isabella Richmond
+author: Alec L. Robitaille, Isabella C. Richmond
 format: revealjs
 ---
 
 
-functions
+## Structure
 
-- name
-	- snake case
-	- verb noun
-- body
-- argument
-	- noun
+Name
+
+Arguments
+
+- nouns
+- options that modify how the function runs
+
+Body
+
+Return
+
+<br> <br>
+
+```r
+name <- function(arguments) {
+  body
+
+  return()
+}
+```
+
+## Naming
+
+snake_case
+
+verb_noun
+
+- `plot_cars()`
+- `count_trees()`
+- `model_elephants()`
 
 
-inputs, outputs = planning
+## Planning
 
-contro flow, if else, arguments
+Define inputs, outputs
 
-checks, stopifnot
+Functions should strive to do one thing, with no side effects
 
-reading exercise - what does this do
+- a common exemption is writing files or generating plots
 
-testing/approach
+
+## Checks
+
+Make sure users provide appropriate inputs and arguments
+
+Handle errors with informative errors
+
+
+- `stopifnot()`
+- `stop()`
+- `warning()`
+- `message()`
+
+
+
+## Control flow
+
+Manage choices, if something do this, else do this
+
+
+- `if()` 
+- `else()`
+- `ifelse()`
+
+
+
+## Testing/approach
+
+Simple approach
+
+- testing scripts
+- interactive tests
+
+Extended approach
+
+- full testing suites with {testthat} or {tinytest}
+
+
