@@ -1,2 +1,19 @@
 # {renv}
 
+The point of {renv} is to help you have a truly reproducible and shareable project, that allows you to run code and workflows on different machines, across time, by different people. It essentially turns your project into a time capsule (one that you can update as you wish) so that when you come back to your project, or share it with someone else, they are using the same versions of packages and R that you were.
+
+The three main functions used when working with {renv} are:
+
+-   `init()`
+
+-   `snapshot()`
+
+-   `restore()`
+
+## Exercises: setting up {renv} to work independently
+
+When setting up your own project with {renv}, there are two steps. First, initialize {renv} using `renv::init()`. As you go and add/update packages, you can update your {renv} environment with `renv::snapshot()`.
+
+Instruction: in the console of your project, initialize {renv}.
+
+## Exercises: using someone else's {renv} environment
