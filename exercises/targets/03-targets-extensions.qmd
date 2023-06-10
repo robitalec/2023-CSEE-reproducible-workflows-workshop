@@ -1,15 +1,14 @@
 # Extensions
 
-Let's look at a {targets} pipeline that more closely resembles what a full project would look like including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work piece by piece to build it up through exercises. 
+Let's look at a {targets} pipeline that more closely resembles what a full project would be including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work through it piece by piece to explain the details. 
 
-Also check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used. 
+Later, check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used. 
 
 - data cleaning and preparation pipeline  - prepare locs
 - movement ecology method -  issa 
 - remote sensing / spatial application - rgee extract
 - Bayesian models with {brms} - statistical rethinking colearning solutions
 - downloading tables from google sheets, full manuscript render as website and pdf - comprehensive exam
-
 
 
 ## Demo
@@ -109,96 +108,123 @@ We pass the data.frame to the `command` argument, and the following arguments ar
 
 If you want to use the full dataset, ungrouped, again downstream simply refer to the target without the `pattern` argument and {targets} will automatically combine the data.frame again. 
 
+Another approach that Alec likes to use with {data.table} is:
 
 
-TODO link to tar_rep etc as extras
+`_targets.R`
 
-also see static branching
+```r
+# ...
+
+# Variables
+# Split by: within which column or set of columns (eg. c(id, yr))
+#  do we want to split our analysis?
+split_by <- c('id', 'species')
+
+# Targets
+c(
+	tar_target(
+		split_data,
+		data[, tar_group := .GRP, by = split_by],
+		iteration = 'group'
+	),
+	tar_target(
+		split_key,
+		unique(locs_prep[, .SD, .SDcols = c(split_by, 'tar_group')])
+	)
+# ...
+)
+```
+
+Read more:
+
+- `tar_group_by()`  TODO link
+- `tar_group_()` TODO other group 
+- `tar_group()` TODO link
+
+
+These are example of "dynamic branching", but also see "static branching" functions
+
+- `tar_map` 
+- `tar_rep` 
+
+
+#### `iteration = 'list'`
+
+The `iteration` argument for `tar_target()` is used to change how {targets} splits and combines branches. This is is required when you want to return objects like plots, models or matrices that aren't obviously combined. 
+
+For example:
+
+
+`_targets.R`
+
+```r
+#...
+c(
+    # Group the mtcars data.frame by the values in the column "cyl"
+    tar_group_by(
+        group_counts,
+        mtcars,
+        cyl
+    ),
+
+    # Averages by group
+    tar_target(
+        plot_cars,
+        ggplot(mtcars) + geom_histogram(mpg),
+        pattern = map(mtcars),
+        iteration = 'list'
+    ),
+
+    # Matrix of correlations between vars
+    tar_target(
+        correlation_metrics,
+        cor(mtcars),
+        pattern = map(mtcars),
+        iteration = 'list'
+    )
+)
+```
+
+TODO link
+
 
 ### Files
 
 
-{targets} can be used to track external files for changes. 
+{targets} can be used to track external files for changes. This includes input data files but also outputs like saved plots or tables. To signal to {targets} that these target represents an external file to track, use the argument 'format' set to 'file'. 
 
-input files but also outputs (saved plots, saved tables)
 
-format file
+`_targets.R`
 
-    # Files
+```r
+# ...
+
+c(
     tar_target(
         file_counts,
         path_counts,
         format = 'file'
     ),
-
-
-
-
-### Plots
-
-if you want to iterate over plots again (say to save), 
-use iteration list
-
-
-
-
-
-plot by group
-iteration = list
-
-    # Plot by group
-    tar_target(
-        plot_groups,
-        plot_xy(group_counts, x_col, y_col),
-        pattern = map(group_counts),
-        iteration = 'list'
-    ),
-
-    # Save plots
-    tar_target(
-        save_plot,
-        ggsave(filename = file.path('figures', group_counts[1, ]$island),
-               plot = plot_groups,
-               device = 'png'),
-        pattern = map(plot_groups, group_counts),
-        format = 'file'
-
-### Models
-
-same as plots, f you want to iterate over again use iteration list
-
-
-**TODO**
-TODO: look for tar_group_by_command source
-TODO: open PR add test for is_grouped_df from tar_group_by
-TODO: simplest way to get dynamic branch indexing vars
-
-
- 
-
-save plots
-format file
-iteration list
-map over multiple
-
-
+# ...
+)
+```
 
 
 ## Recommendations
-TODO
 
-start your next project with targets, easier to start then refactor a whole project especially if it isnt using functions
+Start your **next** project with {targets} because it is easier to start from a simple project then to try and restructure an old, large project. 
 
-
-Git Ignore the _targets/ directory 
+If you use Git, you will likely want to ignore the `_targets/` directory. 
 
 
 
 ## Bonus
-TODO
 
-format = file
-tar_option_set
+Look into the options provided by `tar_option_set()`:
+
+- format
     - for `data.table` use {qs} and format qs
-    - what to do on error (link)
+- TODO what to do on error (link)
+
 
