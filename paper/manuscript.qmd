@@ -28,7 +28,8 @@ source('_targets.R')
 
 ```{r}
 #| echo: false
-tar_read(model_adult_groups)
+tar_read(group_counts, 1)[1, ]$island
+model_parameters(tar_read(model_adult_groups, 1)[[1]])
 ```
 
 
