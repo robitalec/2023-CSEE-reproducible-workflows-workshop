@@ -176,7 +176,7 @@ c(
 )
 ```
 
-Note: a target's name cannot match the name of any objects in the global environment, including function names. You can 
+Note: a target's name cannot match the name of any objects in the global environment, including function names. 
 
 Often, it feels natural to name a target using the name of the function we pass to command (`tar_target(plot, plot(mtcars))`). This is not an option - a target's name shouldn't match anything in the global environment (including function names). Treat the target name as if it was a variable - you wouldn't want to assign your function to the name "plot" and a variable to the name "plot". You can name based on a modification of the function name, eg. taking the `noun_verb()` syntax and making it past tense (name: `plotted_...` and command: `plot_...`), or a more specific name that refers to the function and the data (name: `plot_forest` and command `plot(forest)`). 
 
