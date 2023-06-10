@@ -1,0 +1,364 @@
+# Setup
+
+This set of exercises are centered an approach to setting up your project use {targets}. 
+
+A {targets} pipeline is declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and later will make it easier to set up {renv}. 
+
+## `_targets.R`
+
+The `_targets.R` is where we declare our {targets} pipeline. It is an R file saved in the root directory of your project. The generalized structure of a `_targets.R` file is:
+
+- Load packages
+- Set options and variables
+- End in a list of targets
+
+Note: our `_targets.R` script **must** end in a list of targets. 
+
+A simple example script could be:
+
+`_targets.R`
+```r
+library(targets)
+
+data(mtcars)
+
+c(
+    tar_target(
+        histogram_mpg, 
+        hist(mtcars$mpg)
+    )
+)
+```
+
+### Exercise: `_targets.R`
+
+Instruction: make a new R script in the root directory of your project named `_targets.R`. At the top, load {targets} and at the bottom put an empty list `c( )`.
+
+Sometimes, when a project gets really big, you can define your list of targets in separate files and bring them altogether in the `_targets.R` file. See example TODO
+
+
+## Packages
+
+To declare which packages we need across all our functions, we have two main options:
+
+1. List them with `library()` calls at the top of our `_targets.R` script
+2. List them all in a `R/packages.R` script and source that script. 
+
+We prefer the second approach because it keeps our `_targets.R` tidier, and helps us setup {renv} package versioning and {conflicted} later. You might find your list of packages gets long, and this gets them out of our way. You can also use this script when you are exploring your results later - source the `packages.R` script and you will have all your required packages. 
+
+
+### Exercise: `packages.R`
+
+Instruction: make a new script called `packages.R` in the `R/` directory. Go through your function test scripts from previous exercises and add all the packages you used to the `packages.R` file with a `library()` call for each package on a separate line. 
+
+For example:
+
+`R/packages.R`
+
+```r
+library(targets)
+library(data.table)
+library(ggplot2)
+```
+
+Now, to make those packages available to the {targets} pipeline, we need to load them in our `_targets.R` script. 
+
+Instruction: add a command to source the `R/packages.R` in your `_targets.R` script. 
+
+
+For example: 
+
+`_targets.R`
+```r
+# Packages
+source(file.path('R', 'packages.R'))
+```
+
+
+## Functions
+
+To make functions available to the {targets} pipeline we also need to also source them in the `_targets.R` script. 
+
+A shortcut for sourcing all the R files in a specific folder is provided by {targets}: `tar_source()`. We will use this to source our packages and functions in one step. 
+
+Note: something to be careful about now that we are sourcing the `R/` directory - you shouldn't have any calls to {targets} functions like `tar_read()`, `tar_load()` or `tar_make()` in the script in the `R/` directory. This is an impossible circular dependency - you are load or reading a target while you are also in the process of making it. Put any `tar_read()`, `tar_load()` or `tar_make()` calls elsewhere. 
+
+
+### Exercise: sourcing functions
+
+Instruction: replace the above `source('R/packages.R')` command with the function `tar_source()` pointing to the `R/` directory with your `packages.R` script and the functions you developed in the previous exercises. 
+
+Note: you will need to load {targets} to run the `tar_source()` function.
+
+
+For example: 
+
+`_targets.R`
+```r
+library(targets)
+tar_source('R')
+```
+
+## Options
+
+We'll come back to setting {targets} options later, but let's set up a spot in our `_targets.R` script reserved for options. The relevant {targets} function is `tar_option_set()`. It can set global options for each target, such as the file format to save them in and when they should be cued to rerun. In addition, you can use `tar_option_set()` to manage options related to overall pipeline runs such as what to do when a targets hits an error. 
+
+The full reference page for `tar_option_set()` is available here: https://docs.ropensci.org/targets/reference/tar_option_set.html
+
+
+### Exercise: options
+
+Instruction: make a new section in your `_targets.R` script named Options, and put an empty call to `tar_option_set()` there. 
+
+
+For example: 
+
+`_targets.R`
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+```
+
+
+## Variables
+
+A section at the top of your `_targets.R` script where you define variables that you might tweak or modify can make it really nice when you are working with {targets}. You can use it to define, for example:
+
+- paths to external files
+- themes for {ggplot2} figures
+- options and columns names to pass to functions
+- grouping columns eg. id
+
+
+Here's a couple different example projects that use a Variables section in their `_targets.R` scripts:
+
+- [robitalec/targets-spatsoc-networks/_targets.R](https://github.com/robitalec/targets-spatsoc-networks/blob/master/_targets.R#L23-L44)
+- [robitalec/targets-issa/_targets.R](https://github.com/robitalec/targets-issa/blob/main/_targets.R#L16-L58)
+- [robitalec/targets-rgee-extract/_targets.R](https://github.com/robitalec/targets-rgee-extract/blob/main/_targets.R#L11-L33)
+
+
+### Exercise: variables
+
+Instruction: make a new section named Variables, and add the file paths for the input files that we have been working with. 
+
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+```
+
+
+## Targets
+
+Now that our `_targets.R` script is setup, let's add our targets. As mentioned above, targets are combined in a list at the end of the `_targets.R` script. The function to specify an individual target is `tar_targets()` and it has two main arguments we will focus on for now: name and command. 
+
+```r
+tar_target(name, command)
+```
+
+### Name
+The name of the target is the first argument of `tar_target()`. It is used in subsequent targets to connect dependencies between tasks. 
+
+For example: 
+
+```r
+c(
+    tar_target(target_1, command_1()),
+    tar_target(target_2, command_2(target_1))
+)
+```
+
+Note: a target's name cannot match the name of any objects in the global environment, including function names. 
+
+Often, it feels natural to name a target using the name of the function we pass to command (`tar_target(plot, plot(mtcars))`). This is not an option - a target's name shouldn't match anything in the global environment (including function names). Treat the target name as if it was a variable - you wouldn't want to assign your function to the name "plot" and a variable to the name "plot". You can name based on a modification of the function name, eg. taking the `noun_verb()` syntax and making it past tense (name: `plotted_...` and command: `plot_...`), or a more specific name that refers to the function and the data (name: `plot_forest` and command `plot(forest)`). 
+
+
+### Command
+
+Each target in a pipeline is a step in analysis. See recommendations on [what a target should do](https://books.ropensci.org/targets/targets.html#what-a-target-should-do) and [how much a target should do](https://books.ropensci.org/targets/targets.html#how-much-a-target-should-do) in the {targets} manual. 
+
+In our case, we are going to plug in the functions we developed in the previous exercises into our target's commands. Commands can also point to a function from a package, or to a multiline statement surrounded in curly braces. 
+
+For example:
+
+`_targets.R`
+
+```r
+c(
+    # A function from another package
+    tar_target(
+        car_model,
+        lme4::glmer(mtcars)
+    ),
+    # A multiline statement with {}
+    tar_target(
+        long_statement,
+        {
+            mpg <- mtcars$mpg
+            cyl <- mtcars$cyl
+            mpg / cyl
+        }
+    )
+)
+```
+
+
+### Exercise: add targets
+
+Instruction: set up individual targets corresponding to the three functions we developed using the adult and chick counts dataset. Head back to your testing scripts to recall how you used the functions and which arguments you need. Name your targets then pass the functions to the command argument. Fill in your Variables section and pass them as arguments in the functions.  
+
+- `prepare_csv()`
+- `sum_counts()`
+- `plot_xy()`
+
+ 
+<details>
+<summary>Hint: setup</summary>
+
+Load targets
+
+Source the `R/` directory
+
+Save the path to the counts data under Variables
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+# Targets
+c(
+
+)
+```
+</details>
+
+
+<details>
+<summary>Hint: `prepare_csv()`</summary>
+Add a target for the `prepare_csv()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the `path_counts` variable to the `prepare_csv()` function
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    )
+)
+```
+</details>
+
+
+
+<details>
+<summary>Hint: `sum_counts()`</summary>
+Add a target for the `sum_counts()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the target for the `prepare_csv()` function to the `sum_counts()` function 
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    ),
+    tar_target(
+        sums,
+        sum_counts(prep_counts)
+    )
+)
+```
+</details>
+
+
+<details>
+<summary>Hint: `plot_xy()`</summary>
+Add a target for the `plot_xy()` step
+
+Give it a meaningful name that isn't the same as another object in your environment
+
+Pass the target for the `prepare_csv()` function to the `plot_xy()` function 
+
+`_targets.R`
+
+```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
+# Variables
+path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
+
+x_col <- 'date_gmt'
+y_col <- 'adults'
+
+
+# Targets
+c(
+    tar_target(
+        prep_counts,
+        prepare_csv(path_counts)
+    ),
+    tar_target(
+        sums,
+        sum_counts(prep_counts)
+    ),
+    tar_target(
+        plotted,
+        plot_xy(prep_counts, x_col, y_col)
+    )
+)
+```
+</details>
+
+#### Bonus
+
+- add two more targets to read the other CSV files
+- add another target to load the `palmerpenguins` dataset from {palmerpenguins}

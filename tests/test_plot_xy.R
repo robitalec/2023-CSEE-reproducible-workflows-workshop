@@ -32,9 +32,15 @@ ggplot(DF) +
   geom_point(aes(.data[[x_col]], .data[[y_col]]))
 
 
+color_col <- 'colony'
+
+ggplot(DF) +
+  geom_point(aes(.data[[x_col]], .data[[y_col]], color = .data[[color_col]]))
+
+
 # Tests -------------------------------------------------------------------
 # Test plot histogram
-print(plot_xy(DF, x_col, y_col))
+print(plot_xy(DF, x_col, y_col, color_col))
 
 
 # Each time you run these tests, make sure to source the entire script

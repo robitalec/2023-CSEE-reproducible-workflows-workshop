@@ -1,0 +1,162 @@
+# Usage
+
+Now that we have our `_targets.R` script setup with the previous exercises and we have added our first few targets to the pipeline, let's take a look at using {targets}. It is a bit different than the [usual R approach](https://books.ropensci.org/targets/#motivation) where we make edits, then rerun everything, wait for results, notice issues, rerun from scratch...
+
+The following functions allow us to interact with the pipeline's definition, metadata and results. Because of this, we shouldn't put them inside the `_targets.R` script or in our `R/` directory. Often a {targets} pipeline will result in a rendered document or manuscript, a number of saved plots or an output data file. 
+
+In our case, let's make a new script called `explore.R` in the root of the project's directory. Then we can keep track of our commands like `tar_meta()`, `tar_visnetwork()` and `tar_read()`, and easily rerun them when we make changes to the pipeline. 
+
+Instruction: make a empty script called `explore.R` in the root of the project's directory. At the top, load the packages and/or the functions with `source()` or `tar_source()`.
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+```
+
+
+## `tar_visnetwork()`
+
+Before we run our pipeline, we can check that everything looks good in the dependency graph with `tar_visnetwork()`. By default, `tar_visnetwork()` shows objects, functions and targets. You can adjust this behaviour to only show the targets using the argument `targets_only` set to TRUE. 
+
+Another argument that is especially useful when you have many targets: `name`. To show only selected targets, you can use {tidyselect} [helpers](https://tidyselect.r-lib.org/reference/index.html#selecting-variables) like `starts_with()`. The `name` argument comes up in many other {targets} functions including `tar_meta()` and `tar_read()`. 
+
+Related functions to `tar_visnetwork()` include:
+
+- `tar_glimpse()` is a faster version of `tar_visnetwork()` that doesn't check the pipeline's metadata to see if functions have been are outdated or not
+- `tar_mermaid()` returns a [Mermaid.js](https://mermaid.js.org/) diagram representing the pipeline
+- `tar_network()` returns a network of edges and nodes representing the pipeline
+
+
+### Exercise: `tar_visnetwork()`
+
+Instruction: run `tar_visnetwork()` from your `explore.R` script to see the dependency graph defined in your `_targets.R` script. Try out the `targets_only` and `name` arguments too. 
+
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_visnetwork()
+
+tar_visnetwork(targets_only = TRUE)
+
+tar_visnetwork(starts_with('plot'))
+```
+</details>
+
+
+## `tar_make()`
+
+Run the {targets} pipeline with `tar_make()`. The pipeline is run in a new external R process, which means that `tar_make()` doesn't impact your current workspace and, more importantly, is not influenced by your current workspace. This totally isolated environment is how {targets} offers us a truly reproducible approach - only things defined in the `_targets.R` script (or sourced within it) are considered. 
+
+
+### Exercise: `tar_make()`
+
+Instruction: run `tar_make()` from your `explore.R` script.
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_make()
+```
+</details>
+
+
+## `tar_read()`, `tar_load()`
+
+To look at results from the {targets} pipeline, use `tar_read()` and `tar_load()`. `tar_read()` reads targets without saving them as an object in your environment and `tar_load()` loads the object directly to your environment using the name of the target as the object. 
+
+### Exercise: `tar_read()`, `tar_load()`
+
+Instruction: run `tar_read()` and `tar_load()` from your `explore.R` script to read/load the targets defined in your {targets} pipeline.
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_read(prep_counts)
+
+tar_load(sums)
+
+tar_read(plotted)
+```
+</details>
+
+
+## `tar_meta()`
+
+The metadata related to the {targets} pipeline is accessible using the function `tar_meta()`. 
+
+### Exercise: `tar_meta()`
+
+Instruction: run `tar_meta()` from your `explore.R` script to look at the metadata associated with your {targets} pipeline. Also try using the `names` argument to filter the metadata returned. 
+
+Note: we sometimes find it helpful to use the `View()` function to open the metadata as a table in RStudio. 
+
+<details>
+<summary>Hint`</summary>
+
+`explore.R`
+
+```r
+library(targets)
+tar_source('R')
+
+tar_meta()
+
+tar_meta(starts_with('plot'))
+
+View(tar_meta())
+```
+</details>
+
+
+
+## Edits, rerun, edits, ... 
+
+Now that we have a {targets} pipeline, the approach is a bit different than we might be used to using R interactively. With a {targets} pipeline, everything is defined in the pipeline so our process is now about making edits to our functions and our `_targets.R` pipeline, then rerunning `tar_make()`,  ... {targets} tracks all functions and objects (and optionally can also track external files) and will only rerun downstream targets when required. This is the other main way that {targets} makes our lives easier. We no longer need to mentally keep track of versions of scripts, output files, figures, etc - just run `tar_make()` to run anything outdated (or check with `tar_visnetwork()`). 
+
+
+### Exercise: practice the {targets} approach
+
+Instruction: make sure your {targets} pipeline is up to date with `tar_visnetwork()`. Then, make an edit to the function `sum_counts()`. Rerun the {targets} pipeline. Next, make an edit to the function `plot_xy()`. Rerun with `tar_make()`. Lastly, make an edit to `prepare_csv()` and rerun. Note which targets were rerun with each change and discuss with your neighbours. 
+
+Bonus:
+
+- make a change to `prepare_csv()` that doesn't actually change the returned object  (eg. by adding an irrelevant intermediate step). Does this force the {targets} pipeline to rerun?
+
+
+## Forcing reruns
+
+The following functions can be used to force {targets} to rerun targets. 
+
+- `tar_delete()` deletes individual target output values
+- `tar_destroy()` deletes the whole `_targets/` data store (**caution**)
+
+
+## Bonus
+
+Make more targets! 
+
+- use the `plot_xy()` function with the weather timeseries
+- use the `plot_xy()` function with the palmerpenguins timeseries
+
+- make a target for something that isn't one of our custom functions eg. `summary()`. (targets dont need to be custom functions, any R command can be used)
