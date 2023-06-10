@@ -15,6 +15,10 @@ This help page is a great place to start when you are looking for help using {ta
 
 {targets} has a very active discussion group with plenty of past solutions and discussions to search through when you are looking for help. 
 
+## [Debugging](https://books.ropensci.org/targets/debugging.html)
+
+The debugging page is helpful for debugging {targets} workflows, especially when they get bigger and more complicated. [Debugging in {targets} is different](https://books.ropensci.org/targets/debugging.html#debugging-in-targets-is-different) is a good place to start. 
+
 ## Documentation
 
 Some select documentation pages from the {targets} documentation:
@@ -117,3 +121,9 @@ Similar to {targets}, {tarchetypes} has a very active Discussion Group with plen
 Target factories are an advanced approach to making pipeline construction easier. Instead of writing many `tar_target()` calls, a user can replace them with a call to a "target factory". `tar_file_read()` from {tarchetypes} is a simple example of this - one call to `tar_file_read()` creates targets tracking the local file for changes and another to read the local file in with the provided command. 
 
 
+
+## [{tflow}](https://github.com/MilesMcBain/tflow)
+
+{tflow} is Miles McBain's opinionated template for {targets} workflows. 
+
+- Code repository: An opinionated lightweight template for smooth targets flows.
