@@ -227,5 +227,9 @@ Look into the arguments provided by `tar_option_set()`. This is link to the full
     - for `data.table` objects you can use {qs} and format qs to retain data.table clas
 - `error` argument to define what {targets} should do when it hits an error
 - `workspace_on_error` argument to optionally save a workspace file for each target that throws an error
+- `cue` argument
 
+If you are already done all the previous exercises and have extra time, or on your own after the workshop, try this bonus exercise:
 
+- write a function that processes the ice data
+- look at the relationship between adult and chick counts, and the ice data and weather data. How might these two be influencing adult and chick counts?
