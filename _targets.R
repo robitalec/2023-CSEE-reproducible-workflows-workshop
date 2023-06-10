@@ -55,10 +55,16 @@ c(
         sum_counts(prep_counts, 'island')
     ),
 
+    # Filter
+    tar_target(
+        filter_counts,
+        filter(prep_counts, year(date_gmt) > filter_year)
+    ),
+
     # Group
     tar_group_by(
         group_counts,
-        prep_counts,
+        filter_counts,
         island
     ),
 
