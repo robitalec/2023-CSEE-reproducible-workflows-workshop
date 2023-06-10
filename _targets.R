@@ -110,6 +110,6 @@ c(
     tar_quarto(
         render,
         file.path('paper', 'manuscript.qmd')
-    ),
+    )
 
 )
