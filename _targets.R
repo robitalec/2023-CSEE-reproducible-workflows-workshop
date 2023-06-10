@@ -60,6 +60,19 @@ c(
         pattern = map(plot_groups, group_counts),
         format = 'file'
     ),
+
+    # Model by group
+    tar_target(
+        model_adult_groups,
+        lm(adults ~ date_gmt + (colony), data = group_counts),
+        pattern = map(group_counts),
         iteration = 'list'
+    ),
+    tar_target(
+        model_chicks_groups,
+        lm(chicks ~ date_gmt + (colony), data = group_counts),
+        pattern = map(group_counts),
+        iteration = 'list'
+    ),
     )
 )
