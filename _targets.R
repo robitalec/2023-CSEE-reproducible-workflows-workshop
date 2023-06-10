@@ -86,18 +86,18 @@ c(
     # Plot by group
     tar_target(
         plot_groups,
-        plot_xy(group_counts, x_col, y_col, color_col),
-        pattern = map(group_counts),
+        plot_xy(group_counts, x_col, y_col, color_col) + ggtitle(group_keys),
+        pattern = map(group_counts, group_keys),
         iteration = 'list'
     ),
 
     # Save plots
     tar_target(
         save_plots,
-        ggsave(filename = paste0(file.path(dir_figures, group_counts[1, ]$island), '.png'),
+        ggsave(filename = paste0(file.path(dir_figures, group_keys), '.png'),
                plot = plot_groups,
                device = 'png'),
-        pattern = map(plot_groups, group_counts),
+        pattern = map(plot_groups, group_keys),
         format = 'file'
     ),
 
