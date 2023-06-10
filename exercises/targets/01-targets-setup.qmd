@@ -115,6 +115,9 @@ For example:
 
 `_targets.R`
 ```r
+library(targets)
+tar_source('R')
+
 # Options
 tar_option_set()
 ```
@@ -142,6 +145,12 @@ Here's a couple different example projects that use a Variables section in their
 Instruction: make a new section named Variables, and add the file paths for the input files that we have been working with. 
 
 ```r
+library(targets)
+tar_source('R')
+
+# Options
+tar_option_set()
+
 # Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 ```
@@ -226,9 +235,13 @@ Save the path to the counts data under Variables
 library(targets)
 tar_source('R')
 
+# Options
+tar_option_set()
+
 # Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 
+# Targets
 c(
 
 )
@@ -250,10 +263,11 @@ Pass the `path_counts` variable to the `prepare_csv()` function
 library(targets)
 tar_source('R')
 
+# Options
+tar_option_set()
 
 # Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
-
 
 # Targets
 c(
@@ -281,10 +295,11 @@ Pass the target for the `prepare_csv()` function to the `sum_counts()` function
 library(targets)
 tar_source('R')
 
+# Options
+tar_option_set()
 
 # Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
-
 
 # Targets
 c(
@@ -315,6 +330,8 @@ Pass the target for the `prepare_csv()` function to the `plot_xy()` function
 library(targets)
 tar_source('R')
 
+# Options
+tar_option_set()
 
 # Variables
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
