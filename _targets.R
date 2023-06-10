@@ -17,6 +17,7 @@ dir_figures <- 'figures'
 if (!dir.exists(dir_output)) dir.create(dir_output)
 if (!dir.exists(dir_figures)) dir.create(dir_figures)
 
+
 # Targets
 c(
     # Files
@@ -66,7 +67,7 @@ c(
     # Save plots
     tar_target(
         save_plots,
-        ggsave(filename = file.path('figures', group_counts[1, ]$island),
+        ggsave(filename = file.path(dir_figures, group_counts[1, ]$island),
                plot = plot_groups,
                device = 'png'),
         pattern = map(plot_groups, group_counts),
@@ -87,6 +88,7 @@ c(
         iteration = 'list'
     ),
 
+        fwrite(sums, file.path(dir_output, 'sums.csv'))
     # Manuscript
     tar_quarto(
         render,
