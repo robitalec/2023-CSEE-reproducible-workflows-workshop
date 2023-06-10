@@ -79,7 +79,7 @@ c(
     # Save plots
     tar_target(
         save_plots,
-        ggsave(filename = file.path(dir_figures, group_counts[1, ]$island),
+        ggsave(filename = paste0(file.path(dir_figures, group_counts[1, ]$island), '.png'),
                plot = plot_groups,
                device = 'png'),
         pattern = map(plot_groups, group_counts),
