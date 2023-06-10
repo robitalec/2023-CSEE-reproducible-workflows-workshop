@@ -183,3 +183,9 @@ For example,
 ```r
 stopifnot("x is not a numeric" = is.numeric(x))
 ```
+
+
+#### Add a `color_by` argument to `plot_xy()`
+
+Instruction: using the same approach you used for `x_col` and `y_col`, add a `color_col` argument to `plot_xy()`
+
