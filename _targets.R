@@ -74,5 +74,10 @@ c(
         pattern = map(group_counts),
         iteration = 'list'
     ),
+
+    # Manuscript
+    tar_quarto(
+        render,
+        file.path('paper', 'manuscript.qmd')
     )
 )
