@@ -75,6 +75,13 @@ c(
         filter_counts,
         island
     ),
+    
+    # Keys for groups
+    tar_target(
+        group_keys,
+        unique(group_counts$island),
+        pattern = map(group_counts)
+    ),
 
     # Plot by group
     tar_target(
