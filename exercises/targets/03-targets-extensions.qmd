@@ -138,15 +138,15 @@ c(
 
 Read more:
 
-- `tar_group_by()`  TODO link
-- `tar_group_()` TODO other group 
-- `tar_group()` TODO link
+- `tar_group_by()`: https://docs.ropensci.org/tarchetypes/reference/tar_group_by.html 
+- `tar_group_count()`: https://docs.ropensci.org/tarchetypes/reference/tar_group_count.html
+- `tar_group()`: https://docs.ropensci.org/targets/reference/tar_group.html
 
 
-These are example of "dynamic branching", but also see "static branching" functions
+These are example of "dynamic branching", but also see "static branching" functions: 
 
-- `tar_map` 
-- `tar_rep` 
+- `tar_map`: https://docs.ropensci.org/tarchetypes/reference/tar_map.html
+- `tar_rep`: https://docs.ropensci.org/tarchetypes/reference/tar_rep.html
 
 
 #### `iteration = 'list'`
@@ -186,7 +186,7 @@ c(
 )
 ```
 
-TODO link
+See more details for argument `iteration` in `?tar_target`: https://docs.ropensci.org/targets/reference/tar_target.html
 
 
 ### Files
@@ -221,10 +221,11 @@ If you use Git, you will likely want to ignore the `_targets/` directory.
 
 ## Bonus
 
-Look into the options provided by `tar_option_set()`:
+Look into the arguments provided by `tar_option_set()`. This is link to the full reference page: https://docs.ropensci.org/targets/reference/tar_option_set.html
 
-- format
-    - for `data.table` use {qs} and format qs
-- TODO what to do on error (link)
+- `format` argument
+    - for `data.table` objects you can use {qs} and format qs to retain data.table clas
+- `error` argument to define what {targets} should do when it hits an error
+- `workspace_on_error` argument to optionally save a workspace file for each target that throws an error
 
 
