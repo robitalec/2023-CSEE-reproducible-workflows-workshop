@@ -51,4 +51,10 @@ tar_read(plot_groups)
 # Using same variables in _targets.R by sourcing it in the first chunk
 #  making all the variables, functions and packages available here too
 fread(file.path(dir_output, 'sums.csv'))
+``````
 ```
+
+
+# Discussion 
+
+\lorem
