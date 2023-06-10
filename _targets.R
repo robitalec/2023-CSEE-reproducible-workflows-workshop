@@ -95,8 +95,7 @@ c(
     tar_target(
         save_plots,
         ggsave(filename = paste0(file.path(dir_figures, group_keys), '.png'),
-               plot = plot_groups,
-               device = 'png'),
+               plot = plot_groups),
         pattern = map(plot_groups, group_keys),
         format = 'file'
     ),
