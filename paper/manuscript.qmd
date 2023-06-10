@@ -16,12 +16,10 @@ source('_targets.R')
 
 # Introduction
 
-\lorem
 
 
 # Methods
 
-\lorem
 
 
 # Results
@@ -45,16 +43,11 @@ tar_read(plot_groups)
 ```
 
 
-
 ```{r}
 #| echo: false
-
-# Using same variables in _targets.R by sourcing it in the first chunk
-#  making all the variables, functions and packages available here too
-fread(file.path(dir_output, 'sums.csv'))
+tar_read(sums)
 ```
 
 
-# Discussion 
+# Discussion
 
-\lorem
