@@ -56,6 +56,74 @@ Open the TODO path HTML or PDF documents
     b. Delete an output figure. Rerun `tar_make()`. 
     c. Add a filter step before the group counts target. Rerun `tar_make()`
 
+
+## Details
+
+Obviously, this is an overwhelming amount of new {targets} functions and extensions combined with other packages and Quarto to render an example manuscript and output figures and tables. We'll walk through each of the pieces and how they relate to each other, and we hope this is a useful resource for when you bring {targets} to your next project. 
+
+
+### Iterating
+
+Like we mentioned in the functions resources, there are plenty of options in R for iterating including: 
+
+- the `apply` family
+- {purrr}
+- {dplyr} with {group_by} and {mutate}
+- {data.table}'s by
+
+{targets} offers a new approach that integrates into our pipeline seamlessly and extends our functions to run over groups of rows in a data.frame. There are two steps:
+
+1. Use the {tarchetypes} function `tar_group_by()` to define the variables to group the data.frame on. 
+1. Use "dynamic branching" with the `tar_target()` argument `pattern`. 
+
+For example:
+
+`_targets.R`
+
+```r
+#...
+c(
+    # Group the mtcars data.frame by the values in the column "cyl"
+    tar_group_by(
+        group_counts,
+        mtcars,
+        cyl
+    ),
+
+    # Averages by group
+    tar_target(
+        mean_mpg,
+        mean(mtcars$mpg),
+        pattern = map(mtcars)
+    ),
+
+    # Summarize all the cars
+    tar_target(
+        summarize_cars,
+        summarize(group_counts)
+    )
+)
+```
+
+We pass the data.frame to the `command` argument, and the following arguments are the column names to group on (in this case `cyl`). Then downstream targets that want to iterate over the groups of rows use the argument `pattern` with the function `map()`. The target corresponding to the grouped data.frame is passed to `map()`. 
+
+If you want to use the full dataset, ungrouped, again downstream simply refer to the target without the `pattern` argument and {targets} will automatically combine the data.frame again. 
+
+
+
+TODO link to tar_rep etc as extras
+
+also see static branching
+
+### Files
+
+
+{targets} can be used to track external files for changes. 
+
+input files but also outputs (saved plots, saved tables)
+
+format file
+
     # Files
     tar_target(
         file_counts,
@@ -65,24 +133,14 @@ Open the TODO path HTML or PDF documents
 
 
 
-group by
- # Group
-    tar_group_by(
-        group_counts,
-        prep_counts,
-        island
-    ),
 
-dynamic branching over groups
-pattern = map()
- 
+### Plots
 
-    # Sum counts by group
-    tar_target(
-        sum_groups,
-        sum_counts(group_counts, 'island'),
-        pattern = map(group_counts)
-    ),
+if you want to iterate over plots again (say to save), 
+use iteration list
+
+
+
 
 
 plot by group
@@ -96,11 +154,6 @@ iteration = list
         iteration = 'list'
     ),
 
-
-save plots
-format file
-iteration list
-map over multiple
     # Save plots
     tar_target(
         save_plot,
@@ -108,31 +161,26 @@ map over multiple
                plot = plot_groups,
                device = 'png'),
         pattern = map(plot_groups, group_counts),
-        format = 'file',
-        iteration = 'list'
+        format = 'file'
+
+### Models
+
+same as plots, f you want to iterate over again use iteration list
 
 
-## External files
-
-{targets} can be used to track external files for changes. 
-
-
-
-
-## {tarchetypes}
+**TODO**
+TODO: look for tar_group_by_command source
+TODO: open PR add test for is_grouped_df from tar_group_by
+TODO: simplest way to get dynamic branch indexing vars
 
 
-### `tar_group_by()`
+ 
 
+save plots
+format file
+iteration list
+map over multiple
 
-
-TODO 
-
-tar_group_by
-plot
-iteration = list
-pattern = map()
-format = file
 
 
 
@@ -144,10 +192,13 @@ start your next project with targets, easier to start then refactor a whole proj
 
 Git Ignore the _targets/ directory 
 
+
+
 ## Bonus
 TODO
 
 format = file
 tar_option_set
-- fs 
-- error
+    - for `data.table` use {qs} and format qs
+    - what to do on error (link)
+
