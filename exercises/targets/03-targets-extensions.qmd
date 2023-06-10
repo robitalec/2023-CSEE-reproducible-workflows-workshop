@@ -1,11 +1,32 @@
 # Extensions
 
-This set of exercises brings together extensions and additional features together to write a {targets} workflow that 
+Let's look at a {targets} workflow that more closely resembles what a full project would look like including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work piece by piece to build it up through exercises. 
 
-has many pieces like a regular 
+Also check out some examples of full {targets} workflows that we've developed to get a sense for the various applications and approaches that can be used. 
+
+- data cleaning and preparation workflow prepare locs
+- movement ecology method issa 
+- remote sensing / spatial application rgee extract
+- Bayesian models with {brms} statistical rethinking colearning solutions
+- downloading tables from google sheets, full manuscript render as website and pdf comprehensive exam
 
 
 
+
+## Demo
+
+1. `tar_visnetwork()`
+1. `tar_make()`
+1. Look at new files under `figures/` and `output/`
+1. Look at rendered manuscript
+1. Read sums
+
+
+Now to make some changes
+
+1. Edit the data file, rerun tar make
+1. Delete an output figure, rerun tar make
+1. Add a filter step before group counts and 
     # Files
     tar_target(
         file_counts,
