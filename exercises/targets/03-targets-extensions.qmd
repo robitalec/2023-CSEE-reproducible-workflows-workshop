@@ -1,10 +1,10 @@
 # Extensions
 
-Let's look at a {targets} workflow that more closely resembles what a full project would look like including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work piece by piece to build it up through exercises. 
+Let's look at a {targets} pipeline that more closely resembles what a full project would look like including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work piece by piece to build it up through exercises. 
 
-Also check out some examples of full {targets} workflows that we've developed to get a sense for the various applications and approaches that can be used. 
+Also check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used. 
 
-- data cleaning and preparation workflow prepare locs
+- data cleaning and preparation pipeline prepare locs
 - movement ecology method issa 
 - remote sensing / spatial application rgee extract
 - Bayesian models with {brms} statistical rethinking colearning solutions
