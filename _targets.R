@@ -42,6 +42,12 @@ c(
         prepare_csv(file_weather)
     ),
 
+    # Sum counts
+    tar_target(
+        sums,
+        sum_counts(prep_counts, 'island')
+    ),
+
     # Group
     tar_group_by(
         group_counts,
