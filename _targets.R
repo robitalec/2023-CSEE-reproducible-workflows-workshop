@@ -1,8 +1,15 @@
+# === Extended {targets} pipeline -----------------------------------------
+# Alec L. Robitaille, Isabella C. Richmond
+
+
+
+# Source ------------------------------------------------------------------
 library(targets)
 tar_source('R')
 
 
-# Variables
+
+# Variables ---------------------------------------------------------------
 # File paths
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 path_ice <- file.path('raw-data', 'ice-area.txt')
@@ -24,7 +31,8 @@ if (!dir.exists(dir_figures)) dir.create(dir_figures)
 filter_year <- 1995
 
 
-# Targets
+
+# Targets -----------------------------------------------------------------
 c(
     # Files
     tar_target(
@@ -37,7 +45,7 @@ c(
         path_weather,
         format = 'file'
     ),
- 
+
 
     # Prepare
     tar_target(
@@ -103,9 +111,10 @@ c(
     # Write tables
     tar_target(
         save_tables,
-        fwrite(sums, file.path(dir_output, 'sums.csv'))
+        fwrite(sums, file.path(dir_output, 'sums.csv')),
+        format = 'file'
     ),
-    
+
     # Manuscript
     tar_quarto(
         render,
