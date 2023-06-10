@@ -2,11 +2,11 @@
 
 This set of exercises are centered an approach to setting up your project use {targets}. 
 
-{targets} workflows are declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and later will make it easier to set up {renv}. 
+A {targets} pipeline is declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and later will make it easier to set up {renv}. 
 
 ## `_targets.R`
 
-The `_targets.R` is where we declare our {targets} workflow. It is an R file saved in the root directory of your project. The generalized structure of a `_targets.R` file is:
+The `_targets.R` is where we declare our {targets} pipeline. It is an R file saved in the root directory of your project. The generalized structure of a `_targets.R` file is:
 
 - Load packages
 - Set options and variables
@@ -61,7 +61,7 @@ library(data.table)
 library(ggplot2)
 ```
 
-Now, to make those packages available to the {targets} workflow, we need to load them in our `_targets.R` script. 
+Now, to make those packages available to the {targets} pipeline, we need to load them in our `_targets.R` script. 
 
 Instruction: add a command to source the `R/packages.R` in your `_targets.R` script. 
 
@@ -77,7 +77,7 @@ source(file.path('R', 'packages.R'))
 
 ## Functions
 
-To make functions available to the {targets} workflow we also need to also source them in the `_targets.R` script. 
+To make functions available to the {targets} pipeline we also need to also source them in the `_targets.R` script. 
 
 A shortcut for sourcing all the R files in a specific folder is provided by {targets}: `tar_source()`. We will use this to source our packages and functions in one step. 
 
@@ -101,7 +101,7 @@ tar_source('R')
 
 ## Options
 
-We'll come back to setting {targets} options later, but let's set up a spot in our `_targets.R` script reserved for options. The relevant {targets} function is `tar_option_set()`. It can set global options for each target, such as the file format to save them in and when they should be cued to rerun. In addition, you can use `tar_option_set()` to manage options related to overall workflow runs such as what to do when a targets hits an error. 
+We'll come back to setting {targets} options later, but let's set up a spot in our `_targets.R` script reserved for options. The relevant {targets} function is `tar_option_set()`. It can set global options for each target, such as the file format to save them in and when they should be cued to rerun. In addition, you can use `tar_option_set()` to manage options related to overall pipeline runs such as what to do when a targets hits an error. 
 
 The full reference page for `tar_option_set()` is available here: https://docs.ropensci.org/targets/reference/tar_option_set.html
 
@@ -183,7 +183,7 @@ Often, it feels natural to name a target using the name of the function we pass 
 
 ### Command
 
-Each target in a workflow is a step in analysis. See recommendations on [what a target should do](https://books.ropensci.org/targets/targets.html#what-a-target-should-do) and [how much a target should do](https://books.ropensci.org/targets/targets.html#how-much-a-target-should-do) in the {targets} manual. 
+Each target in a pipeline is a step in analysis. See recommendations on [what a target should do](https://books.ropensci.org/targets/targets.html#what-a-target-should-do) and [how much a target should do](https://books.ropensci.org/targets/targets.html#how-much-a-target-should-do) in the {targets} manual. 
 
 In our case, we are going to plug in the functions we developed in the previous exercises into our target's commands. Commands can also point to a function from a package, or to a multiline statement surrounded in curly braces. 
 
