@@ -1,9 +1,0 @@
-# Bonus
-
-If you are already done all the previous exercises and we have extra time, - or 
-on your own after the workshop, try these additional exercises. 
-
-
-write a function to process the ice data
-
-look at the relationship between the weather data, the ice data and how they might be influencing adult and chick counts
