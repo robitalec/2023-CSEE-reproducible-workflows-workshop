@@ -1,0 +1,34 @@
+---
+title: "Example Manuscript"
+author: "Alec L. Robitaille"
+output: github
+---
+
+
+# Introduction
+
+\lorem
+
+
+# Methods
+
+\lorem
+
+
+# Results
+
+```{r}
+#| echo: false
+tar_read(model_adult_groups)
+```
+
+
+```{r}
+#| echo: false
+tar_read(model_chicks_groups)
+```
+
+```{r}
+#| echo: false
+tar_read(plot_groups)
+```
