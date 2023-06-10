@@ -3,19 +3,25 @@ tar_source('R')
 
 
 # Variables
+# File paths
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 path_ice <- file.path('raw-data', 'ice-area.txt')
 path_weather <- file.path('raw-data', 'weather-timeseries.csv')
 
+# Column names
 x_col <- 'date_gmt'
 y_col <- 'adults'
 color_col <- 'colony'
 
+# Directories
 dir_output <- 'output'
 dir_figures <- 'figures'
 
 if (!dir.exists(dir_output)) dir.create(dir_output)
 if (!dir.exists(dir_figures)) dir.create(dir_figures)
+
+# Filters
+filter_year <- 1995
 
 
 # Targets
