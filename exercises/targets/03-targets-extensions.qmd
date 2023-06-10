@@ -27,6 +27,19 @@ Now to make some changes
 1. Edit the data file, rerun tar make
 1. Delete an output figure, rerun tar make
 1. Add a filter step before group counts and 
+
+
+**TODO**
+TODO: better sections -----
+TODO: look for tar_group_by_command source
+TODO: open PR add test for is_grouped_df from tar_group_by
+TODO: simplest way to get dynamic branch indexing vars
+
+
+format = file
+delete figure
+run tar make
+
     # Files
     tar_target(
         file_counts,
