@@ -13,5 +13,3 @@ Instruction: TODO select which conflict_prefers (optionally always one package)
 
 
 
-# {renv}
-
