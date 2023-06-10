@@ -27,21 +27,23 @@ source('_targets.R')
 
 ```{r}
 #| echo: false
-#| results: 'asis'
-tar_read(group_counts, 1)[1, ]$island
-model_parameters(tar_read(model_adult_groups, 1)[[1]])
+paste(first(tar_read(group_counts, 1)$island), '-', 'Adults')
+model_parameters(tar_read(model_adult_groups, 1)[[1]]) |>
+    print_md()
 ```
 
 ```{r}
 #| echo: false
-tar_read(model_chicks_groups)
+paste(first(tar_read(group_counts, 1)$island), '-', 'Chicks')
+model_parameters(tar_read(model_chicks_groups, 1)[[1]]) |>
+    print_md()
 ```
+
 
 ```{r}
 #| echo: false
 tar_read(plot_groups)
 ```
-
 
 ```{r}
 #| echo: false
