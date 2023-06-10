@@ -160,7 +160,3 @@ Make more targets!
 - use the `plot_xy()` function with the palmerpenguins timeseries
 
 - make a target for something that isn't one of our custom functions eg. `summary()`. (targets dont need to be custom functions, any R command can be used)
-
-
-
-
