@@ -9,7 +9,7 @@ path_weather <- file.path('raw-data', 'weather-timeseries.csv')
 
 x_col <- 'date_gmt'
 y_col <- 'adults'
-
+color_col <- 'colony'
 
 # Targets
 c(
@@ -53,19 +53,20 @@ c(
     # Plot by group
     tar_target(
         plot_groups,
-        plot_xy(group_counts, x_col, y_col),
+        plot_xy(group_counts, x_col, y_col, color_col),
         pattern = map(group_counts),
         iteration = 'list'
     ),
 
     # Save plots
     tar_target(
-        save_plot,
+        save_plots,
         ggsave(filename = file.path('figures', group_counts[1, ]$island),
                plot = plot_groups,
                device = 'png'),
         pattern = map(plot_groups, group_counts),
-        format = 'file',
+        format = 'file'
+    ),
         iteration = 'list'
     )
 )
