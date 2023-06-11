@@ -24,7 +24,7 @@ website:
       - section: Exercises
         contents:
           - text: Projects
-            file: "exercises/projects.qmd"
+            file: "exercises/projects.html"
           - section: Functions
             contents:
             - auto: "exercises/functions/*"
@@ -40,7 +40,7 @@ website:
           - auto: "resources/*"
       - section: Slides
         contents:
-          - auto: "slides/*"
+          - auto: "slides/*.qmd"
       - section: Templates
         href:
         contents:
