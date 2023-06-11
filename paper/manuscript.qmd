@@ -10,7 +10,7 @@ output:
 
 ```{r}
 #| include: false
-source('_targets.R')
+source(file.path('R', 'packages.R'))
 ```
 
 
