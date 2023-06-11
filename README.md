@@ -103,12 +103,30 @@ pkgs <- c(
   'conflicted',
   'palmerpenguins',
   'visNetwork',
-  'quarto'
+  'quarto',
+  'xml2',
+  'downlit',
+  'usethis'
 )
 
 install.packages(pkgs)
 ```
 
+
+To download the workshop materials for a participant, use this command:
+
+```r
+library(usethis)
+
+# (Set your own destination directory)
+use_course(
+    'https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop/archive/refs/heads/participant.zip', 
+    destdir = '~/Documents')
+```
+
+Or by downloading and unziping the ZIP file at this link: <https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop/archive/refs/heads/participant.zip>. 
+
+Then open up the RStudio project. 
 
 ## Data
 
