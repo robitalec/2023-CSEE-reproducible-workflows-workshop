@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: docs
+  execute-dir: project
   resources:
     - templates/README-dataset-template.md
     - templates/README-data-project_template.md
