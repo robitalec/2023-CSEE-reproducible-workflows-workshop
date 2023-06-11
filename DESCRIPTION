@@ -35,4 +35,5 @@ Imports: targets,
     xml2,
     quarto,
     parameters,
-    fs
+    fs,
+    usethis
