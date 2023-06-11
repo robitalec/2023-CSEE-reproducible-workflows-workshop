@@ -7,6 +7,9 @@ project:
     - templates/README-data-project_template.md
     - templates/README-paper-template.md
     - templates/test_function.R
+  render:
+    - "*.qmd"
+    - "!paper/manuscript.qmd"
 
 website:
   title: "2023 CSEE Reproducible workflows workshop"
