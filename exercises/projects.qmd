@@ -1,42 +1,82 @@
 ---
 order: 1
-execute: 
-  error: true
 ---
 
-# Project setup
+# Project Management
 
-## Exercises: project setup
+## File Structure
 
-### RStudio Project Setup
+Good file structure allows you to manage all the components of your (often large) projects, while facilitating easy sharing and reducing the risk of accidentally deleting/altering important files. Keeping your raw data file in its own folder (e.g., `input/` or `raw/` makes it harder to mix up these files with intermediate ones down the line).
 
-We are going to practice setting up an RStudio Project to get oriented with the process. Please follow along with these steps and remember, if you are lost use your red sticky note or raise your hand and someone will come help you.
+Software Carpentry's [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html):
 
-1.  Open RStudio and navigate to the upper right hand corner
-2.  Click on the drop-down menu and select the first option: "New Project..."
-    -   Alternatively, navigate to the top left corner, click "File", and then click "New Project..."
-3.  Select "New Directory", then "New Project"
-4.  Name the directory "2023-CSEE-workshop-projects" and navigate to the subdirectory in your computer where you want the folder to appear
-5.  Minimize RStudio and using your file navigation system, navigate to the place on the computer where your project is saved (e.g., Downloads)
-6.  Open the folder (you should see one file in there, an .Rproj file with the name you gave the folder)
-    -   Create five folders within your project folder:
+Best practices for file structure/data management include: 1. Treat raw data as read-only 2. Store data cleaning scripts in a separate folder and create a second "read-only" data folder to hold the "cleaned" data sets 3. Treat generated output as disposable
 
-        -   raw-data
+[Efficient R Programming](https://csgillespie.github.io/efficientR/set-up.html#project-management) suggests a sub-directory resembling something like below to keep things tidy:
 
-        -   output
-
-        -   graphics
-
-        -   scripts
-
-        -   R
-7.  Download the data from this [link](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81) and move it into the `raw-data/` folder
-8.  Open your project in RStudio
-9.  Open an empty file and save it as "README.md"
-10. Fill in your README file using one of the templates found under the "Templates" sidebar
-
-::: callout-note
-There are many questions you may not have the answers to for this exercise - either make them up or ignore them! Do your best to answer what you can (while thinking about how you may alter/use this format in your own life/projects)
+::: columns
+::: {.column width="50%"}
+```         
+project
+└───input/
+└───output/
+└───R/
+└───graphics/
+└───README.md
+```
 :::
 
-11. *(If you have time)* Share this directory with a neighbour as a zip file and see if you can each open and work with each other's project
+::: {.column width="50%"}
+```         
+project
+└───data/
+    └───derived/
+    └───raw-data/
+└───R/
+└───script/
+└───graphics/
+└───README.md
+```
+:::
+:::
+
+[Good Enough Practices in Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf) suggests similar file structure and data management practices.
+
+## README
+
+-   A README file can act as a type of metadata (see below): it facilitates people using your data, script, etc.
+-   There are basic requirements from a README in order to make your work usable (highlighted in our Think/Pair/Share exercise)
+
+[ARDC Metadata Guide](https://zenodo.org/record/6459832) In order to use data, we need to know:
+
+-   how the data is structured what it describes
+
+-   how to read it (e.g. column headings and units)
+
+-   methodological information such as instrument settings and calibrations, reagents used, or survey questions
+
+-   exactly what they are allowed to do with the data through rights metadata such as licensing
+
+-   how to acknowledge the original creators by citing the data
+
+[Reproducible Quantitative Methods](https://cbahlai.github.io/rqm-template/lessons/week3/) Metadata is required for open data, by making a [data reuse plan](https://github.com/mozillascience/working-open-workshop/blob/gh-pages/handouts/data_reuse_plan_template.md) we can ensure that our data is usable for other people, [into the future](https://docs.google.com/presentation/d/1kZd-ZD5lru5a7jIbyi9q8cBYCCAKRnIBSRvixYFtoF0/edit#slide=id.g1088c5b110_0_183).
+
+Metadata should warn users about problems/inconsistencies in the data and provide checks to make sure data is functioning properly ([White et al., 2013](https://ojs.library.queensu.ca/index.php/IEE/article/download/4608/4898))
+
+Cornell University [best practices](https://data.research.cornell.edu/content/readme) provides a [README template](https://cornell.app.box.com/v/ReadmeTemplate) that is free to adapt, alter, and use
+
+Examples:
+
+-   <https://github.com/viralemergence/datacov>
+
+-   <https://github.com/wildlifeevoeco/MovingAcrossGradients>
+
+-   <https://github.com/ropensci/spatsoc>
+
+-   <https://github.com/robitalec/statistical-rethinking-colearning-2023>
+
+## RStudio Projects
+
+Using an RStudio Project makes sharing your data/code with others (and your future self) SO MUCH EASIER! One of the main issues with sharing code is the changing working directories/missing files/etc. The RStudio Project completely solves this for you. You can just copy and paste the folder wherever you need it, with nothing breaking.
+
+Software Carpentry's [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html) and [Efficient R Programming](https://csgillespie.github.io/efficientR/set-up.html#project-management) both discuss further the importance of using RStudio Projects and how to set them up.
