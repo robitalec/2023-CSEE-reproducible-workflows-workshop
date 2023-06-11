@@ -1,0 +1,50 @@
+---
+execute: 
+  error: true
+---
+
+# {conflicted}
+
+The {conflicted} package provides an alternative to R's default management of conflicts - to just use the most recently loaded package. {conflicted} instead highlights the conflict when it occurs as an error, forcing the user to be explicit about which function they would prefer to use. It also provides a function to "scout" potential conflicts, to make decisions about preference before conflicts are hit. 
+
+## Usage
+
+At its simplest, using {conflicted} is just loading it with `library()`. 
+
+```r
+library(conflicted)
+```
+
+A natural place for us to do this is in our `R/packages.R` script. 
+
+Conflicts are detected when a function is used that is defined in multiple packages. See this example from the {conflicted} documentation:
+
+```r
+library(dplyr)
+
+filter(mtcars, cyl == 8)
+#> Error:
+#> ! [conflicted] filter found in 2 packages.
+#> Either pick the one you want with `::`:
+#> • dplyr::filter
+#> • stats::filter
+#> Or declare a preference with `conflicts_prefer()`:
+#> • `conflicts_prefer(dplyr::filter)`
+#> • `conflicts_prefer(stats::filter)`
+```
+
+As suggested, use the `conflicts_prefer()` function to explicitly select which package to prefer. 
+
+If you'd like to look for other conflicts that may come up, use `conflict_scout()`. Note that you only need to prefer a package if the conflicting function is used, so it isn't necessary to go through the whole list returned by `conflict_scout()` to pick each preferred function. Look for ones you know you will use and be explicit for those. 
+
+Lastly, if you want to always prefer a certain package's functions over another package you can use `conflict_prefer_all()` or `conflict_prefer_matching()`. See more here: [`?conflict_prefer`](https://conflicted.r-lib.org/reference/conflict_prefer.html). 
+
+### Exercise: setup {conflicted} 
+
+Instruction: open your `R/packages.R` script and load the {conflicted} package. In your console, run `conflict_scout()`. Test one of the displayed functions in the console to see what happens when you try running it, eg. `filter()`. 
+
+### Exercise: handling conflicts
+
+Instruction: now run the {targets} pipeline and see if any conflicts come up. If they do, use `conflict_prefer(package::function)` to specify which package you prefer. 
+
+
