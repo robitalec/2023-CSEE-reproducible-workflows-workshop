@@ -1,8 +1,8 @@
 # Setup
 
-This set of exercises are centered an approach to setting up your project use {targets}. 
+This set of exercises are centered around an approach to setting up your project using {targets}. 
 
-A {targets} pipeline is declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and later will make it easier to set up {renv}. 
+A {targets} pipeline is declared in the `_targets.R` file in the root of your project's directory. We'll also set up a central place to put all our of required packages that helps us keep track of them, and will later make it easier to set up {renv}. 
 
 ## `_targets.R`
 
@@ -33,8 +33,6 @@ c(
 ### Exercise: `_targets.R`
 
 Instruction: make a new R script in the root directory of your project named `_targets.R`. At the top, load {targets} and at the bottom put an empty list `c( )`.
-
-Sometimes, when a project gets really big, you can define your list of targets in separate files and bring them altogether in the `_targets.R` file. See example TODO
 
 
 ## Packages
@@ -103,7 +101,7 @@ tar_source('R')
 
 We'll come back to setting {targets} options later, but let's set up a spot in our `_targets.R` script reserved for options. The relevant {targets} function is `tar_option_set()`. It can set global options for each target, such as the file format to save them in and when they should be cued to rerun. In addition, you can use `tar_option_set()` to manage options related to overall pipeline runs such as what to do when a targets hits an error. 
 
-The full reference page for `tar_option_set()` is available here: https://docs.ropensci.org/targets/reference/tar_option_set.html
+The full reference page for `tar_option_set()` is available here: <https://docs.ropensci.org/targets/reference/tar_option_set.html>
 
 
 ### Exercise: options
@@ -130,7 +128,7 @@ A section at the top of your `_targets.R` script where you define variables that
 - paths to external files
 - themes for {ggplot2} figures
 - options and columns names to pass to functions
-- grouping columns eg. id
+- grouping columns e.g., id or species
 
 
 Here's a couple different example projects that use a Variables section in their `_targets.R` scripts:
@@ -165,7 +163,7 @@ tar_target(name, command)
 ```
 
 ### Name
-The name of the target is the first argument of `tar_target()`. It is used in subsequent targets to connect dependencies between tasks. 
+The name of the target is the first argument of `tar_target()`. It is used in subsequent targets to connect dependencies between commands. 
 
 For example: 
 

@@ -10,7 +10,7 @@ The three main functions used when working with {renv} are:
 
 - `restore()` for restoring a project's package versions to match the versions recorded by {renv} from the file `renv.lock`
 
-Note: {renv} will not install a different version of R, or any other system dependencies that are required. However, {renv} will warn if the `renv.lock` lists a version of R that differs from your current version of R. For system dependencies that are required, R 
+Note: {renv} will not install a different version of R, or any other system dependencies that are required. However, {renv} will warn if the `renv.lock` lists a version of R that differs from your current version of R. For system dependencies that are required but not installed, R will fail.
 
 ## Setup
 
@@ -49,4 +49,4 @@ Git is really helpful when working with {renv} because we can track the `renv.lo
 
 Use `renv::update()` to update the packages in your lock file.
 
-You can also use {renv} to track Python dependencies required by your project too. See this vignette for more details: https://rstudio.github.io/renv/articles/python.html
+You can also use {renv} to track Python dependencies required by your project too. See this vignette for more details: <https://rstudio.github.io/renv/articles/python.html>

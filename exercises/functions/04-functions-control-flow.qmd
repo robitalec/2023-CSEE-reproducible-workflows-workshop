@@ -13,7 +13,7 @@ The following functions are essential for controlling flow in R:
 
 ### Conditional statements
 
-Instruction: Write a series of `if` `else` conditional statements for the following objects then consult the solution to check your work. 
+Instruction: write a series of `if` `else` conditional statements for the following objects then consult the solution to check your work. 
 
 Numeric
 
@@ -100,9 +100,9 @@ Add a new section 'Development' in the test script (`tests/test_sum_counts.R`) t
 <summary>Hints: by</summary>
 <hr>
 
-`data.table` has an argument `by`
+{data.table} has an argument `by`
 
-`dplyr` has an alternative to `group_by` for passing character column names called `group_by_at`
+{dplyr} has an alternative to `group_by` for passing character column names called `group_by_at`
 
 <hr>
 </details>
@@ -132,7 +132,7 @@ function(x = 1, y = 2, z = 3) {
 
 ### Bonus
 
-Add checks to your functions `plot_xy()` and `sum_counts`: 
+Add checks to your functions `plot_xy()` and `sum_counts()`: 
 
 - use the arguments `x_col` and `y_col` to also update the axis labels in `plot_xy()` (base R)
 - use a new argument `color_col` to provide a column  in `plot_xy()`

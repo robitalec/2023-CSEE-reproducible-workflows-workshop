@@ -25,7 +25,7 @@ Some select documentation pages from the {targets} documentation:
 
 - [`tar_target()`](https://docs.ropensci.org/targets/reference/tar_target.html): targets!
 - [`tar_make()`](https://docs.ropensci.org/targets/reference/tar_make.html): run the workflow
-- [`tar_meta()`](https://docs.ropensci.org/targets/reference/tar_meta.html): metadata on the workflow including errors, warnings, run times, ...
+- [`tar_meta()`](https://docs.ropensci.org/targets/reference/tar_meta.html): metadata on the workflow including errors, warnings, run times
 - [`tar_read()`](https://docs.ropensci.org/targets/reference/tar_read.html): read a target
 - [`tar_load()`](https://docs.ropensci.org/targets/reference/tar_load.html): load a target
 - [`tar_visnetwork()`](https://docs.ropensci.org/targets/reference/tar_visnetwork.html): visualize the dependency graph between targets, functions, and objects

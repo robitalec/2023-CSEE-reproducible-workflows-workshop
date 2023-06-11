@@ -35,7 +35,7 @@ Instruction: run `tar_visnetwork()` from your `explore.R` script to see the depe
 
 
 <details>
-<summary>Hint`</summary>
+<summary>Hint</summary>
 
 `explore.R`
 
@@ -62,7 +62,7 @@ Run the {targets} pipeline with `tar_make()`. The pipeline is run in a new exter
 Instruction: run `tar_make()` from your `explore.R` script.
 
 <details>
-<summary>Hint`</summary>
+<summary>Hint</summary>
 
 `explore.R`
 
@@ -84,7 +84,7 @@ To look at results from the {targets} pipeline, use `tar_read()` and `tar_load()
 Instruction: run `tar_read()` and `tar_load()` from your `explore.R` script to read/load the targets defined in your {targets} pipeline.
 
 <details>
-<summary>Hint`</summary>
+<summary>Hint</summary>
 
 `explore.R`
 
@@ -112,7 +112,7 @@ Instruction: run `tar_meta()` from your `explore.R` script to look at the metada
 Note: we sometimes find it helpful to use the `View()` function to open the metadata as a table in RStudio. 
 
 <details>
-<summary>Hint`</summary>
+<summary>Hint</summary>
 
 `explore.R`
 
@@ -132,7 +132,7 @@ View(tar_meta())
 
 ## Edits, rerun, edits, ... 
 
-Now that we have a {targets} pipeline, the approach is a bit different than we might be used to using R interactively. With a {targets} pipeline, everything is defined in the pipeline so our process is now about making edits to our functions and our `_targets.R` pipeline, then rerunning `tar_make()`,  ... {targets} tracks all functions and objects (and optionally can also track external files) and will only rerun downstream targets when required. This is the other main way that {targets} makes our lives easier. We no longer need to mentally keep track of versions of scripts, output files, figures, etc - just run `tar_make()` to run anything outdated (or check with `tar_visnetwork()`). 
+Now that we have a {targets} pipeline, the approach is a bit different than we might be used to using R interactively. With a {targets} pipeline, everything is defined in the pipeline so our process is now about making edits to our functions and our `_targets.R` pipeline, then rerunning `tar_make()`. {targets} tracks all functions and objects (and optionally can also track external files) and will only rerun downstream targets when required. This is the other main way that {targets} makes our lives easier. We no longer need to mentally keep track of versions of scripts, output files, figures, etc - just run `tar_make()` to run anything outdated (or check with `tar_visnetwork()`). 
 
 
 ### Exercise: practice the {targets} approach
@@ -159,4 +159,4 @@ Make more targets!
 - use the `plot_xy()` function with the weather timeseries
 - use the `plot_xy()` function with the palmerpenguins timeseries
 
-- make a target for something that isn't one of our custom functions eg. `summary()`. (targets dont need to be custom functions, any R command can be used)
+- make a target for something that isn't one of our custom functions eg. `summary()`. ({targets} don't need to be custom functions, any R command can be used)

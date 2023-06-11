@@ -1,4 +1,4 @@
-# An approach to developing functions
+# Developing functions
 
 ## Setup
 
@@ -37,7 +37,7 @@ This process of editing two files might seem like extra work, but we recommend s
 
 Instruction: setup your function script and test script for your new function `prepare_csv()`. 
 
-Use whichever function you prefer for reading CSVs (eg. `data.table::fread()`, or `readr::read_csv()`). For cleaning column names, we'll use the function `clean_names()` from the `janitor` package. 
+Use whichever function you prefer for reading CSVs (eg. `data.table::fread()`, or `readr::read_csv()`). For cleaning column names, we'll use the function `clean_names()` from the {janitor} package. 
 
 Note: since we are writing a function to read the data in, we'll test the function with the data's path instead. We'll use the example dataset for adult and chick counts described in the README. For example:
 
@@ -45,7 +45,7 @@ Note: since we are writing a function to read the data in, we'll test the functi
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
 ```
 
-Use the section "Development" in your test script (`tests/test_prepare_csv.R`) to develop the body of your function. Use `path_counts` and the function for reading CSVs, then the `clean_names()` function from the `janitor` package. Add the code to the body of your function `prepare_csv()` and test! 
+Use the section "Development" in your test script (`tests/test_prepare_csv.R`) to develop the body of your function. Use `path_counts` and the function for reading CSVs, then the `clean_names()` function from the {janitor} package. Add the code to the body of your function `prepare_csv()` and test! 
 
 
 
@@ -60,6 +60,6 @@ The function's arguments should include the path to the CSV.
 
 First, take the path and pass it to the function for reading CSVs. 
 
-Then, pass the data.frame returned to the `clean_names()` function from the `janitor` package. 
+Then, pass the data.frame returned to the `clean_names()` function from the {janitor} package. 
 <hr>
 </details>

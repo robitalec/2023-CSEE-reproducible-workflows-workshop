@@ -286,7 +286,7 @@ Expectations
 
 ### Naming
 
-https://speakerdeck.com/jennybc/how-to-name-files
+<https://speakerdeck.com/jennybc/how-to-name-files>
 
 
 ## [Efficient R](https://csgillespie.github.io/efficientR/)
