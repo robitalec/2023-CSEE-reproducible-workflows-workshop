@@ -1,0 +1,66 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - templates/README-dataset-template.md
+    - templates/README-data-project_template.md
+    - templates/README-paper-template.md
+    - templates/test_function.R     
+
+website:
+  title: "2023 CSEE Reproducible workflows workshop"
+
+  sidebar:
+    tools:
+      - icon: github
+        href: https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop
+    contents:
+      - text: "Home"
+        file: index.qmd
+      - section: Exercises
+        contents:
+          - section: Projects
+            contents:
+            - auto: "exercises/projects/*"
+          - section: Functions
+            contents:
+            - auto: "exercises/functions/*"
+          - section: "{targets}"
+            contents:
+            - auto: "exercises/targets/*"
+          - text: "{renv}"
+            file: "exercises/renv.qmd"
+          - text: "{conflicted}"       
+            file: "exercises/conflicted.qmd"
+      - section: Resources
+        contents:
+          - auto: "resources/*"
+      - section: Slides
+        contents:
+          - auto: "slides/*"
+      - section: Templates
+        href: 
+        contents:
+          - section: README
+            contents:
+              - text: dataset-template.md
+                file: _templates/README/dataset-template.md
+              - text: dataset-template.md
+                href: _templates/README/data-project-template.md
+              - text: data-project_template.md
+                href: _templates/README/paper-template.md
+          - section: Functions
+            contents:
+              - text: test_function.R 
+                href: _templates/test_function.R                        
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    code-line-numbers: false
+    code-copy: true
+    code-link: true
+    code-block-border-left: false

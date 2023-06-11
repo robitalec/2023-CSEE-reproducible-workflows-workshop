@@ -1,8 +1,8 @@
 # An approach to developing functions
 
-We'll use the following approach for developing functions. 
+## Setup
 
-First, the setup:
+The setup:
 
 1. Setup the function
       - Make a function script in the `R/` directory named `function_name.R`
@@ -13,7 +13,10 @@ First, the setup:
       - Source the function (`source('R/function_name.R)`)
       - Load example data and/or arguments for the function
 
-Then the approach for developing functions:
+
+## Approach
+
+We'll use the following approach for developing functions:
 
 1. Fill in the body of the function, state the returned object, add arguments in the function script (`R/function_name.R`)
 1. Add a test that uses the function with the example data

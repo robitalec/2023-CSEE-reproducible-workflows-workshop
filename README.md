@@ -1,5 +1,113 @@
-# 2023-CSEE-reproducible-workflows-workshop
-Developing a reproducible workflow in R using functions, targets and renv
+# Reproducible workflows workshop
+
+Workshop at [CSEE 2023](https://www.beepeg2023.ca/): developing a reproducible workflow in R using functions, {targets} and {renv}
+
+Developed and delivered by:
+
+- Alec L. Robitaille (Memorial University of Newfoundland and Labrador)
+- Isabella C. Richmond (Concordia University)
+
+
+## Schedule
+
+Projects
+
+-   Directories
+-   READMEs
+-   RStudio Projects
+
+*Short break*
+
+Functions
+
+-   Introduction
+-   Recommended approach
+-   Checks
+-   Options
+
+*Lunch break*
+
+{targets}
+
+-   Introduction
+-   Writing workflows
+-   Visualizing
+-   Running workflows
+-   Extensions
+
+*Short break*
+
+{renv} + {conflicted}
+
+-   Saving package versions
+-   Checking conflicts
+
+
+## Learning goals
+
+Overall
+
+-   Approach analyses in a more holistic way (whole project vs script by script)
+-   Share data across projects and software versions with minimal stress 
+-   Use workflows that reduce analysis errors and mental load
+
+Section 1: Projects
+
+-   Construct a RStudio project that is thoroughly documented using file structure and data management best practices
+-   Use RStudio projects to effectively share their own work, and use other people's
+
+Section 2: Functions
+
+-   Read and understand structure of functions in R
+-   Refactor code into functions that do one thing
+-   Add tests and checks to ensure functions work and error when expected
+-   Recognize the value of functions as chunks of code that are reusable and easier to debug
+
+Section 3: {targets}
+
+-   (For a given project) map out relationships between inputs, outputs and analysis steps
+-   Identify discrete chunks/steps and write corresponding (or use available) functions 
+-   Execute a workflow in {targets} that reads in data, performs a function, and saves an output
+-   Recognize the value of workflows for reducing mental load and improving efficiency
+
+Section 4: {renv} + {conflicted}
+
+-   Use {renv} to preserve current package versions to ensure the environment is reproducible, portable and isolated
+-   Use {conflicted} to detect conflicting function names
+
+
+## Setup
+
+This workshop is aimed at improving our ability to use and create *reproducible workflows.* All the materials should be accessible from the side bar (slides, exercises, resources for further reading, and the link to the GitHub repository can be accessed by clicking on the GitHub icon).
+
+We don't have any strict dependencies on specific versions of R or R packages, but it would be good to have at least R version 4.0 and a recent version of RStudio. 
+
+We are using Quarto to build the workshop's website and exercises, so it could be helpful for you to install it too. If you don't have time to, you can always complete exercises in an R script - so no pressure. 
+
+Install first the Quarto CLI from the [here](https://quarto.org/docs/get-started/) then the package with the command at the bottom.
+
+
+Please install the following packages (after updating R):
+
+```r
+pkgs <- c(
+  'targets',
+  'igraph',
+  'data.table',
+  'dplyr',
+  'ggplot2',
+  'testthat',
+  'janitor',
+  'renv',
+  'rlang',
+  'conflicted',
+  'palmerpenguins',
+  'visNetwork',
+  'quarto'
+)
+
+install.packages(pkgs)
+```
 
 
 ## Data
@@ -26,16 +134,6 @@ The first dataset is already available in R through the [`palmerpenguins` R pack
 - sex
 - year
 
-1. Download and load the `palmerpenguins` package
-1. Load the `penguins` and `penguins_raw`datasets
-1. Compare and contrast the two datasets
-    - variables
-    - variable names
-    - dimensions (number of rows and columns)
-    - factor levels
-
-
-
 ### Weather timeseries
 
 The following datasets are available directly from the [Palmer LTER Data Catalog](https://pallter.marine.rutgers.edu/catalog/edi/). To download the data to the `raw-data/` directory, run the function `download_example_data()` (`R/download_example_data.R`). 
@@ -61,12 +159,6 @@ Link to data (CSV):
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.189.8&entityid=ab357b4c92531a07d98ff1c4f4809a1e)
 
 
-1. Load dataset directly using URL 
-1. Use the `janitor` package to make clean column names
-1. Summarize the dataset
-1. Make a few exploratory plots
-1. Read the data package metadata and note the specific definitions of each variable
-
 
 ### Monthly sea ice area
 
@@ -87,14 +179,6 @@ Link to data (TXT):
 
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.34.7&entityid=0fccb4e99aaa0c0cc85c23284288ec81)
 
-
-1. Use the function `readLines` to look at the top 20 lines of the data
-    - Where does the data start?
-    - Is there a header row with column names?
-1. Read the data as a data.frame
-1. Restructure the data so each row represents a value of area for a single month in a year
-1. Summarize the dataset
-1. Make a few exploratory plots
 
 
 ### Adelie penguin adult and chick counts
@@ -118,9 +202,8 @@ Link to data (CSV):
 [https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f](https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-pal.88.8&entityid=b4062890db09a72628786650dacfbf1f)
 
 
-1. Load dataset directly using URL
-1. Use the `janitor` package to make clean column names
-1. Summarize the dataset
-1. Make a few exploratory plots
-1. Read the data package metadata and note the specific definitions of each variable
+
+## LICENSE
+
+This project is released under the GNU General Public License v3.0. Read it [here](https://github.com/robitalec/2023-CSEE-reproducible-workflows-workshop/blob/quarto/devel/LICENSE).
 

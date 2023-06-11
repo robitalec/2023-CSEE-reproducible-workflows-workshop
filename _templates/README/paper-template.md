@@ -1,4 +1,4 @@
-# Paper Template:
+# Paper Template
 
 Format taken from Webber et al.'s^1^ GitHub [page](https://github.com/wildlifeevoeco/MovingAcrossGradients), look at their README for examples of how to fill in each section.
 

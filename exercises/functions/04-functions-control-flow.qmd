@@ -1,4 +1,4 @@
-# Controlling flow in function
+# Controlling flow
 
 Conditionals in functions are used to modify how a function runs, determine what output to return or to return warnings and errors depending on logical statements. We'll look at `if` and `else`, as well as functions for combining multiple logical statements. `if` and `else` can be used instead of `stopifnot`, usually in cases where logical statements are more complex or a more elaborate error message is required. 
 

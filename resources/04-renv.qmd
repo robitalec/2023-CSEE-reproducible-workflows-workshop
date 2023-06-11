@@ -46,9 +46,3 @@ A video by {renv} author Kevin Ushey, outlining why {renv} is important and how 
 ### [{renv} demo](https://www.youtube.com/watch?v=yc7ZB4F_dc0)
 
 Demo on how to set up {renv} in existing projects with biology professor/statistician.
-
-
-# {conflicted}
-
-The {conflicted} package is a substantially simpler package than {targets} and {renv}. The [{conflicted} documentation](https://conflicted.r-lib.org/) has everything we need, but also check out this [{conflicted} blog post](https://www.tidyverse.org/blog/2018/06/conflicted/) for some details about why {conflicted} was developed. 
-

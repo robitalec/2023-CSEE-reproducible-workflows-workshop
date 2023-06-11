@@ -5,3 +5,6 @@
 
 _targets/
 renv/
+
+/.quarto/
+docs/

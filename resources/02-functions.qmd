@@ -1,4 +1,8 @@
-# Resources: Functions
+---
+order: 2
+---
+
+# Functions
 
 ## R for Data Science
 

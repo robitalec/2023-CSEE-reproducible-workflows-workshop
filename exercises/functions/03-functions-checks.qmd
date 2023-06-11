@@ -1,4 +1,4 @@
-# Checks in functions
+# Checks
 
 Checks in functions are used to ensure inputs and arguments are as expected,
 to handle errors and to provide informative error messages to users. In this
@@ -188,4 +188,3 @@ stopifnot("x is not a numeric" = is.numeric(x))
 #### Add a `color_by` argument to `plot_xy()`
 
 Instruction: using the same approach you used for `x_col` and `y_col`, add a `color_col` argument to `plot_xy()`
-
