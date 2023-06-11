@@ -1,11 +1,11 @@
 ---
 title: "Example Manuscript"
 author: "Alec L. Robitaille"
-output: 
-    github:
-        default
-    html: 
-        default
+execute:
+  eval: false
+format:
+  html: default
+  gfm: default
 ---
 
 ```{r}
