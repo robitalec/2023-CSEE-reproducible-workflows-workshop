@@ -27,3 +27,5 @@ Before sharing your project (and regularly while you work even if not sharing), 
 ### Bonus
 
 Investigate a [renv.lock file](https://github.com/robitalec/targets-issa/blob/main/renv.lock) and look at how [its history](https://github.com/robitalec/targets-issa/commits/main/renv.lock) changes.
+
+Use `renv::update()` to update the packages in your lock file.
