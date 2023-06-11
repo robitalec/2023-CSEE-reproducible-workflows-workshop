@@ -33,17 +33,14 @@ Figures
 
 ```{r}
 library(fs)
-dir_tree('../../figures')
+dir_tree('figures')
 ```
 
 Output files
 
 ```{r}
-dir_tree('../../output')
+dir_tree('output')
 ```
-
-TODO fix file path when full site quarto render
-
 
 4. Look at the rendered manuscript document
 
