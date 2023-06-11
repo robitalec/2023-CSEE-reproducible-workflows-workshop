@@ -6,7 +6,7 @@ project:
     - templates/README-dataset-template.md
     - templates/README-data-project_template.md
     - templates/README-paper-template.md
-    - templates/test_function.R     
+    - templates/test_function.R
 
 website:
   title: "2023 CSEE Reproducible workflows workshop"
@@ -31,7 +31,7 @@ website:
             - auto: "exercises/targets/*"
           - text: "{renv}"
             file: "exercises/renv.qmd"
-          - text: "{conflicted}"       
+          - text: "{conflicted}"
             file: "exercises/conflicted.qmd"
       - section: Resources
         contents:
@@ -40,7 +40,7 @@ website:
         contents:
           - auto: "slides/*"
       - section: Templates
-        href: 
+        href:
         contents:
           - section: README
             contents:
@@ -52,8 +52,8 @@ website:
                 href: _templates/README/paper-template.md
           - section: Functions
             contents:
-              - text: test_function.R 
-                href: _templates/test_function.R                        
+              - text: test_function.R
+                href: _templates/test_function.R
 
 format:
   html:
