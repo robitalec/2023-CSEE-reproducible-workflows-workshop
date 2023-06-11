@@ -1,2 +1,13 @@
 ^renv$
 ^renv\.lock$
+^R$
+^exercises$
+^figures$
+^paper$
+^raw-data$
+^resources$
+^slides$
+^tests$
+^quarto\.yml$
+^_targets\.R$
+^index\.qmd$
