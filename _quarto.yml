@@ -23,9 +23,8 @@ website:
         file: index.qmd
       - section: Exercises
         contents:
-          - section: Projects
-            contents:
-            - auto: "exercises/projects/*"
+          - text: Projects
+            file: "excercises/projects.qmd"
           - section: Functions
             contents:
             - auto: "exercises/functions/*"
