@@ -75,7 +75,7 @@ c(
         filter_counts,
         island
     ),
-    
+
     # Keys for groups
     tar_target(
         group_keys,
@@ -119,12 +119,15 @@ c(
         save_tables,
         fwrite(sums, file.path(dir_output, 'sums.csv')),
         format = 'file'
-    ),
+    )#,
+
+    # Note: since this is redundant with the website being rendered with Quarto
+    #       we've left it commented out for now.
 
     # Manuscript
-    tar_quarto(
-        render,
-        file.path('paper', 'manuscript.qmd')
-    )
+    # tar_quarto(
+    #     render,
+    #     file.path('paper', 'manuscript.qmd')
+    # )
 
 )
