@@ -27,14 +27,22 @@ tar_make()
 
 3.  Explore the results
 
-```{r}
+```r
 library(fs)
 dir_tree('figures')
+figures
+├── CHR.png
+├── COR.png
+├── HUM.png
+├── LIT.png
+└── TOR.png
 ```
 
 
-```{r}
+```r
 dir_tree('output')
+output
+├── sums.csv
 ```
 
 4.  Look at the rendered manuscript document
