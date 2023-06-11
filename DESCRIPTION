@@ -33,4 +33,6 @@ Imports: targets,
     visNetwork,
     downlit,
     xml2,
-    quarto
+    quarto,
+    parameters,
+    fs
