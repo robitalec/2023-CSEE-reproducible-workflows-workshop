@@ -40,7 +40,7 @@ Frequently asked questions about {renv}, a great place to start when troubleshoo
 
 A video by {renv} author Kevin Ushey, outlining why {renv} is important and how to use it.
 
-- Code repository: https://github.com/kevinushey/2020-rstudio-conf
+- Code repository: <https://github.com/kevinushey/2020-rstudio-conf>
 
 
 ### [{renv} demo](https://www.youtube.com/watch?v=yc7ZB4F_dc0)

@@ -30,7 +30,7 @@ To build logical statements, you may find following list of functions useful:
 
 ### Logical statements
 
-Instruction: Write a series of logical statements for the following objects then consult the solution to check your work. Focus only on the logical statement for now, we'll use `stopifnot` in the following exercises. 
+Instruction: write a series of logical statements for the following objects then consult the solution to check your work. Focus only on the logical statement for now, we'll use `stopifnot` in the following exercises. 
 
 Number
 
@@ -97,7 +97,7 @@ Follow the steps from our approach to developing functions:
     - Source the function (`source('R/function.R)`)
     - Load example data and/or arguments for the function 
 
-Add a new section 'Development' in the test script (`tests/test_plot_xy.R`) to develop the body of your function. Since we have already built a function for preparing CSV files, use it in your test script, and your choice of base R plotting or `ggplot2`. Add the code to your function `plot_xy()` and test!
+Add a new section 'Development' in the test script (`tests/test_plot_xy.R`) to develop the body of your function. Since we have already built a function for preparing CSV files, use it in your test script, and your choice of base R plotting or {ggplot2}. Add the code to your function `plot_xy()` and test!
 
 ```{r, eval = FALSE}
 path_counts <- file.path('raw-data', 'adelie-adult-chick-counts.csv')
@@ -131,7 +131,7 @@ There are two main options:
 - Pass the data.frame's to ggplot's data argument then use the `{{ }}` "embrace operator" to wrap the x_col and y_col arguments (unquoted* column names) within `aes`. 
 
 See the `?aes` help page and the example with the "embrace operator", and more
-details here: https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html#using-aes-and-vars-in-a-package-function
+details here: <https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html#using-aes-and-vars-in-a-package-function>
 
 <hr>
 </details>
@@ -158,7 +158,7 @@ try something like this:
 
 `as_name(enquo(x_col)) %in% colnames(DT)`
 
-These are `rlang` functions, part of the "tidy eval tools" and examples
+These are {rlang} functions, part of the "tidy eval tools" and examples
 of metaprogramming. The Advanced R book has a detailed section on this concept. 
 
 <hr>
@@ -187,4 +187,4 @@ stopifnot("x is not a numeric" = is.numeric(x))
 
 #### Add a `color_by` argument to `plot_xy()`
 
-Instruction: using the same approach you used for `x_col` and `y_col`, add a `color_col` argument to `plot_xy()`
+Instruction: using the same approach you used for `x_col` and `y_col`, add a `color_col` argument to `plot_xy()`.

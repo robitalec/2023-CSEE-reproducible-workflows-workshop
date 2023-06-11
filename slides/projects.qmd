@@ -5,15 +5,6 @@ author: Alec Robitaille & Isabella Richmond
 format: revealjs
 ---
 
-## Learning Goals (9h00 - 10h05)
-
--   Construct a RStudio project that is thoroughly documented using file structure and data management best practices
-
--   Use RStudio projects to effectively share their own work, and use other people's
-
-::: callout-tip
-Resources for more information and further reading on any topic in this workshop can be found here (ADD LINK)
-:::
 
 ## Structure: Group Discussion (15 mins)
 
@@ -39,6 +30,6 @@ When you are starting the analysis for a project, what are the pieces that make 
 
 -   We have the pieces of the project and info we need in the README: let's set up an RStudio Project
 
--   Many advantages (outlined in Resources **ADD LINK**)
+-   Many advantages (outlined in the "Project Management" file under "Resources" on the sidebar).
 
 ## BREAK (15 mins)

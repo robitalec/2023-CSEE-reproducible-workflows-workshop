@@ -2,7 +2,7 @@
 order: 1
 ---
 
-# Project Management
+# Projects
 
 ## File Structure
 
@@ -10,7 +10,11 @@ Good file structure allows you to manage all the components of your (often large
 
 Software Carpentry's [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro.html):
 
-Best practices for file structure/data management include: 1. Treat raw data as read-only 2. Store data cleaning scripts in a separate folder and create a second "read-only" data folder to hold the "cleaned" data sets 3. Treat generated output as disposable
+Best practices for file structure/data management include:
+
+1.  Treat raw data as read-only
+2.  Store data cleaning scripts in a separate folder and create a second "read-only" data folder to hold the "cleaned" data sets
+3.  Treat generated output as disposable
 
 [Efficient R Programming](https://csgillespie.github.io/efficientR/set-up.html#project-management) suggests a sub-directory resembling something like below to keep things tidy:
 

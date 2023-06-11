@@ -3,7 +3,7 @@
 If you are already done all the previous exercises and we have extra time, - or 
 on your own after the workshop, try these additional exercises. 
 
-## `testthat`
+## {testthat}
 
 [`testthat`](https://testthat.r-lib.org/) is one of the main R packages for testing functions (specifically designed for R packages). 
 
@@ -16,16 +16,16 @@ library(testthat)
 grep('expect_', lsf.str('package:testthat'), value = TRUE)
 ```
 
-See the reference and vignettes here: https://testthat.r-lib.org/
+See the reference and vignettes here: <https://testthat.r-lib.org/>
 
 
 ## Iteration
 
 Try iterating functions over lists or groups using the `apply` family or `purrr::map` family. 
 
-- https://r4ds.had.co.nz/iteration.html
-- https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html
-- https://purrr.tidyverse.org/
+- <https://r4ds.had.co.nz/iteration.html>
+- <https://swcarpentry.github.io/r-novice-inflammation/15-supp-loops-in-depth.html>
+- <https://purrr.tidyverse.org/>
 
 ## Object-oriented programming
 
@@ -40,4 +40,4 @@ Read about object-oriented programming classes in R:
 
 Try the lexical scoping exercises here:
 
-- https://adv-r.hadley.nz/functions.html#lexical-scoping
+- <https://adv-r.hadley.nz/functions.html#lexical-scoping>

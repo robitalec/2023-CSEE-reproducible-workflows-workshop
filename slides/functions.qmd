@@ -18,7 +18,9 @@ Body
 
 Return
 
-<br> <br>
+
+
+## Structure
 
 ```r
 name <- function(arguments) {

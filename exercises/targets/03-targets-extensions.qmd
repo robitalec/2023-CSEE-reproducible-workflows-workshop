@@ -1,82 +1,75 @@
 # Extensions
 
-Let's look at a {targets} pipeline that more closely resembles what a full project would be including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work through it piece by piece to explain the details. 
+Let's look at a {targets} pipeline that more closely resembles what a full project would be including figures, model, output, tables and a manuscript object. We'll start with a demo, so we can show off some of the power and extended features of {targets}, then we can work through it piece by piece to explain the details.
 
-Later, check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used. 
+Later, check out some examples of full {targets} pipelines that we've developed to get a sense for the various applications and approaches that can be used.
 
-- data cleaning and preparation pipeline  - prepare locs
-- movement ecology method -  issa 
-- remote sensing / spatial application - rgee extract
-- Bayesian models with {brms} - statistical rethinking colearning solutions
-- downloading tables from google sheets, full manuscript render as website and pdf - comprehensive exam
-
+-   data cleaning and preparation pipeline: <https://github.com/robitalec/prepare-locs/blob/main/_targets.R> 
+-   movement ecology method: <https://github.com/robitalec/targets-issa/blob/main/_targets.R> 
+-   remote sensing / spatial application: <https://github.com/robitalec/targets-rgee-extract/blob/main/_targets.R>
+-   Bayesian models with {brms} - <https://github.com/robitalec/statistical-rethinking-colearning-2023/blob/main/_targets.R>
 
 ## Demo
 
 With our extended {targets} pipeline, we'll go through the following steps:
 
-1. Visualize the pipeline's steps and interdependencies. 
+1.  Visualize the pipeline's steps and interdependencies.
 
-```r
+``` r
 tar_visnetwork()
 ```
 
-2. Run the workflow
+2.  Run the workflow
 
-```r
+``` r
 tar_make()
 ```
 
-3. Explore the results
-
-Figures
+3.  Explore the results
 
 ```{r}
 library(fs)
 dir_tree('figures')
 ```
 
-Output files
 
 ```{r}
 dir_tree('output')
 ```
 
-4. Look at the rendered manuscript document
+4.  Look at the rendered manuscript document
 
-Open the TODO path HTML or PDF documents
+Open the rendered document in the `paper/` directory.
 
-6. Now to make some changes
+6.  Now to make some changes
 
-    a. Edit the raw-data file, for example by adding new rows to mimic more data being collected. Note: please do not edit raw data, this is just to illustrate how {targets}tracks external files for changes. Rerun `tar_make()`. 
-    b. Delete an output figure. Rerun `tar_make()`. 
-    c. Add a filter step before the group counts target. Rerun `tar_make()`
-
+    a.  Edit the raw-data file, for example by adding new rows to mimic more data being collected. Note: please do not edit raw data, this is just to illustrate how {targets} tracks external files for changes. Rerun `tar_make()`.
+    b.  Delete an output figure. Rerun `tar_make()`.
+    c.  Add a filter step before the group counts target. Rerun `tar_make()`.
 
 ## Details
 
-Obviously, this is an overwhelming amount of new {targets} functions and extensions combined with other packages and Quarto to render an example manuscript and output figures and tables. We'll walk through each of the pieces and how they relate to each other, and we hope this is a useful resource for when you bring {targets} to your next project. 
-
+Obviously, this is an overwhelming amount of new {targets} functions and extensions combined with other packages and Quarto to render an example manuscript and output figures and tables. We'll walk through each of the pieces and how they relate to each other, and we hope this is a useful resource for when you bring {targets} to your next project.
 
 ### Iterating
 
-Like we mentioned in the functions resources, there are plenty of options in R for iterating including: 
+Like we mentioned in the functions resources, there are plenty of options in R for iterating including:
 
-- the `apply` family
-- {purrr}
-- {dplyr} with {group_by} and {mutate}
-- {data.table}'s by
+-   the `apply` family
+-   {purrr}
+-   {dplyr} with `group_by` and `mutate`
+-   {data.table}'s by
 
 {targets} offers a new approach that integrates into our pipeline seamlessly and extends our functions to run over groups of rows in a data.frame. There are two steps:
 
-1. Use the {tarchetypes} function `tar_group_by()` to define the variables to group the data.frame on. 
-1. Use "dynamic branching" with the `tar_target()` argument `pattern`. 
+1.  Use the {tarchetypes} function `tar_group_by()` to define the variables to group the data.frame on.
+2.  Use "dynamic branching" with the `tar_target()` argument `pattern`.
 
 For example:
 
 `_targets.R`
 
-```r
+``` r
 #...
 c(
     # Group the mtcars data.frame by the values in the column "cyl"
@@ -101,16 +94,15 @@ c(
 )
 ```
 
-We pass the data.frame to the `command` argument, and the following arguments are the column names to group on (in this case `cyl`). Then downstream targets that want to iterate over the groups of rows use the argument `pattern` with the function `map()`. The target corresponding to the grouped data.frame is passed to `map()`. 
+We pass the data.frame to the `command` argument, and the following arguments are the column names to group on (in this case `cyl`). Then downstream targets that want to iterate over the groups of rows use the argument `pattern` with the function `map()`. The target corresponding to the grouped data.frame is passed to `map()`.
 
-If you want to use the full dataset, ungrouped, again downstream simply refer to the target without the `pattern` argument and {targets} will automatically combine the data.frame again. 
+If you want to use the full dataset, ungrouped, again downstream simply refer to the target without the `pattern` argument and {targets} will automatically combine the data.frame again.
 
 Another approach that Alec likes to use with {data.table} is:
 
-
 `_targets.R`
 
-```r
+``` r
 # ...
 
 # Variables
@@ -120,42 +112,39 @@ split_by <- c('id', 'species')
 
 # Targets
 c(
-	tar_target(
-		split_data,
-		data[, tar_group := .GRP, by = split_by],
-		iteration = 'group'
-	),
-	tar_target(
-		split_key,
-		unique(locs_prep[, .SD, .SDcols = c(split_by, 'tar_group')])
-	)
-# ...
+    tar_target(
+        split_data,
+        data[, tar_group := .GRP, by = split_by],
+        iteration = 'group'
+    ),
+    tar_target(
+        split_key,
+        unique(locs_prep[, .SD, .SDcols = c(split_by, 'tar_group')])
+    )
+
 )
 ```
 
 Read more:
 
-- `tar_group_by()`: https://docs.ropensci.org/tarchetypes/reference/tar_group_by.html 
-- `tar_group_count()`: https://docs.ropensci.org/tarchetypes/reference/tar_group_count.html
-- `tar_group()`: https://docs.ropensci.org/targets/reference/tar_group.html
+-   `tar_group_by()`: <https://docs.ropensci.org/tarchetypes/reference/tar_group_by.html>
+-   `tar_group_count()`: <https://docs.ropensci.org/tarchetypes/reference/tar_group_count.html>
+-   `tar_group()`: <https://docs.ropensci.org/targets/reference/tar_group.html>
 
+These are example of "dynamic branching", but also see "static branching" functions:
 
-These are example of "dynamic branching", but also see "static branching" functions: 
-
-- `tar_map`: https://docs.ropensci.org/tarchetypes/reference/tar_map.html
-- `tar_rep`: https://docs.ropensci.org/tarchetypes/reference/tar_rep.html
-
+-   `tar_map`: <https://docs.ropensci.org/tarchetypes/reference/tar_map.html>
+-   `tar_rep`: <https://docs.ropensci.org/tarchetypes/reference/tar_rep.html>
 
 #### `iteration = 'list'`
 
-The `iteration` argument for `tar_target()` is used to change how {targets} splits and combines branches. This is is required when you want to return objects like plots, models or matrices that aren't obviously combined. 
+The `iteration` argument for `tar_target()` is used to change how {targets} splits and combines branches. This is is required when you want to return objects like plots, models or matrices that aren't obviously combined.
 
 For example:
 
-
 `_targets.R`
 
-```r
+``` r
 #...
 c(
     # Group the mtcars data.frame by the values in the column "cyl"
@@ -183,18 +172,15 @@ c(
 )
 ```
 
-See more details for argument `iteration` in `?tar_target`: https://docs.ropensci.org/targets/reference/tar_target.html
-
+See more details for argument `iteration` in `?tar_target`: <https://docs.ropensci.org/targets/reference/tar_target.html>
 
 ### Files
 
-
-{targets} can be used to track external files for changes. This includes input data files but also outputs like saved plots or tables. To signal to {targets} that these target represents an external file to track, use the argument 'format' set to 'file'. 
-
+{targets} can be used to track external files for changes. This includes input data files but also outputs like saved plots or tables. To signal to {targets} that these target represents an external file to track, use the argument 'format' set to 'file'.
 
 `_targets.R`
 
-```r
+``` r
 # ...
 
 c(
@@ -207,26 +193,23 @@ c(
 )
 ```
 
-
 ## Recommendations
 
-Start your **next** project with {targets} because it is easier to start from a simple project then to try and restructure an old, large project. 
+Start your **next** project with {targets} because it is easier to start from a simple project then to try and restructure an old, large project.
 
-If you use Git, you will likely want to ignore the `_targets/` directory. 
-
-
+If you use Git, you will likely want to ignore the `_targets/` directory.
 
 ## Bonus
 
-Look into the arguments provided by `tar_option_set()`. This is link to the full reference page: https://docs.ropensci.org/targets/reference/tar_option_set.html
+Look into the arguments provided by `tar_option_set()`. This is link to the full reference page: <https://docs.ropensci.org/targets/reference/tar_option_set.html>
 
-- `format` argument
-    - for `data.table` objects you can use {qs} and format qs to retain data.table clas
-- `error` argument to define what {targets} should do when it hits an error
-- `workspace_on_error` argument to optionally save a workspace file for each target that throws an error
-- `cue` argument
+-   `format` argument
+    -   for `data.table` objects you can use {qs} and format qs to retain data.table clas
+-   `error` argument to define what {targets} should do when it hits an error
+-   `workspace_on_error` argument to optionally save a workspace file for each target that throws an error
+-   `cue` argument
 
 If you are already done all the previous exercises and have extra time, or on your own after the workshop, try this bonus exercise:
 
-- write a function that processes the ice data
-- look at the relationship between adult and chick counts, and the ice data and weather data. How might these two be influencing adult and chick counts?
+-   write a function that processes the ice data
+-   look at the relationship between adult and chick counts, and the ice data and weather data. How might these two be influencing adult and chick counts?
