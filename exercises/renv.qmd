@@ -1,31 +1,52 @@
 # {renv}
 
-The point of {renv} is to help you have a truly reproducible and shareable project, that allows you to run code and workflows on different machines, across time, by different people. It essentially turns your project into a time capsule (one that you can update as you wish) so that when you come back to your project, or share it with someone else, they are using the same versions of packages and R that you were.
+{renv} helps us create more reproducible and shareable projects by allowing us to run code on different machines, across time, by different people. It essentially takes the packages used in your project and records their versions in a file that you can update as you develop the project. When you come back to your project, or share it with someone else, they are using the same versions of packages and R that you were.
 
 The three main functions used when working with {renv} are:
 
--   `init()`
+- `init()` for setting up project to use {renv} for the first time
 
--   `snapshot()`
+- `snapshot()` for recording versions of packages currently installed in the project in the file `renv.lock`
 
--   `restore()`
+- `restore()` for restoring a project's package versions to match the versions recorded by {renv} from the file `renv.lock`
 
-## Exercises: setting up {renv} to work independently
+Note: {renv} will not install a different version of R, or any other system dependencies that are required. However, {renv} will warn if the `renv.lock` lists a version of R that differs from your current version of R. For system dependencies that are required, R 
 
-When setting up your own project with {renv}, there are two steps. First, initialize {renv} using `renv::init()`. As you go and add/update packages, you can update your {renv} environment with `renv::snapshot()`.
+## Setup
 
-Instruction: in the console of your project, initialize {renv}.
+The first time you set up a project with {renv}, use the function `init()`. 
+`init()` writes a file to the root of your project called `renv.lock` that tracks the versions and dependencies of R packages installed and the version of R itself. This is a simple text file, so feel free to open it up (but don't edit) in a text editor. 
 
-## Exercises: using someone else's {renv} environment
+### Exercise: setting up {renv}
 
-`snapshot()` is used to save the state of your project as it currently exists. In contrast, you can use `restore()` to recover the state of your project as it was last saved.
+Instruction: in the console of your project, initialize {renv} with `init()`.
 
-When you download someone else's project, you can use `restore()` to retrieve and install the packages in the project that were recorded.
+## Usage
 
-Before sharing your project (and regularly while you work even if not sharing), make sure your project is up to date by running `snapshot()`.
+As you work on your project and add or update packages, record your packages used and their version with `snapshot()`. This will edit the `renv.lock` file with new versions and packages that describe the package's environment. 
+
+You can always check the status of your {renv} project with `status()` to see which packages are installed but not recorded, or which packages are recorded but no longer used. 
+
+### Exercise: using {renv}
+
+Instruction: install a new package with `install.packages()` then run `status()`. Follow {renv}'s recommendations to either save (`snapshot()`) or discard (`restore()`) these potential changes to your project's environment. 
+
+
+## Sharing
+
+`snapshot()` is used to save the current state of your project while  `restore()` to recover the state of your project as it was last saved. When you download someone else's project, you can use `restore()` to retrieve and install the versions of packages in the project that were recorded.
+
+Before sharing your project (and regularly while you work even if not sharing), make sure your project is up to date by running `snapshot()`. 
+
+To restore from an `renv.lock` file, simply run `restore()`. 
 
 ### Bonus
 
-Investigate a [renv.lock file](https://github.com/robitalec/targets-issa/blob/main/renv.lock) and look at how [its history](https://github.com/robitalec/targets-issa/commits/main/renv.lock) changes.
+Git is really helpful when working with {renv} because we can track the `renv.lock` file's history for changes through time. See these examples:
+
+- `robitalec/targets-issa`: [`renv.lock`](https://github.com/robitalec/targets-issa/blob/main/renv.lock) and [history](https://github.com/robitalec/targets-issa/commits/main/renv.lock)
+-  `robitalec/prepare-locs`: [`renv.lock`](https://github.com/robitalec/prepare-locs/blob/main/renv.lock) and [history](https://github.com/robitalec/prepare-locs/commits/main/renv.lock)
 
 Use `renv::update()` to update the packages in your lock file.
+
+You can also use {renv} to track Python dependencies required by your project too. See this vignette for more details: https://rstudio.github.io/renv/articles/python.html
