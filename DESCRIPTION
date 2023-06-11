@@ -10,7 +10,7 @@ Authors@R:
       person(given = "Isabella C.",
              family = "Richmond",
              role = "aut",
-             comment = c(ORCID = "")))
+             comment = c(ORCID = "0000-0001-5079-8442")))
 Description:  Developing a reproducible workflow in R using functions, targets and renv.
 License: GPL-3
 Encoding: UTF-8
