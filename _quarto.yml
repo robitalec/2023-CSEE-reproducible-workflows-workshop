@@ -48,7 +48,7 @@ website:
             contents:
               - text: dataset-template.md
                 file: _templates/README/dataset-template.md
-              - text: dataset-template.md
+              - text: dataset-project-template.md
                 href: _templates/README/data-project-template.md
               - text: data-project_template.md
                 href: _templates/README/paper-template.md
