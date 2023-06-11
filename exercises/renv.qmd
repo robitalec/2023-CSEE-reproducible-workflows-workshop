@@ -23,3 +23,7 @@ Instruction: in the console of your project, initialize {renv}.
 When you download someone else's project, you can use `restore()` to retrieve and install the packages in the project that were recorded.
 
 Before sharing your project (and regularly while you work even if not sharing), make sure your project is up to date by running `snapshot()`.
+
+### Bonus
+
+Investigate a [renv.lock file](https://github.com/robitalec/targets-issa/blob/main/renv.lock) and look at how [its history](https://github.com/robitalec/targets-issa/commits/main/renv.lock) changes.
