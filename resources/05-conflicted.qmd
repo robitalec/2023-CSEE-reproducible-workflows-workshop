@@ -1,4 +1,0 @@
-# {conflicted}
-
-The {conflicted} package is a substantially simpler package than {targets} and {renv}. The [{conflicted} documentation](https://conflicted.r-lib.org/) has everything we need, but also check out this [{conflicted} blog post](https://www.tidyverse.org/blog/2018/06/conflicted/) for some details about why {conflicted} was developed. 
-
